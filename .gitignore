@@ -1,0 +1,23 @@
+# Everyting in the top level directory we are ignoring.
+.DS_Store
+
+
+# All the backend directories and files that we are ignoring.
+sharktanks-backend/node_modules/
+sharktanks-backend/.DS_Store
+sharktanks-backend/package-lock.json
+
+
+# All the frontend directories and files that we are ignoring.
+sharktanks-frontend/package-lock.json
+sharktanks-frontend/node_modules/
+sharktanks-frontend/coverage
+sharktanks-frontend/build
+sharktanks-frontend/.DS_Store
+sharktanks-frontend/.env.local
+sharktanks-frontend/.env.development.local
+sharktanks-frontend/.env.test.local
+sharktanks-frontend/.env.production.local
+sharktanks-frontend/npm-debug.log*
+sharktanks-frontend/yarn-debug.log*
+sharktanks-frontend/yarn-error.log*
