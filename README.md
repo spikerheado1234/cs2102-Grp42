@@ -18,7 +18,7 @@
 7.  Run `npm start` to start the backend server.
 8.  **cd** into **sharktanks-frontend/**.
 9.  Run `npm install` to install all the dependencies.
-10.Run `npm start` to start the backend server. If you have followed steps 
+10. Run `npm start` to start the backend server. If you have followed steps 
     1-9 correctly, a react web page will be generated. 
 
 A web application for investors. By students.
