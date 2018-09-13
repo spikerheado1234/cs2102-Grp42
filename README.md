@@ -18,4 +18,5 @@
 7. **cd** into **sharktanks-frontend/**.
 8. Run npm start to start the frontend server.
 
+A web application for investors. By students.
 
