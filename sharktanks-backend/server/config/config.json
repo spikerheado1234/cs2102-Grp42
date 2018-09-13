@@ -2,21 +2,21 @@
   "development": {
     "username": null,
     "password": null,
-    "database": "sharktankstest_dev",
+    "database": "sharktanks_dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": null,
     "password": null,
-    "database": "sharktankstest_test",
+    "database": "sharktanks_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": null,
     "password": null,
-    "database": "sharktankstest_prod",
+    "database": "sharktanks_prod",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
