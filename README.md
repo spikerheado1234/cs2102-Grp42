@@ -8,7 +8,7 @@
 * npm
 * nodeJS
 
-###`Instructions`:
+### `Instructions`:
 1. Install postgres on your local-system.
 2. Create the following databases: sharktanks_dev, sharktanks_test, sharktanks_prod.
 3. **cd** into **sharktanks-backend/**. 
