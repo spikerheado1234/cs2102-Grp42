@@ -1,0 +1,54 @@
+-- hack to drop any tables with the same name, be careful not to do this with a populated table you want to keep ;)
+
+drop table donations;
+drop table keywords;
+drop table project;
+drop table status;
+drop table users;
+drop table categories;
+
+
+CREATE TABLE status(
+	statusID varchar(120),
+	statusWord varchar(120),
+	primary key (statusID)
+);
+
+CREATE TABLE users(
+	emailAddress varchar(120) unique not null,
+	userID varchar(120) primary key,
+	name varchar(120) not null,
+	role varchar(120),
+	password varchar(120) not null
+);
+
+CREATE TABLE project(
+   projectID varchar(120) not null,
+   userID varchar(120) references users(userID),
+   statusID varchar(120) references status(statusID),
+   description varchar(500),
+   title varchar(500) not null,
+   duration interval,
+   startdate timestamp,
+   PRIMARY KEY(projectID)
+);
+
+CREATE TABLE donations(
+	donationID varchar(120) primary key,
+	projectID varchar(120) references project(projectID),
+	userID varchar(120) references users(userID),
+	amount varchar(120) not null
+);
+
+CREATE TABLE keywords(
+	projectID varchar(120) references project(projectID),
+	keywordID varchar(120) references users(userID),
+	words varchar(120) primary key
+);
+
+CREATE TABLE categories(
+	categoryID varchar(120) primary key,
+	name varchar(120) not null
+);
+
+insert into project(projectID, userid, statusid, description, title, duration, startdate) values (1,1,1,1,1,'2 months','2012-12-12');
