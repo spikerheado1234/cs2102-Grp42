@@ -3,11 +3,10 @@
 module.exports = {
 	up : (queryInterface, Sequelize) => {
 		queryInterface.sequelize.query("CREATE TABLE donations(\
-	donationID varchar(120) primary key,\
-	projectID varchar(120) references project(projectID),\
-	userID varchar(120) references users(userID),\
-	amount varchar(120) not null\
-);");
+			donationID VARCHAR(120) PRIMARY KEY,\
+			projectID VARCHAR(120) REFERENCES project(projectID),\
+			userID VARCHAR(120) REFERENCES users(userID),\
+			amount VARCHAR(120) NOT NULL)");
 	},
 	down: (queryInterface) => {
 		queryInterface.sequelize.query("DROP TABLE donations");
