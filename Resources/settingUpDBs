@@ -50,5 +50,3 @@ CREATE TABLE categories(
 	categoryID varchar(120) primary key,
 	name varchar(120) not null
 );
-
-insert into project(projectID, userid, statusid, description, title, duration, startdate) values (1,1,1,1,1,'2 months','2012-12-12');
