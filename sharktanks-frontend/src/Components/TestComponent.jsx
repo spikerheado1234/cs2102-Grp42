@@ -18,7 +18,7 @@ class Test extends Component {
 		// var test = this.state.value
 		axios.post('http://localhost:8080', { query: this.state.value } )
 			.then(function (response) {
-				console.log(response);
+				console.log(response.data);
 			})
 			.catch(function (response) {
 				console.log(response);
