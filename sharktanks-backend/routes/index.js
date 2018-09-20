@@ -9,8 +9,8 @@ router.get('/', function(req, res, next) {
 
 /* For pre-alpha demonstration only, to be deleted after */
 router.get('/getData', function(req, res, next) {
-	var dataRetrieved = indexController.dataList();
-	res.send({data: dataRetrieved});
+	indexController.dataList()
+		.then((data) => res.send(data));
 });
 
 router.post('/postData', function(req, res, next) {

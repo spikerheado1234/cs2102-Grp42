@@ -1,13 +1,15 @@
-var sequelize = require("../server/models/index.js");
+var db = require("../server/models/index.js");
 
 /* For pre-alpha demonstration only, to be deleted afterwards. */
 exports.dataList = function() {
-	var data = sequelize.db.sequelize.query("SELECT * FROM status");
-	console.log(data);
-	return data;
+	return db.sequelize.query("SELECT * FROM status LIMIT 1",
+							{ type: db.sequelize.QueryTypes.SELECT })
+							.then(status => {
+								return status;
+							});
 };
 
 exports.dataPost = function(statusId, statusWord) {
-	sequelize.db.sequelize.query("INSERT INTO status(statusId, statusWord)" 
-			+ " VALUES(" + statusID + ", " + statusWord + ")").then(console.log("done"));
+	db.sequelize.query("INSERT INTO status(statusId, statusWord)" 
+		+ " VALUES(" + statusID + ", " + statusWord + ")");
 };
