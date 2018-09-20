@@ -4,7 +4,7 @@ var indexController = require("../controllers/index-controller.js");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.send({});
 });
 
 /* For pre-alpha demonstration only, to be deleted after */
