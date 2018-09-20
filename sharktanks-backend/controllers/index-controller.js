@@ -10,6 +10,7 @@ exports.dataList = function() {
 };
 
 exports.dataPost = function(statusId, statusWord) {
+	console.log(statusId);
 	db.sequelize.query("INSERT INTO status(statusId, statusWord)" 
-		+ " VALUES(" + statusID + ", " + statusWord + ")");
+		+ " VALUES(" + statusId + ", " + "'" + statusWord + "'" + ")");
 };

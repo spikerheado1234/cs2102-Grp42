@@ -14,9 +14,7 @@ router.get('/getData', function(req, res, next) {
 });
 
 router.post('/postData', function(req, res, next) {
-	var statusId = req.statusId;
-	var statusWord = req.statusWord;
-	indexController.dataPost(statusId, statusWord);
+	indexController.dataPost(req.body.statusId, req.body.statusWord);
 	res.send('ok');
 });
 
