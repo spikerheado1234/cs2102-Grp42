@@ -5,7 +5,7 @@ class Test extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { value: '',
-						word: '' };
+						word: ''};
 
 		this.handleIDChange = this.handleIDChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +25,6 @@ class Test extends Component {
 	}
 
 	handleSubmit(event) {
-		// var test = this.state.value
 		axios.post('http://localhost:8080/postData', { statusId: this.state.value,
 											  		   statusWord: this.state.word } )
 			.then(function (response) {
