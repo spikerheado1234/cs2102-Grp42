@@ -16,9 +16,9 @@ class Test extends Component {
 
 	handleSubmit(event) {
 		// var test = this.state.value
-		axios.post('http://localhost:8080', { query: this.state.value } )
+		axios.post('http://localhost:8080/postData', { query: this.state.value } )
 			.then(function (response) {
-				console.log(response);
+				console.log(response.data);
 			})
 			.catch(function (response) {
 				console.log(response);
