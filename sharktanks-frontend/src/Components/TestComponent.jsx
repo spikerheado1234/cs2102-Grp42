@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
 class Test extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { value: '',
 						word: ''};
-
 		this.handleIDChange = this.handleIDChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleWordChange = this.handleWordChange.bind(this);
@@ -53,7 +52,6 @@ class Test extends Component {
 					<input type="submit" value="Submit" />
 				</form>
 			</div>
-
 		);
 	}
 }
