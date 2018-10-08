@@ -1,7 +1,7 @@
 export const UPDATE_QUANTITY = 'product/UPDATE_QUANTITY';
 
 const initialState = {
-  quantity: 1
+  quantity: 0
 };
 
 export default (state = initialState, action) => {

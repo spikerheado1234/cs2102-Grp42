@@ -111,7 +111,7 @@ class SingleProduct extends Component {
                       type="button"
                       className="decrement number-button"
                       onClick={() => {
-                        updateQuantity(this.props.product.quantity - 5);
+                        updateQuantity(this.props.product.quantity - 1);
                       }}>
                       <span className="hide-content">Decrement quantity</span>
                       <span aria-hidden="true">-</span>
@@ -120,7 +120,7 @@ class SingleProduct extends Component {
                       className="quantity"
                       name="number"
                       type="number"
-                      min="1`"
+                      min="1"
                       max="10"
                       value={this.props.product.quantity}
                       size="2"
@@ -132,7 +132,7 @@ class SingleProduct extends Component {
                       type="button"
                       className="increment number-button"
                       onClick={() => {
-                        updateQuantity(this.props.product.quantity + 5);
+                        updateQuantity(this.props.product.quantity + 1);
                       }}>
                       <span className="hide-content">Increment quantity</span>
                       <span aria-hidden="true">+</span>
@@ -146,7 +146,7 @@ class SingleProduct extends Component {
                       console.log(this.props.product.quantity);
                       e.preventDefault();
                     }}>
-                    Invest
+                    Add to cart
                   </button>
                 </form>
               </div>
@@ -154,20 +154,12 @@ class SingleProduct extends Component {
             <div className="product-info">
               <div className="product-details">
                 <div className="header">
-                  <h3>Project details</h3>
+                  <h3>Product details</h3>
                 </div>
                 <div className="details-body">
                   <div className="row">
-                    <div className="label">Title</div>
-                    <div className="value">Green Jet Pack</div>
-                  </div>
-                  <div className="row">
-                    <div className="label">Description</div>
-                    <div className="value">Jet pack made from recyclable materials</div>
-                  </div>
-                  <div className="row">
-                    <div className="label">Start date</div>
-                    <div className="value">{product.finish}</div>
+                    <div className="label">Weight</div>
+                    <div className="value">1.5kg</div>
                   </div>
                   <div className="row">
                     <div className="label">Finish</div>
