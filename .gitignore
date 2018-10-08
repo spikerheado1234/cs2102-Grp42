@@ -21,3 +21,4 @@ sharktanks-frontend/.env.production.local
 sharktanks-frontend/npm-debug.log*
 sharktanks-frontend/yarn-debug.log*
 sharktanks-frontend/yarn-error.log*
+sharktanks-frontend/yarn.lock

@@ -28,8 +28,8 @@ CREATE TABLE project(
    statusID varchar(120) references status(statusID),
    description varchar(500),
    title varchar(500) not null,
-   duration interval,
-   startdate timestamp,
+   duration numeric,
+   startdate date,
    PRIMARY KEY(projectID)
 );
 
