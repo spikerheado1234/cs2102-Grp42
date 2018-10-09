@@ -92,7 +92,7 @@ class SingleProduct extends Component {
                 <p className="manufacturer">
                   <span className="hide-content">Manufactured </span>By{' '}
                   <span className="word-mark">
-                    Green Jets
+                    I<span className="love">Love</span>Lamp
                   </span>
                 </p>
                 {isThereACurrencyPrice()}
@@ -111,7 +111,7 @@ class SingleProduct extends Component {
                       type="button"
                       className="decrement number-button"
                       onClick={() => {
-                        updateQuantity(this.props.product.quantity - 5);
+                        updateQuantity(this.props.product.quantity - 1);
                       }}>
                       <span className="hide-content">Decrement quantity</span>
                       <span aria-hidden="true">-</span>
@@ -120,7 +120,7 @@ class SingleProduct extends Component {
                       className="quantity"
                       name="number"
                       type="number"
-                      min="1`"
+                      min="1"
                       max="10"
                       value={this.props.product.quantity}
                       size="2"
@@ -132,7 +132,7 @@ class SingleProduct extends Component {
                       type="button"
                       className="increment number-button"
                       onClick={() => {
-                        updateQuantity(this.props.product.quantity + 5);
+                        updateQuantity(this.props.product.quantity + 1);
                       }}>
                       <span className="hide-content">Increment quantity</span>
                       <span aria-hidden="true">+</span>
@@ -146,7 +146,7 @@ class SingleProduct extends Component {
                       console.log(this.props.product.quantity);
                       e.preventDefault();
                     }}>
-                    Invest
+                    Add to cart
                   </button>
                 </form>
               </div>
@@ -154,53 +154,75 @@ class SingleProduct extends Component {
             <div className="product-info">
               <div className="product-details">
                 <div className="header">
-                  <h3>Project details</h3>
+                  <h3>Product details</h3>
                 </div>
                 <div className="details-body">
                   <div className="row">
-                    <div className="label">Title</div>
-                    <div className="value">Green Jet Pack</div>
+                    <div className="label">Weight</div>
+                    <div className="value">1.5kg</div>
                   </div>
                   <div className="row">
-                    <div className="label">Description</div>
-                    <div className="value">Jet pack made from recyclable materials</div>
+                    <div className="label">Finish</div>
+                    <div className="value">{product.finish}</div>
                   </div>
                   <div className="row">
-                    <div className="label">Start date</div>
-                    <div className="value">{product.start_date}</div>
+                    <div className="label">Material</div>
+                    <div className="value">{product.material}</div>
                   </div>
                   <div className="row">
-                    <div className="label">Duration</div>
-                    <div className="value">{product.duration}</div>
+                    <div className="label">Bulb type</div>
+                    <div className="value">{product.bulb}</div>
                   </div>
                   <div className="row">
-                    <div className="label">Status</div>
-                    <div className="value">{product.status}</div>
+                    <div className="label">Max Watt</div>
+                    <div className="value">{product.max_watt}</div>
                   </div>
                   <div className="row">
-                    <div className="label">Donations</div>
-                    <div className="value">{product.donations}</div>
+                    <div className="label">Bulb Qty</div>
+                    <div className="value">{product.bulb_qty}</div>
                   </div>
-
+                  <div className="row">
+                    <div className="label">SKU</div>
+                    <div className="value sku">{product.sku}</div>
+                  </div>
                 </div>
               </div>
               <div className="product-details">
                 <div className="header">
-                  <h3>Miscellaneous</h3>
+                  <h3>Dimensions (cm)</h3>
                 </div>
                 <div className="details-body">
                   <div className="row">
-                    <div className="label">Categories</div>
-                    <div className="value">Technology, Design, Ecological</div>
+                    <div className="label">Height</div>
+                    <div className="value">156</div>
                   </div>
                   <div className="row">
-                    <div className="label">Keywords</div>
-                    <div className="value">jet, pack, green, fly</div>
+                    <div className="label">Width</div>
+                    <div className="value">80</div>
+                  </div>
+                  <div className="row">
+                    <div className="label">Depth</div>
+                    <div className="value">80</div>
+                  </div>
+                </div>
+              </div>
+              <div className="product-details">
+                <div className="header">
+                  <h3>Delivery & returns</h3>
+                </div>
+                <div className="details-body">
+                  <div className="row">
+                    <div className="label">Dispatch</div>
+                    <div className="value">Within 2 weeks</div>
+                  </div>
+                  <div className="row">
+                    <div className="label">Delivery</div>
+                    <div className="value">$5.95</div>
                   </div>
                 </div>
                 <div className="footer">
                   <p>
-                    Read the <a href="/">terms and conditions</a>.
+                    Read the <a href="/">delivery and returns policy</a>.
                   </p>
                 </div>
               </div>
