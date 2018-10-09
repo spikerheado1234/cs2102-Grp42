@@ -7,9 +7,14 @@ module.exports = {
 			userID varchar(120) PRIMARY KEY,\
 			name varchar(120) NOT NULL,\
 			role varchar(120),\
-			password varchar(120) not null)");
+			password varchar(120) not null)"),
+		queryInterface.sequelize.query(
+			"CREATE EXTENSION pgcrypto;"
+			)
 	},
 	down: (queryInterface) => {
 		queryInterface.sequelize.query("DROP TABLE users");
 	}
 }
+
+//allows password column to be encrypted (line 12)

@@ -51,18 +51,6 @@ CREATE TABLE categories(
 	name varchar(120) not null
 );
 
-//Follow these instructions to encrypt password column in users tables 
-
-1. CREATE EXTENSION pgcrypto; // do this once you are connect to the relevant db
-
-2. 
-
-insert into users values('testing@testing.com','testuser','tester1','testrole',crypt('qqqqqq', gen_salt('md5'))); //try inserting into users, uses md5 algo
-
-3. test selecting by password 
-
-select * from users where password = crypt('qqqqqq',password);
-
 
 
 
