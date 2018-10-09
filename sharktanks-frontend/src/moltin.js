@@ -1,4 +1,5 @@
 const MoltinGateway = require('@moltin/sdk').gateway;
+const axios = require('axios');
 
 let client_id = 'j6hSilXRQfxKohTndUuVrErLcSJWP15P347L6Im0M4';
 
@@ -11,8 +12,15 @@ const Moltin = MoltinGateway({
   application: 'react-demo-store'
 });
 
-export const GetProducts = () =>
-  Moltin.Products.With('files, main_images, collections').All();
+export const GetProducts = () => {
+	axios.get('http://localhost:8080/getData').then(res => {
+		console.log(res.data);
+	});
+	return Moltin.Products.With('files, main_images, collections').All();
+}
+
+//export const GetProducts = () =>
+//  Moltin.Products.With('files, main_images, collections').All();
 
 export const GetProduct = ID => Moltin.Products.Get(ID);
 
