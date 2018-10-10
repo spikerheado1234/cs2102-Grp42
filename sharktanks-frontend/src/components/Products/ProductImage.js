@@ -1,9 +1,11 @@
 import React from 'react';
+import photo1 from '../../assets/img/products/lamp1-trans.png';
+import photo2 from '../../assets/img/products/lamp2-trans.png';
 
 const ProductImage = props => {
   let file;
   let fileId;
-  let placeholder = 'https://picsum.photos/200/300/?random';
+  let placeholder = [photo1, photo2][Math.floor(0.5 + Math.random())];
   // 'https://placeholdit.imgix.net/~text?txtsize=69&txt=824%C3%971050&w=824&h=1050';
 
   var isThereAMainImage = product => {

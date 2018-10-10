@@ -21,7 +21,8 @@ export const GetProducts = () => {
         statusID: 'statusID1',
         categoryID: 'categoryID1',
         description: 'description1',
-        title: 'title1'
+        title: 'title1',
+        tags: ['AI', 'Machine Learning', 'Magic']
       },
 
       {
@@ -30,7 +31,8 @@ export const GetProducts = () => {
         statusID: 'statusID2',
         categoryID: 'categoryID2',
         description: 'description2',
-        title: 'title2'
+        title: 'title2',
+        tags: ['AI', 'Machine Learning', 'Magic']
       }
     ]
   });
