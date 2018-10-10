@@ -11,14 +11,107 @@ router.get('/', function(req, res, next) {
 router.get('/getData', function(req, res, next) {
 	indexController.dataList()
 		.then((data) => {
-			console.log(data[0]);
 			res.send(data[0]);
 		});
 });
 
-router.post('/postData', function(req, res, next) {
-	indexController.dataPost(req.body.statusId, req.body.statusWord);
-	res.send('ok');
+/* Legitimate routes */
+router.post('/createUser', function(req, res, next) {
+	indexController.createUser(req.body.name, 
+								req.body.emailAddress, 
+								req.body.role, 
+								req.body.password).then(res.send('OK')).catch((err)  => {
+									console.log(err);
+									res.send('NOT OK');
+								});
+});
+
+router.post('/createProject', function(req, res, next) {
+	// TODO Need to generate project id.
+	indexController.createProject(req.body.title,
+									req.body.duration,
+									req.body.description,
+									req.body.startDate,
+									req.body.statusID,
+									req.body.userID,
+									req.body.userRole,
+									req.body.keyWords,
+									req.body.categoryID)
+									.then("OK")
+									.catch((err) => {
+										console.log(err); // For debugging purposes only.
+										res.send('NOT OK');
+									});
+});
+
+router.delete('/deleteProject', function(req, res, next) {
+	indexController.deleteProject(req.body.projectID)
+								  .then(res.send('OK'))
+								  .catch((err) => {
+								  	console.log(err);
+								  	res.send("NOT OK");
+								  });
+});
+
+router.post('/giveDonation', function(req, res, next) {
+	// TODO Need to generate donation id.
+	indexController.giveDonation(req.body.projectID,
+								 req.body.project,
+								 req.body.userID,
+								 req.body.amount)
+								 .then(res.send('OK'))
+								 .catch((err) => {
+								 	res.send("NOT OK");
+								 	console.log(err); // For debugging purposes only.
+								 });
+});
+
+// Get the total amount a project has in funding.
+router.get('/getFunding', function(req, res, next) {
+	indexcontroller.getFunding(req.body.projectId)
+					.then((data) => {
+						res.send(data);
+					})
+					.catch((err) => {
+						console.log(err); // For debugging purposes only.
+					});
+});
+
+// Search via the following endpoints.
+router.get('/searchByProjects/:id', function(req, res, next) {
+	indexController.searchByProjects(req.params.id)
+					.then((data) => {
+						res.send(data);
+					});
+});
+
+router.get('/searchByCategories/:id', function(req, res, next) {
+	indexController.searchByCategories(req.params.id)
+					.then((data) => {
+						res.send(data);
+					});
+});
+
+router.get('/searchByStatus', function(req, res, next) {
+	indexController.searchByStatus(req.body.statusID)
+					.then((data) => {
+						res.send(data);
+					});
+});
+
+router.get('/searchByUser', function(req, res, next) {
+	indexController.searchByUser(req.body.userID,
+								 req.body.role)
+					.then((data) => {
+						res.send(data);
+					});
+});
+
+router.get('/allProjects', function(req, res, next) {
+	indexController.searchAllProjects()
+					.then((data) => {
+						res.send(data);
+					});
 });
 
 module.exports = router;

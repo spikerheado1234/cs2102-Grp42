@@ -15,6 +15,7 @@
 4.  Run `npm install` to install all the dependencies.
 5.  Install sequelize if you don't already have it.
 6.  Run `sequelize db:migrate` to create the tables within the databases.
+7.  Run `sequelize db:seed:all` to populate tables.
 7.  Run `npm start` to start the backend server.
 8.  **cd** into **sharktanks-frontend/**.
 9.  Run `npm install` to install all the dependencies.

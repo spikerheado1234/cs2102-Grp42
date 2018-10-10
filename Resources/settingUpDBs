@@ -50,3 +50,7 @@ CREATE TABLE categories(
 	categoryID varchar(120) primary key,
 	name varchar(120) not null
 );
+
+
+
+
