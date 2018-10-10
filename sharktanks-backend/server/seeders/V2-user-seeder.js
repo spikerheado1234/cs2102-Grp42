@@ -2,46 +2,146 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('ahangupta.96@gmail.com, 1, 'Ahan Gupta', 'Entrepreneur', 'xyz')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('johndoe@gmail.com, 2, 'John Doe', 'Entrepreneur', 'abc')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('johnmary@gmail.com, 3, 'John Mary', 'Entrepreneur', 'abcd')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('mary@gmail.com, 4, 'Mary Poppins', 'Entrepreneur', 'abcde')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('bobthebuilder@gmail.com, 5, 'Bob the Builder', 'Entrepreneur', 'abcdef')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('josemourinho@gmail.com, 6, 'Jose Mourinho', 'Entrepreneur', 'abcdefg')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('lionelmessi@gmail.com, 7, 'Lionel Messi', 'Entrepreneur', 'abcdefgh')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('kevin@gmail.com, 8, 'Kevin De Bruyne', 'Entrepreneur', 'abcdefghi')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('guardiola@gmail.com, 9, 'Pep Guardiola', 'Entrepreneur', 'abcdefghij')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('edenhazard@gmail.com, 10, 'Eden Hazard', 'Entrepreneur', 'abcdefghijk')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('davidbeckham@gmail.com, 11, 'David Beckham', 'Investor', 'abcdefghijkl')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('jefferson@gmail.com, 12, 'Jefferson', 'Investor', 'abcdefghijklm')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('harsh@gmail.com, 13, 'Harsh', 'Investor', 'abcdefghijklmn')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('suyash@gmail.com, 14, 'Suyash', 'Investor', 'abcdefghijklmno')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('alex@gmail.com, 15, 'Alex', 'Investor', 'abcdefghijklmnop')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('oliver@gmail.com, 16, 'Oliver', 'Investor', 'abcdefghijklmnopq')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('jack@gmail.com, 17, 'Jack', 'Investor', 'abcdefghijklmnopqr')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('harry@gmail.com, 18, 'Harry', 'Investor', 'abcdefghijklmnopqrs')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('jacob@gmail.com, 19, 'Jacob', 'Investor', 'abcdefghijklmnopqrst')");
-    queryInterface.sequelize.query("INSERT users(emailAddress, userID, name, role, password)\
-                                   VALUES('james@gmail.com, 20, 'James', 'Investor', 'abcdefghijklmnopqrstu')");
+    return queryInterface.bulkInsert('users', [{
+      emailaddress: 'ahangupta.96@gmail.com',
+      userid: '1',
+      name: 'Ahan Gupta',
+      role: 'Entrepreneur',
+      password: 'xyz' 
+    },
+    {
+      emailaddress: 'johndoe@gmail.com',
+      userid: '2',
+      name: 'John Doe',
+      role: 'Entrepreneur',
+      password: 'abc' 
+    },
+    {
+      emailaddress: 'johnmary@gmail.com',
+      userid: '3',
+      name: 'John Mary',
+      role: 'Entrepreneur',
+      password: 'abcd' 
+    },
+    {
+      emailaddress: 'mary@gmail.com',
+      userid: '4',
+      name: 'Mary Poppins',
+      role: 'Entrepreneur',
+      password: 'abcde' 
+    },
+    {
+      emailaddress: 'bobthebuilder@gmail.com',
+      userid: '5',
+      name: 'Bob the Builder',
+      role: 'Entrepreneur',
+      password: 'abcdef' 
+    },
+    {
+      emailaddress: 'josemourinho@gmail.com',
+      userid: '6',
+      name: 'Jose Mourinho',
+      role: 'Entrepreneur',
+      password: 'abcdefg' 
+    },
+    {
+      emailaddress: 'lionelmessi@gmail.com',
+      userid: '7',
+      name: 'Lionel Messi',
+      role: 'Entrepreneur',
+      password: 'abcdefgh' 
+    },
+    {
+      emailaddress: 'edenhazard@gmail.com',
+      userid: '8',
+      name: 'Eden Hazard',
+      role: 'Entrepreneur',
+      password: 'abcdefghi' 
+    },
+    {
+      emailaddress: 'salah@gmail.com',
+      userid: '9',
+      name: 'Salah',
+      role: 'Entrepreneur',
+      password: 'abcdefghij' 
+    },
+    {
+      emailaddress: 'kevin@gmail.com',
+      userid: '10',
+      name: 'Kevin De Bruyne',
+      role: 'Entrepreneur',
+      password: 'abcdefghij' 
+    },
+    {
+      emailaddress: 'guardiola@gmail.com',
+      userid: '11',
+      name: 'Pep Guardiola',
+      role: 'Investor',
+      password: 'abcdefghijk' 
+    },
+    {
+      emailaddress: 'davidbeckham@gmail.com',
+      userid: '12',
+      name: 'David Beckham',
+      role: 'Investor',
+      password: 'abcdefghijkl' 
+    },
+    {
+      emailaddress: 'jefferson@gmail.com',
+      userid: '13',
+      name: 'Jefferson',
+      role: 'Investor',
+      password: 'abcdefghijklm' 
+    },
+    {
+      emailaddress: 'harsh@gmail.com',
+      userid: '14',
+      name: 'Harsh',
+      role: 'Investor',
+      password: 'abcdefghijklmm' 
+    },
+    {
+      emailaddress: 'suyash@gmail.com',
+      userid: '15',
+      name: 'Suyash',
+      role: 'Investor',
+      password: 'abcdefghijklmno' 
+    },
+    {
+      emailaddress: 'alex@gmail.com',
+      userid: '16',
+      name: 'Alex',
+      role: 'Investor',
+      password: 'abcdefghijklmnop' 
+    },
+    {
+      emailaddress: 'oliver@gmail.com',
+      userid: '17',
+      name: 'Oliver',
+      role: 'Investor',
+      password: 'abcdefghijklmnopq' 
+    },
+    {
+      emailaddress: 'jack@gmail.com',
+      userid: '18',
+      name: 'Jack',
+      role: 'Investor',
+      password: 'abcdefghijklmnopqr' 
+    },
+    {
+      emailaddress: 'harry@gmail.com',
+      userid: '19',
+      name: 'Harry',
+      role: 'Investor',
+      password: 'abcdefghijklmnopqrs' 
+    },
+    {
+      emailaddress: 'jacob@gmail.com',
+      userid: '20',
+      name: 'Jacob',
+      role: 'Investor',
+      password: 'abcdefghijklmnopqrst' 
+    }], {});
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('users', null, {});

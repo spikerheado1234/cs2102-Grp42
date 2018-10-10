@@ -2,12 +2,18 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    queryInterface.sequelize.query("INSERT into STATUS(statusID, statusWord)\
-    								VALUES(1, 'Not Funded')");
-    queryInterface.sequelize.query("INSERT into STATUS(statusID, statusWord)\
-    								VALUES(2, 'In progress of Funding')");
-    queryInterface.sequelize.query("INSERT into STATUS(statusID, statusWord)\
-    								VALUES(2, 'Funded')");
+    return queryInterface.bulkInsert('status', [{
+      statusid: 1,
+      statusword: 'Not Funded'
+    },
+    {
+      statusid: 2,
+      statusword: 'In Progress of Funding'
+    },
+    {
+      statusid: 3,
+      statusword: 'Funded'
+    }], {});
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('status', null, {});

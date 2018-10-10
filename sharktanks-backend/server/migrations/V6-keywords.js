@@ -4,10 +4,11 @@ module.exports = {
 	up : (queryInterface, Sequelize) => {
 		queryInterface.sequelize.query("CREATE TABLE keywords(\
 			projectID VARCHAR(120) REFERENCES project(projectID),\
-			keywordID VARCHAR(120) REFERENCES users(userID),\
-			words VARCHAR(120) PRIMARY KEY)");
+			keywordID VARCHAR(120),\
+			words VARCHAR(200),\
+			PRIMARY KEY(projectID, keywordID))");
 	},
 	down: (queryInterface) => {
-		queryInterface.sequelize.query("DROP TABLE donations");
+		queryInterface.sequelize.query("DROP TABLE keywords");
 	}
 }
