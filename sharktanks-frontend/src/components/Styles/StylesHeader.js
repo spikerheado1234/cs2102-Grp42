@@ -42,7 +42,7 @@ const StylesHeader = ({ style, header }) => {
       }}>
       <div className="nav-container">
         <nav className="primary-nav">
-          <Link to="/products">Products</Link>
+          <Link to="/products">Projects</Link>
           <Link to="/styles">Styles</Link>
         </nav>
         <div className="logo">
