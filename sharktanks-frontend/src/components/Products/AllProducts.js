@@ -2,16 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ProductImage from './ProductImage';
 
-const isThereACurrencyPrice = product => {
-  try {
-    return (
-      <div className="price">
-        {product.meta.display_price.with_tax.amount / 100}
-      </div>
-    );
-  } catch (e) {
-    return <div className="price">Price not available</div>;
-  }
+const category = product => {
+  return <div className="price">Category: {product.categoryID}</div>;
 };
 
 const AllProducts = props => {
@@ -34,8 +26,8 @@ const AllProducts = props => {
                 return (
                   <a
                     className="product-item"
-                    href={'/product/' + product.id}
-                    key={product.id}>
+                    href={'/product/' + product.projectID}
+                    key={product.projectID}>
                     <div
                       className="product-image"
                       style={{ background: background }}>
@@ -47,8 +39,8 @@ const AllProducts = props => {
                         style={{ background: '#aaaaaa' }}
                       />
                       <div className="overlay-content">
-                        <div className="title">{product.name}</div>
-                        {isThereACurrencyPrice(product)}
+                        <div className="title">{product.title}</div>
+                        {category(product)}
                       </div>
                     </div>
                   </a>

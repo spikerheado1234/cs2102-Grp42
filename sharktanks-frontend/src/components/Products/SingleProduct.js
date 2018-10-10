@@ -23,7 +23,7 @@ class SingleProduct extends Component {
     var productArray = this.props.products.products.data.filter(function(
       product
     ) {
-      return product.id === ID;
+      return product.projectID === ID;
     });
 
     var product = productArray[0];
@@ -60,7 +60,7 @@ class SingleProduct extends Component {
       });
     };
 
-    var background = product.background_colour;
+    var background = '#fff';
 
     function isThereACurrencyPrice() {
       try {
@@ -88,12 +88,10 @@ class SingleProduct extends Component {
                 />
               </div>
               <div className="product-description">
-                <h2>{product.name}</h2>
+                <h2>{product.title}</h2>
                 <p className="manufacturer">
                   <span className="hide-content">Manufactured </span>By{' '}
-                  <span className="word-mark">
-                    Green Jets
-                  </span>
+                  <span className="word-mark">Green Jets</span>
                 </p>
                 {isThereACurrencyPrice()}
                 <div className="description">
@@ -163,7 +161,9 @@ class SingleProduct extends Component {
                   </div>
                   <div className="row">
                     <div className="label">Description</div>
-                    <div className="value">Jet pack made from recyclable materials</div>
+                    <div className="value">
+                      Jet pack made from recyclable materials
+                    </div>
                   </div>
                   <div className="row">
                     <div className="label">Start date</div>
@@ -181,7 +181,6 @@ class SingleProduct extends Component {
                     <div className="label">Donations</div>
                     <div className="value">{product.donations}</div>
                   </div>
-
                 </div>
               </div>
               <div className="product-details">

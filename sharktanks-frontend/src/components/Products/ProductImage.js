@@ -3,8 +3,8 @@ import React from 'react';
 const ProductImage = props => {
   let file;
   let fileId;
-  let placeholder =
-    'https://placeholdit.imgix.net/~text?txtsize=69&txt=824%C3%971050&w=824&h=1050';
+  let placeholder = 'https://picsum.photos/200/300/?random';
+  // 'https://placeholdit.imgix.net/~text?txtsize=69&txt=824%C3%971050&w=824&h=1050';
 
   var isThereAMainImage = product => {
     fileId = props.product.relationships.main_image.data.id;
