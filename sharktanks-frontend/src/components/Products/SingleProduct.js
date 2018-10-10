@@ -198,11 +198,6 @@ class SingleProduct extends Component {
                     <div className="value">jet, pack, green, fly</div>
                   </div>
                 </div>
-                <div className="footer">
-                  <p>
-                    Read the <a href="/">terms and conditions</a>.
-                  </p>
-                </div>
               </div>
             </div>
           </div>
