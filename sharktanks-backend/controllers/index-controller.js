@@ -162,8 +162,12 @@ exports.searchByUser = function(userId, role) {
 
 // Gives all the projects in the DB.
 exports.searchAllProjects = function() {
-	return db.sequelize.query("SELECT * \
-							   FROM project p1", 
+	return db.sequelize.query("SELECT p1.description, p1.title, k1.words, u1.name, c1.name" +
+							   " FROM project p1, keywords k1, categories c1, users u1" +
+							   " WHERE p1.projectID = k1.projectID AND" + 
+									  " p1.categoryID = c1.categoryID AND" +
+									  " p1.userID = u1.userID AND" +
+									  " u1.role = 'Entrepreneur'", 
 							   {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 								return data;
