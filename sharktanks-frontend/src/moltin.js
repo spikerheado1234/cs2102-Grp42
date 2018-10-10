@@ -13,47 +13,73 @@ const Moltin = MoltinGateway({
 });
 
 export const GetProducts = () => {
-	axios.get('http://localhost:8080/allProjects').then(res => {
-		console.log(res.data);
-	});
-	return Moltin.Products.With('files, main_images, collections').All();
-}
+  return Promise.resolve({
+    data: [
+      {
+        projectID: 'productid1',
+        userID: 'userID1',
+        statusID: 'statusID1',
+        categoryID: 'categoryID1',
+        description: 'description1',
+        title: 'title1',
+        tags: ['AI', 'Machine Learning', 'Magic']
+      },
+
+      {
+        projectID: 'productid2',
+        userID: 'userID2',
+        statusID: 'statusID2',
+        categoryID: 'categoryID2',
+        description: 'description2',
+        title: 'title2',
+        tags: ['AI', 'Machine Learning', 'Magic']
+      }
+    ]
+  });
+  // return axios.get('http://localhost:8080/allProjects');
+};
 
 /*
 export const GetProducts = () =>
   Moltin.Products.With('files, main_images, collections').All();
 */
 
-export const GetProduct = (ID) => {
-  axios.get('http://localhost:8080/searchByProjects/', {
-    params: {
-      id: ID
-    }
-  }).then(res => {
-    console.log(res.data);
-  });
+export const GetProduct = ID => {
+  axios
+    .get('http://localhost:8080/searchByProjects/', {
+      params: {
+        id: ID
+      }
+    })
+    .then(res => {
+      console.log(res.data);
+    });
   return Moltin.Products.Get(ID);
-}
+};
 
 // export const GetProduct = ID => Moltin.Products.Get(ID);
 
 // TODO PHASE OUT THIS METHOD.
 export const GetCategories = () => Moltin.Categories.With('products').All();
 
-export const GetCategory = (ID) => {
-  axios.get('http://localhost:8080/', {
-    params: {
-      id: ID
-    }
-  }).then((res) => {
-    console.log(res);
-  });
+export const GetCategory = ID => {
+  axios
+    .get('http://localhost:8080/', {
+      params: {
+        id: ID
+      }
+    })
+    .then(res => {
+      console.log(res);
+    });
   return Moltin.Categories.Get(ID);
-}
+};
 
 //export const GetCategory = ID => Moltin.Categories.Get(ID);
 
-export const GetCollections = () => Moltin.Collections.With('products').All();
+// export const GetCollections = () => Moltin.Collections.With('products').All();
+
+export const GetCollections = () => new Promise(() => [], () => []);
 
 export const GetBrands = () => Moltin.Brands.All();
 
