@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import OrderConfirmation from './OrderConfirmation';
-import CartHeader from '../Cart/CartHeader';
 
 class OrderConfirmationContainer extends Component {
   componentWillMount() {
@@ -15,7 +14,6 @@ class OrderConfirmationContainer extends Component {
   render() {
     return (
       <div>
-        <CartHeader />
         <OrderConfirmation />
       </div>
     );

@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import CartCounter from '../Cart/CartCounter';
-
 import Modern from '../../assets/img/modern.png';
 import Silver from '../../assets/img/silver.png';
 import Bright from '../../assets/img/bright.png';
@@ -122,7 +120,6 @@ c-1.5-1.6-3.7-2.5-5.9-2.4h-8.5V27.4z"
           </Link>
         </div>
         <nav className="secondary-nav light">
-          <CartCounter />
         </nav>
       </div>
       <div className="header-container light">

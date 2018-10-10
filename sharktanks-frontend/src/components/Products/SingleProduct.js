@@ -4,11 +4,6 @@ import ProductImage from './ProductImage';
 import * as api from '../../moltin';
 
 import { UPDATE_QUANTITY } from '../../ducks/product';
-import {
-  FETCH_CART_START,
-  FETCH_CART_END,
-  CART_UPDATED
-} from '../../ducks/cart';
 
 const mapStateToProps = state => {
   return state;
@@ -31,32 +26,6 @@ class SingleProduct extends Component {
     var updateQuantity = quantity => {
       this.props.dispatch(dispatch => {
         dispatch({ type: UPDATE_QUANTITY, payload: quantity });
-      });
-    };
-
-    var addToCart = id => {
-      this.props.dispatch(dispatch => {
-        api
-          .AddCart(id, this.props.product.quantity)
-
-          .then(cart => {
-            console.log(cart);
-            dispatch({ type: CART_UPDATED, gotNew: false });
-          })
-
-          .then(() => {
-            dispatch({ type: FETCH_CART_START, gotNew: false });
-
-            api
-              .GetCartItems()
-
-              .then(cart => {
-                dispatch({ type: FETCH_CART_END, payload: cart, gotNew: true });
-              });
-          })
-          .catch(e => {
-            console.log(e);
-          });
       });
     };
 
@@ -142,7 +111,6 @@ class SingleProduct extends Component {
                     type="submit"
                     className="submit"
                     onClick={e => {
-                      addToCart(product.id);
                       console.log(this.props.product.quantity);
                       e.preventDefault();
                     }}>
