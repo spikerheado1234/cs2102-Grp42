@@ -108,7 +108,7 @@ exports.getFunding = function(projectId) {
 exports.searchByProjects = function(projectId) {
 	var projectIdToQuery = projectId;
 	return db.sequelize.query("SELECT\
-							   FROM projects p1\
+							   FROM project p1\
 							   WHERE p1.projectID = :projectId", 
 							   {replacements: {projectId: projectIdToQuery},
 								type: db.sequelize.QueryTypes.SELECT})
@@ -121,7 +121,7 @@ exports.searchByProjects = function(projectId) {
 exports.searchByCategories = function(categoryId) {
 	var categoryIdToQuery = categoryId;
 	return db.sequelize.query("SELECT *\
-							   FROM projects p1\
+							   FROM project p1\
 							   WHERE p1.categoryID = :categoryId", 
 							   {replacements: {categoryId: categoryIdToQuery},
 								type: db.sequelize.QueryTypes.SELECT})
@@ -134,7 +134,7 @@ exports.searchByCategories = function(categoryId) {
 exports.searchByStatus = function(statusId) {
 	var statusIdToQuery = statusId;
 	return db.sequelize.query("SELECT \
-							   FROM projects p1\
+							   FROM project p1\
 							   WHERE p1.statusID = :statusId",
 							   {replacements: {statusId: statusIdToQuery},
 								type: db.sequelize.QueryTypes.SELECT})
@@ -163,7 +163,7 @@ exports.searchByUser = function(userId, role) {
 // Gives all the projects in the DB.
 exports.searchAllProjects = function() {
 	return db.sequelize.query("SELECT * \
-							   FROM projects p1", 
+							   FROM project p1", 
 							   {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 								return data;
