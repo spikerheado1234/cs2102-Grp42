@@ -5,7 +5,7 @@ var currDonationId = 0; // Last Value Assigned to a donation.
 
 /* For pre-alpha demonstration only, to be deleted afterwards. */
 exports.dataList = function(statusId) {
-	return db.sequelize.query("SELECT statusWord FROM status LIMIT 1",
+	return db.sequelize.query("SELECT * FROM status LIMIT 1",
 							{ type: db.sequelize.QueryTypes.SELECT })
 							.then(status => {
 								return status;
@@ -26,7 +26,10 @@ exports.createUser = function(name, emailAddress, role, password) {
 												name: nameToInsert,
 												role: roleToInsert,
 												password: passwordToInsert},
-								 type: db.sequelize.QueryTypes.INSERT});
+								 type: db.sequelize.QueryTypes.INSERT})
+								.then((data) => {
+									return data;
+								});
 };
 
 // Creates a new project within a db.
@@ -50,7 +53,10 @@ exports.createProject = function(title, duration, description, startDate, status
 								 				 title: titleToInsert, 
 								 				 duration: durationToInsert, 
 								 				 startDate: startDateToInsert},
-								 				 type: db.sequelize.QueryTypes.INSERT});
+								 				 type: db.sequelize.QueryTypes.INSERT})
+								.then((data) => {
+									return data;
+								});
 };
 
 // Delets a particular project with id projectId from the db.
@@ -58,7 +64,10 @@ exports.deleteProject = function(projectId) {
 	projectIdToDelete = projectId;
 	return db.sequelize.query("DELETE FROM project WHERE projectID = :projectId", 
 							{replacements: {projectId: projectIdToDelete}, 
-							 type: db.sequelize.QueryTypes.DELETE});
+							 type: db.sequelize.QueryTypes.DELETE})
+						.then((data) => {
+							return data;
+						});
 };
 
 // Makes a new donation within a db for project with id of projectId,
@@ -75,7 +84,10 @@ exports.giveDonation = function(projectId, userId, amount) {
 							   projectId: projectIdToInsert,
 							   userId: userIdToInsert,
 							   amount: amountToInsert},
-							   type: db.sequelize.QueryTypes.INSERT});
+							   type: db.sequelize.QueryTypes.INSERT})
+						.then((data) => {
+							return data;
+						});
 };
 
 // Gets the  total funding for a project with an id of projectId.
@@ -86,7 +98,10 @@ exports.getFunding = function(projectId) {
 							   WHERE d1.projectId = :projectId\
 							   GROUP BY d1.projectId",
 							   {replacements: {projectId : projectIdToQuery},
-								type: db.sequelize.QueryTypes.SELECT});
+								type: db.sequelize.QueryTypes.SELECT})
+						.then((data) => {
+							return data;
+						});
 };
 
 // Searches for all the projects with a particular  projectId.
@@ -96,7 +111,10 @@ exports.searchByProjects = function(projectId) {
 							   FROM projects p1\
 							   WHERE p1.projectID = :projectId", 
 							   {replacements: {projectId: projectIdToQuery},
-								type: db.sequelize.QueryTypes.SELECT});
+								type: db.sequelize.QueryTypes.SELECT})
+						.then((data) => {
+								return data;
+							 });
 };
 
 // Searches for all the projects with a particular categoryId.
@@ -106,7 +124,10 @@ exports.searchByCategories = function(categoryId) {
 							   FROM projects p1\
 							   WHERE p1.categoryID = :categoryId", 
 							   {replacements: {categoryId: categoryIdToQuery},
-								type: db.sequelize.QueryTypes.SELECT});
+								type: db.sequelize.QueryTypes.SELECT})
+						.then((data) => {
+								return data;
+							});
 };
 
 // Searches for all the projects with a particular statusId.
@@ -116,7 +137,10 @@ exports.searchByStatus = function(statusId) {
 							   FROM projects p1\
 							   WHERE p1.statusID = :statusId",
 							   {replacements: {statusId: statusIdToQuery},
-								type: db.sequelize.QueryTypes.SELECT});
+								type: db.sequelize.QueryTypes.SELECT})
+						.then((data) => {
+								return data;
+							});
 };
 
 // Gives all the projects associated with a particular user with a particular role.
@@ -130,12 +154,18 @@ exports.searchByUser = function(userId, role) {
 							   		 u1.role = :role",
 							  {replacements: {userId: userIdToQuery,
 							  				  role: roleToQuery},
-							   type: db.sequelize.QueryTypes.SELECT});
+							   type: db.sequelize.QueryTypes.SELECT})
+						.then((data) => {
+								return data;
+							});
 };
 
 // Gives all the projects in the DB.
-exports.allProjects = function() {
+exports.searchAllProjects = function() {
 	return db.sequelize.query("SELECT * \
 							   FROM projects p1", 
-							   {type: db.sequelize.QueryTypes.SELECT});
+							   {type: db.sequelize.QueryTypes.SELECT})
+						.then((data) => {
+								return data;
+							});
 };

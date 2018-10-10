@@ -13,7 +13,7 @@ const Moltin = MoltinGateway({
 });
 
 export const GetProducts = () => {
-	axios.get('http://localhost:8080/getData').then(res => {
+	axios.get('http://localhost:8080/allProjects').then(res => {
 		console.log(res.data);
 	});
 	return Moltin.Products.With('files, main_images, collections').All();
