@@ -169,6 +169,7 @@ exports.searchAllProjects = function() {
 									  " p1.categoryID = c1.categoryID AND" +
 									  " p1.userID = u1.userID AND" +
 									  " u1.role = 'Entrepreneur'" +
+									  " d1.projectID = p1.projectID" +
 							   " GROUP BY d1.projectID", 
 							   {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
