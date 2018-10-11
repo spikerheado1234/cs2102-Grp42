@@ -163,7 +163,7 @@ exports.searchByUser = function(userId, role) {
 
 // Gives all the projects in the DB.
 exports.searchAllProjects = function() {
-	return db.sequelize.query("SELECT p1.description, p1.title, k1.words, u1.name, c1.name, p1.projectID, SUM(*)" +
+	return db.sequelize.query("SELECT p1.description, p1.title, k1.words, u1.name, c1.name, p1.projectID, SUM(d1.amount)" +
 							   " FROM project p1, keywords k1, categories c1, users u1, donations d1" +
 							   " WHERE p1.projectID = k1.projectID AND" + 
 									  " p1.categoryID = c1.categoryID AND" +
