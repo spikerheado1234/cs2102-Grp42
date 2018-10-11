@@ -77,14 +77,18 @@ exports.giveDonation = function(projectId, userId, amount) {
 	userIdToInsert = userId;
 	amountToInsert = amount;
 	currDonationId++;
-	return db.sequelize.query("INSERT INTO donations(donationID, projectID, userID, amount)" +
-							  " VALUES(:donationId, :projectId, :userId, :amount)",
-							  {replacements: 
-							  {donationId: currDonationId.toString(),
-							   projectId: projectIdToInsert,
-							   userId: userIdToInsert,
-							   amount: amountToInsert},
-							   type: db.sequelize.QueryTypes.INSERT});
+	return db.sequelize.query("SELECT MAX(d1.donationID) FROM donations d1", {type: db.sequelize.QueryTypes.SELECT})
+						.then((data) => {
+							var donationIdToInsert = (parseInt(data[0].max, 10) + 1).toString();
+							return db.sequelize.query("INSERT INTO donations(donationID, projectID, userID, amount)" +
+							" VALUES(:donationId, :projectId, :userId, :amount)",
+							{replacements: 
+								{donationId: donationIdToInsert,
+								 projectId: projectIdToInsert,
+								 userId: userIdToInsert,
+								 amount: amountToInsert},
+								 type: db.sequelize.QueryTypes.INSERT});
+						});
 };
 
 // Gets the  total funding for a project with an id of projectId.

@@ -10,6 +10,8 @@ import {
   CART_UPDATED
 } from '../../ducks/cart';
 
+const axios = require('axios');
+
 const mapStateToProps = state => {
   return state;
 };
@@ -17,22 +19,38 @@ const mapStateToProps = state => {
 class SingleProduct extends Component {
   render() {
     var products = this.props.products.products;
-
-    var ID = this.props.router.location.pathname.slice(9, 100);
-
+    // The id is null for some reason. Must fix. 
+    var ID = this.props.router.location.pathname.slice(9);
     var productArray = this.props.products.products.data.filter(function(
       product
     ) {
-      return product.projectID === ID;
+      return product.projectid === ID;
     });
 
+    var wordsArr = [];
+    productArray.map((product) => {
+      wordsArr.push(product.words);
+    });
     var product = productArray[0];
+    product.words = wordsArr;
+    console.log(product);
 
     var updateQuantity = quantity => {
       this.props.dispatch(dispatch => {
         dispatch({ type: UPDATE_QUANTITY, payload: quantity });
       });
     };
+
+    // Test post request.
+    var persistAmount = (amount) => {
+      axios.post('http://localhost:8080/giveDonation', {
+        projectID: ID, 
+        userID: '1',
+        amount: amount
+      }).then(res => {
+        console.log(res.data);
+      });
+    }
 
     var addToCart = id => {
       this.props.dispatch(dispatch => {
@@ -69,7 +87,7 @@ class SingleProduct extends Component {
     const tags = product => {
       return (
         <div>
-          {product.tags.map(function(elem) {
+          {product.words.map(function(elem) {
             return (
               <div style={{ display: 'inline' }} class="tag">
                 {elem}{' '}
@@ -128,6 +146,7 @@ class SingleProduct extends Component {
                     onClick={e => {
                       addToCart(product.id);
                       console.log(this.props.product.quantity);
+                      persistAmount(this.props.product.quantity);
                       e.preventDefault();
                     }}>
                     Invest
@@ -150,6 +169,11 @@ class SingleProduct extends Component {
                   <div className="row">
                     <div className="label">Start Date</div>
                     <div className="value">{product.startdate}</div>
+                  </div>
+
+                  <div className="row">
+                    <div className="label"> Money Raised </div>
+                    <div className="value"></div>
                   </div>
                 </div>
               </div>

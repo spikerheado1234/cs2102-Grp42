@@ -11,6 +11,8 @@ const initialState = {
   newQuantity: false
 };
 
+// These are all reducers, which takes a previousState and an action and returns the 
+// new state from it. 
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CART_START:
@@ -41,6 +43,8 @@ export default (state = initialState, action) => {
   }
 };
 
+
+// These are actions.
 export const fetchCartStart = () => ({
   type: FETCH_CART_START
 });

@@ -15,12 +15,13 @@ class ProductHeader extends Component {
   }
 
   render() {
-    var ID = this.props.router.location.pathname.slice(9, 100);
+    // For some reason ID is null. Need to Fix.
+    var ID = this.props.router.location.pathname.slice(9);
 
     var productArray = this.props.products.products.data.filter(function(
       product
     ) {
-      return product.projectID === ID;
+      return product.projectid === ID;
     });
 
     var product = productArray[0];

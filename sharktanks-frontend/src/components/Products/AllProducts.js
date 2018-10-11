@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ProductImage from './ProductImage';
 
 const category = product => {
-  return <div className="price">Category: {product.categoryID}</div>;
+  return <div className="price">Category: {product.name}</div>;
 };
 
 const AllProducts = props => {
@@ -26,8 +26,8 @@ const AllProducts = props => {
                 return (
                   <a
                     className="product-item"
-                    href={'/product/' + product.projectID}
-                    key={product.projectID}>
+                    href={'/product/' + product.projectid}
+                    key={product.projectid}>
                     <div
                       className="product-image"
                       style={{ background: background }}>
