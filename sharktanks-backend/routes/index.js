@@ -56,7 +56,6 @@ router.delete('/deleteProject', function(req, res, next) {
 router.post('/giveDonation', function(req, res, next) {
 	// TODO Need to generate donation id.
 	indexController.giveDonation(req.body.projectID,
-								 req.body.project,
 								 req.body.userID,
 								 req.body.amount)
 								 .then(res.send('OK'))
