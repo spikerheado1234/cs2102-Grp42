@@ -8,7 +8,9 @@ module.exports = {
 			description VARCHAR(500),\
 			title VARCHAR(500) NOT NULL,\
 			duration NUMERIC,\
-			startdate DATE)");
+			startdate DATE,\
+			url VARCHAR(500)\
+			)");
 	},
 	down: (queryInterface) => {
 		queryInterface.sequelize.query("DROP TABLE project");
