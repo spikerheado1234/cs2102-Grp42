@@ -58,11 +58,7 @@ router.post('/giveDonation', function(req, res, next) {
 	indexController.giveDonation(req.body.projectID,
 								 req.body.userID,
 								 req.body.amount)
-								 .then(res.send('OK'))
-								 .catch((err) => {
-								 	res.send("NOT OK");
-								 	console.log(err); // For debugging purposes only.
-								 });
+								 .then(res.send('OK'));
 });
 
 // Get the total amount a project has in funding.

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import CartCounter from '../Cart/CartCounter';
-
 class ProductHeader extends Component {
   componentWillMount() {
     const script = document.createElement('script');
@@ -15,12 +13,13 @@ class ProductHeader extends Component {
   }
 
   render() {
-    var ID = this.props.router.location.pathname.slice(9, 100);
+    // For some reason ID is null. Need to Fix.
+    var ID = this.props.router.location.pathname.slice(9);
 
     var productArray = this.props.products.products.data.filter(function(
       product
     ) {
-      return product.projectID === ID;
+      return product.projectid === ID;
     });
 
     var product = productArray[0];
@@ -109,7 +108,6 @@ class ProductHeader extends Component {
             </Link>
           </div>
           <nav className="secondary-nav">
-            <CartCounter />
           </nav>
         </div>
         <div className="header-container hide-content">

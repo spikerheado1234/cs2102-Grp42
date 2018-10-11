@@ -40,7 +40,6 @@ export const GetProducts = resources => (dispatch, getState, api) => {
 
   return api.GetProducts(resources).then(function(products) {
     console.log(products);
-    console.log('prodsucts');
     dispatch(fetchProductsEnd(products));
   });
 };

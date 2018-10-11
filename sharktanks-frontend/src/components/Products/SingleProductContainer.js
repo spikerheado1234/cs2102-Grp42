@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import SingleProduct from './SingleProduct';
-import CartHeader from '../Cart/CartHeader';
 import ProductHeader from './ProductHeader';
 import Loading from '../global/Loading';
 import MobileNav from '../global/Mobile/MobileNav';
@@ -34,7 +33,6 @@ class Product extends Component {
       return (
         <div>
           <MobileNav />
-          <CartHeader />
           <Loading />
         </div>
       );
