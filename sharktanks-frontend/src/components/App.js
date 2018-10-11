@@ -1,5 +1,12 @@
-import React from 'react';
+//import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+/*for log in page*/
+//import './App.css';
+import Loginscreen from './Login/Loginscreen';
+/*for log in page*/
 
 import Home from './Home/Home';
 import Cart from './Cart/Cart';
@@ -12,6 +19,8 @@ import OrderConfirmationContainer from './Orders/OrderConfirmationContainer';
 import NotFound from './global/NotFound';
 // import MobileNav from './global/Mobile/MobileNav';
 import Footer from './global/Footer';
+
+//injectTapEventPlugin();
 
 const App = props => (
   <div>
@@ -38,5 +47,33 @@ const App = props => (
     <Footer />
   </div>
 );
+
+// class App extends Component {
+//   constructor(props){
+//     super(props);
+//     this.state={
+//       loginPage:[],
+//       uploadScreen:[]
+//     }
+//   }
+//   componentWillMount(){
+//     var loginPage =[];
+//     loginPage.push(<Loginscreen parentContext={this}/>);
+//     this.setState({
+//                   loginPage:loginPage
+//                     })
+//   }
+//   render() {
+//     return (
+//       <div className="App">
+//         {this.state.loginPage}
+//         {this.state.uploadScreen}
+//       </div>
+//     );
+//   }
+// }
+// const style = {
+//   margin: 15,
+// };
 
 export default App;
