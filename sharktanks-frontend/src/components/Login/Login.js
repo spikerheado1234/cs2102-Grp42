@@ -2,6 +2,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import React, { Component } from 'react';
+import axios from 'axios';
+
 class Login extends Component {
   constructor(props){
     super(props);
@@ -50,9 +53,9 @@ class Login extends Component {
      console.log(response);
      if(response.data.code == 200){
        console.log("Login successfull");
-       var uploadScreen=[];
-       uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
-       self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
+       //var uploadScreen=[];
+       //uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
+       //self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
      }
      else if(response.data.code == 204){
        console.log("Username password do not match");
