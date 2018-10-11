@@ -81,7 +81,7 @@ module.exports = {
             statusid: '3',
             categoryid: '3',
             description: 'A quirky fashion designer outlet.',
-            title: 'Quriky Fashion',
+            title: 'Quirky Fashion',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
