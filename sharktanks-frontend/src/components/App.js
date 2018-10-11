@@ -5,7 +5,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 /*for log in page*/
 //import './App.css';
-import Loginscreen from './Login/Loginscreen'
+import Loginscreen from './Login/Loginscreen';
 /*for log in page*/
 
 import Home from './Home/Home';
@@ -20,60 +20,60 @@ import NotFound from './global/NotFound';
 // import MobileNav from './global/Mobile/MobileNav';
 import Footer from './global/Footer';
 
-injectTapEventPlugin();
+//injectTapEventPlugin();
 
-// const App = props => (
-//   <div>
-//     {/* <MobileNav /> */}
+const App = props => (
+  <div>
+    {/* <MobileNav /> */}
 
-//     <Switch>
-//       <Route exact path="/" component={Home} />
-//       <Route path="/cart" component={Cart} />
-//       <Route path="/styles" component={StylesContainer} />
-//       <Route path="/products" component={ProductsContainer} />
-//       <Route path="/checkout" component={CheckoutContainer} />
-//       <Route
-//         path="/order-confirmation"
-//         component={OrderConfirmationContainer}
-//       />
-//       <Route path="/product/:id" component={SingleProductContainer} />
-//       <Route
-//         path="/one-click-checkout/:productId"
-//         component={OneClickCheckout}
-//       />
-//       <Route path="*" component={NotFound} />
-//     </Switch>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/cart" component={Cart} />
+      <Route path="/styles" component={StylesContainer} />
+      <Route path="/products" component={ProductsContainer} />
+      <Route path="/checkout" component={CheckoutContainer} />
+      <Route
+        path="/order-confirmation"
+        component={OrderConfirmationContainer}
+      />
+      <Route path="/product/:id" component={SingleProductContainer} />
+      <Route
+        path="/one-click-checkout/:productId"
+        component={OneClickCheckout}
+      />
+      <Route path="*" component={NotFound} />
+    </Switch>
 
-//     <Footer />
-//   </div>
-// );
+    <Footer />
+  </div>
+);
 
-class App extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      loginPage:[],
-      uploadScreen:[]
-    }
-  }
-  componentWillMount(){
-    var loginPage =[];
-    loginPage.push(<Loginscreen parentContext={this}/>);
-    this.setState({
-                  loginPage:loginPage
-                    })
-  }
-  render() {
-    return (
-      <div className="App">
-        {this.state.loginPage}
-        {this.state.uploadScreen}
-      </div>
-    );
-  }
-}
-const style = {
-  margin: 15,
-};
+// class App extends Component {
+//   constructor(props){
+//     super(props);
+//     this.state={
+//       loginPage:[],
+//       uploadScreen:[]
+//     }
+//   }
+//   componentWillMount(){
+//     var loginPage =[];
+//     loginPage.push(<Loginscreen parentContext={this}/>);
+//     this.setState({
+//                   loginPage:loginPage
+//                     })
+//   }
+//   render() {
+//     return (
+//       <div className="App">
+//         {this.state.loginPage}
+//         {this.state.uploadScreen}
+//       </div>
+//     );
+//   }
+// }
+// const style = {
+//   margin: 15,
+// };
 
 export default App;
