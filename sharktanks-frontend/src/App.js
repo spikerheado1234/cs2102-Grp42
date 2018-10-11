@@ -1,3 +1,5 @@
+//Harsh's app.js file... do not use...
+
 import React, { Component } from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
@@ -32,4 +34,5 @@ class App extends Component {
   const style = {
     margin: 15,
   };
-  export default App;
+
+  

@@ -1,5 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
 
 import Home from './Home/Home';
 import Cart from './Cart/Cart';
