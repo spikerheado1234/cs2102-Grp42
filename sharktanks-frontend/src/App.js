@@ -17,19 +17,19 @@ class App extends Component {
     var loginPage =[];
     loginPage.push(<Loginscreen parentContext={this}/>);
     this.setState({
-                  loginPage:loginPage
-                    })
+      loginPage:loginPage
+    })
   }
   render() {
     return (
       <div className="App">
-        {this.state.loginPage}
-        {this.state.uploadScreen}
+      {this.state.loginPage}
+      {this.state.uploadScreen}
       </div>
-    );
+      );
+    }
   }
-}
-const style = {
-  margin: 15,
-};
-export default App;
+  const style = {
+    margin: 15,
+  };
+  export default App;
