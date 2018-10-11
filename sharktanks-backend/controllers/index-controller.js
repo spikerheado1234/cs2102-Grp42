@@ -44,8 +44,8 @@ exports.createProject = function(title, duration, description, startDate, status
 	var keyWordsToInsert = keyWords;
 	var categoryIdToInsert = categoryID;
 	currProjectId++;
-	return db.sequelize.query("INSERT INTO project(projectID, userID, statusID, description, title, duration, startDate)\
-								 VALUES(:projectId, :userId, :statusId, :description, :title, :duration, :startDate)",
+	return db.sequelize.query("INSERT INTO project(projectID, userID, statusID, description, title, duration, startDate)" +
+								 " VALUES(:projectId, :userId, :statusId, :description, :title, :duration, :startDate)",
 								 {replacements: {projectId: currProjectId,
 								 				 userId: userIdToInsert,
 								 				 statusId: statusIdToInsert, 
@@ -94,10 +94,10 @@ exports.giveDonation = function(projectId, userId, amount) {
 // Gets the  total funding for a project with an id of projectId.
 exports.getFunding = function(projectId) {
 	var projectIdToQuery = projectId;
-	return db.sequelize.query("SELECT SUM(d1.amount)\
-							   FROM donations d1\
-							   WHERE d1.projectId = :projectId\
-							   GROUP BY d1.projectId",
+	return db.sequelize.query("SELECT SUM(d1.amount)" +
+							   " FROM donations d1" +
+							   " WHERE d1.projectId = :projectId" +
+							   " GROUP BY d1.projectId",
 							   {replacements: {projectId : projectIdToQuery},
 								type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
@@ -108,9 +108,9 @@ exports.getFunding = function(projectId) {
 // Searches for all the projects with a particular  projectId.
 exports.searchByProjects = function(projectId) {
 	var projectIdToQuery = projectId;
-	return db.sequelize.query("SELECT\
-							   FROM project p1\
-							   WHERE p1.projectID = :projectId", 
+	return db.sequelize.query("SELECT" +
+							   " FROM project p1" +
+							   " WHERE p1.projectID = :projectId", 
 							   {replacements: {projectId: projectIdToQuery},
 								type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
@@ -121,9 +121,9 @@ exports.searchByProjects = function(projectId) {
 // Searches for all the projects with a particular categoryId.
 exports.searchByCategories = function(categoryId) {
 	var categoryIdToQuery = categoryId;
-	return db.sequelize.query("SELECT *\
-							   FROM project p1\
-							   WHERE p1.categoryID = :categoryId", 
+	return db.sequelize.query("SELECT *" +
+							   " FROM project p1" +
+							   " WHERE p1.categoryID = :categoryId", 
 							   {replacements: {categoryId: categoryIdToQuery},
 								type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
@@ -134,9 +134,9 @@ exports.searchByCategories = function(categoryId) {
 // Searches for all the projects with a particular statusId.
 exports.searchByStatus = function(statusId) {
 	var statusIdToQuery = statusId;
-	return db.sequelize.query("SELECT \
-							   FROM project p1\
-							   WHERE p1.statusID = :statusId",
+	return db.sequelize.query("SELECT " +
+							   " FROM project p1" +
+							   " WHERE p1.statusID = :statusId",
 							   {replacements: {statusId: statusIdToQuery},
 								type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
@@ -148,11 +148,11 @@ exports.searchByStatus = function(statusId) {
 exports.searchByUser = function(userId, role) {
 	var userIdToQuery = userId;
 	var roleToQuery = role;
-	return db.sequelize.query("SELECT p1.projectID, p1.userID, p1.statusID, p1.categoryID, p1.description, p1.title, p1.duration, p1.startDate\
-							   FROM users u1, projects p1\
-							   WHERE u1.userID = p1.userID AND\
-							   		 p1.userId = :userId AND\
-							   		 u1.role = :role",
+	return db.sequelize.query("SELECT p1.projectID, p1.userID, p1.statusID, p1.categoryID, p1.description, p1.title, p1.duration, p1.startDate" +
+							   " FROM users u1, projects p1" +
+							   " WHERE u1.userID = p1.userID AND" +
+							   		 " p1.userId = :userId AND" +
+							   		 " u1.role = :role",
 							  {replacements: {userId: userIdToQuery,
 							  				  role: roleToQuery},
 							   type: db.sequelize.QueryTypes.SELECT})
@@ -163,12 +163,13 @@ exports.searchByUser = function(userId, role) {
 
 // Gives all the projects in the DB.
 exports.searchAllProjects = function() {
-	return db.sequelize.query("SELECT p1.description, p1.title, k1.words, u1.name, c1.name, p1.projectID" +
-							   " FROM project p1, keywords k1, categories c1, users u1" +
+	return db.sequelize.query("SELECT p1.description, p1.title, k1.words, u1.name, c1.name, p1.projectID, SUM(*)" +
+							   " FROM project p1, keywords k1, categories c1, users u1, donations d1" +
 							   " WHERE p1.projectID = k1.projectID AND" + 
 									  " p1.categoryID = c1.categoryID AND" +
 									  " p1.userID = u1.userID AND" +
-									  " u1.role = 'Entrepreneur'", 
+									  " u1.role = 'Entrepreneur'" +
+							   " GROUP BY d1.projectID", 
 							   {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 								return data;

@@ -9,7 +9,8 @@ module.exports = {
             statusid: '1',
             categoryid: '1',
             description: 'An AI chatbot to distrupt fake news.',
-            title: 'AI Hype Lordz'
+            title: 'AI Hype Lordz',
+            url: '../../../../Resources/projectImages/default.jpg'
         },
         {
             projectid: '2', 
@@ -17,7 +18,8 @@ module.exports = {
             statusid: '2',
             categoryid: '1',
             description: 'An Augmented Reality World Like no Other!',
-            title: 'AR Hype Lordz'
+            title: 'AR Hype Lordz',
+            url: '../../../../Resources/projectImages/default.jpg'
         },
         {
             projectid: '3', 
@@ -25,7 +27,8 @@ module.exports = {
             statusid: '3',
             categoryid: '1',
             description: 'A crypto-currency exchange!',
-            title: 'Crypto Hype Lordz'
+            title: 'Crypto Hype Lordz',
+            url: '../../../../Resources/projectImages/default.jpg'
         },
         {
             projectid: '4', 
@@ -33,7 +36,8 @@ module.exports = {
             statusid: '1',
             categoryid: '2',
             description: 'A new Fast Food Franchise',
-            title: 'Fast Delivery'
+            title: 'Fast Delivery',
+            url: '../../../../Resources/projectImages/default.jpg'
         },
         {
             projectid: '5', 
@@ -41,7 +45,8 @@ module.exports = {
             statusid: '2',
             categoryid: '2',
             description: 'A new Late Night Supper Franchise',
-            title: 'Supper is Better'
+            title: 'Supper is Better',
+            url: '../../../../Resources/projectImages/default.jpg'
         },
         {
             projectid: '6', 
@@ -49,7 +54,8 @@ module.exports = {
             statusid: '3',
             categoryid: '2',
             description: 'A home delivery food service.',
-            title: 'Foodal Delivery'
+            title: 'Foodal Delivery',
+            url: '../../../../Resources/projectImages/default.jpg'
         },
         {
             projectid: '7', 
@@ -57,7 +63,8 @@ module.exports = {
             statusid: '1',
             categoryid: '3',
             description: 'A cheap apparel store.',
-            title: 'Cheap Clothes'
+            title: 'Cheap Clothes',
+            url: '../../../../Resources/projectImages/default.jpg'
         },
         {
             projectid: '8', 
@@ -65,7 +72,8 @@ module.exports = {
             statusid: '2',
             categoryid: '3',
             description: 'A home delivery apparel application',
-            title: 'Cloth Delivery'
+            title: 'Cloth Delivery',
+            url: '../../../../Resources/projectImages/default.jpg'
         },
         {
             projectid: '9', 
@@ -73,7 +81,8 @@ module.exports = {
             statusid: '3',
             categoryid: '3',
             description: 'A quirky fashion designer outlet.',
-            title: 'Quriky Fashion'
+            title: 'Quriky Fashion',
+            url: '../../../../Resources/projectImages/default.jpg'
         }], {});
   },
   down: (queryInterface, Sequelize) => {

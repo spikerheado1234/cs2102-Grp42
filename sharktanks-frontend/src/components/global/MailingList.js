@@ -5,7 +5,7 @@ const MailingList = () => (
     <div className="content">
       <div className="mailing-list-content">
         <h2>
-          Swim with <span className="love">us</span> ?
+          Swim with <span className="love">us</span>
         </h2>
         <p>
           Sign up to recieve{' '}

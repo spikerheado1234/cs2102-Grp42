@@ -4,11 +4,6 @@ import ProductImage from './ProductImage';
 import * as api from '../../moltin';
 
 import { UPDATE_QUANTITY } from '../../ducks/product';
-import {
-  FETCH_CART_START,
-  FETCH_CART_END,
-  CART_UPDATED
-} from '../../ducks/cart';
 
 const axios = require('axios');
 
@@ -52,31 +47,20 @@ class SingleProduct extends Component {
       });
     }
 
-    var addToCart = id => {
-      this.props.dispatch(dispatch => {
-        api
-          .AddCart(id, this.props.product.quantity)
+    var background = product.background_colour;
 
-          .then(cart => {
-            console.log(cart);
-            dispatch({ type: CART_UPDATED, gotNew: false });
-          })
-
-          .then(() => {
-            dispatch({ type: FETCH_CART_START, gotNew: false });
-
-            api
-              .GetCartItems()
-
-              .then(cart => {
-                dispatch({ type: FETCH_CART_END, payload: cart, gotNew: true });
-              });
-          })
-          .catch(e => {
-            console.log(e);
-          });
-      });
-    };
+    function isThereACurrencyPrice() {
+      try {
+        return (
+          <p className="price">
+            <span className="hide-content">Unit price </span>
+            {'$' + product.meta.display_price.with_tax.amount / 100}
+          </p>
+        );
+      } catch (e) {
+        return <div className="price">Price not available</div>;
+      }
+    }
 
     var background = '#fff';
 
@@ -144,7 +128,6 @@ class SingleProduct extends Component {
                     type="submit"
                     className="submit"
                     onClick={e => {
-                      addToCart(product.id);
                       console.log(this.props.product.quantity);
                       persistAmount(this.props.product.quantity);
                       e.preventDefault();
