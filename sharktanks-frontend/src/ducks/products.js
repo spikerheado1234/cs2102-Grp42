@@ -38,7 +38,9 @@ export const fetchProductsEnd = data => ({
 export const GetProducts = resources => (dispatch, getState, api) => {
   dispatch(fetchProductsStart());
 
-  return api
-    .GetProducts(resources)
-    .then(products => dispatch(fetchProductsEnd(products)));
+  return api.GetProducts(resources).then(function(products) {
+    console.log(products);
+    console.log('prodsucts');
+    dispatch(fetchProductsEnd(products));
+  });
 };

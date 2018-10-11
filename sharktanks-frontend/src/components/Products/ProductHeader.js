@@ -18,7 +18,7 @@ class ProductHeader extends Component {
     var productArray = this.props.products.products.data.filter(function(
       product
     ) {
-      return product.id === ID;
+      return product.projectID === ID;
     });
 
     var product = productArray[0];
@@ -111,7 +111,7 @@ class ProductHeader extends Component {
         </div>
         <div className="header-container hide-content">
           <div className="content">
-            <h1>Product details for {product.name}</h1>
+            <h1>Product details for {product.title}</h1>
           </div>
         </div>
       </header>

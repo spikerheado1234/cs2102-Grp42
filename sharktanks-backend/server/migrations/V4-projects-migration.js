@@ -7,8 +7,10 @@ module.exports = {
 			categoryID VARCHAR(120) REFERENCES categories(categoryID), \
 			description VARCHAR(500),\
 			title VARCHAR(500) NOT NULL,\
-			duration INTERVAL,\
-			startdate TIMESTAMP)");
+			duration NUMERIC,\
+			startdate DATE,\
+			url VARCHAR(500)\
+			)");
 	},
 	down: (queryInterface) => {
 		queryInterface.sequelize.query("DROP TABLE project");

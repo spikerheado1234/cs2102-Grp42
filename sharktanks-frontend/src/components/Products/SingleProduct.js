@@ -18,7 +18,7 @@ class SingleProduct extends Component {
     var productArray = this.props.products.products.data.filter(function(
       product
     ) {
-      return product.id === ID;
+      return product.projectID === ID;
     });
 
     var product = productArray[0];
@@ -28,6 +28,7 @@ class SingleProduct extends Component {
         dispatch({ type: UPDATE_QUANTITY, payload: quantity });
       });
     };
+
 
     var background = product.background_colour;
 
@@ -44,6 +45,25 @@ class SingleProduct extends Component {
       }
     }
 
+    var background = '#fff';
+
+    const category = product => {
+      return <div className="manufacturer">Category: {product.categoryID}</div>;
+    };
+
+    const tags = product => {
+      return (
+        <div>
+          {product.tags.map(function(elem) {
+            return (
+              <div style={{ display: 'inline' }} class="tag">
+                {elem}{' '}
+              </div>
+            );
+          })}
+        </div>
+      );
+    };
     return (
       <main role="main" id="container" className="main-container push">
         <section className="product">
@@ -57,55 +77,35 @@ class SingleProduct extends Component {
                 />
               </div>
               <div className="product-description">
-                <h2>{product.name}</h2>
+                <h2>{product.title}</h2>
                 <p className="manufacturer">
-                  <span className="hide-content">Manufactured </span>By{' '}
-                  <span className="word-mark">
-                    Green Jets
-                  </span>
+                  <span className="hide-content">Created </span>By{' '}
+                  <span className="word-mark">{product.userID}</span>
                 </p>
-                {isThereACurrencyPrice()}
+                {category(product)}
+                {tags(product)}
                 <div className="description">
-                  <p className="hide-content">Product details:</p>
+                  <p className="hide-content">Project details:</p>
                   <p>{product.description}</p>
                 </div>
                 <form className="product" noValidate>
                   <div className="quantity-input">
-                    <p className="hide-content">Product quantity.</p>
+                    <p className="hide-content">Project quantity.</p>
                     <p className="hide-content">
-                      Change the quantity by using the buttons, or alter the
-                      input directly.
+                      Change the invest amount by using the input box.
                     </p>
-                    <button
-                      type="button"
-                      className="decrement number-button"
-                      onClick={() => {
-                        updateQuantity(this.props.product.quantity - 5);
-                      }}>
-                      <span className="hide-content">Decrement quantity</span>
-                      <span aria-hidden="true">-</span>
-                    </button>
                     <input
                       className="quantity"
                       name="number"
                       type="number"
                       min="1`"
-                      max="10"
+                      max="20000000"
                       value={this.props.product.quantity}
                       size="2"
                       onChange={event => {
                         updateQuantity(event.target.value);
                       }}
                     />
-                    <button
-                      type="button"
-                      className="increment number-button"
-                      onClick={() => {
-                        updateQuantity(this.props.product.quantity + 5);
-                      }}>
-                      <span className="hide-content">Increment quantity</span>
-                      <span aria-hidden="true">+</span>
-                    </button>
                   </div>
                   <button
                     type="submit"
@@ -122,48 +122,18 @@ class SingleProduct extends Component {
             <div className="product-info">
               <div className="product-details">
                 <div className="header">
-                  <h3>Project details</h3>
+                  <h3>Other Project details</h3>
                 </div>
+
                 <div className="details-body">
-                  <div className="row">
-                    <div className="label">Title</div>
-                    <div className="value">Green Jet Pack</div>
-                  </div>
-                  <div className="row">
-                    <div className="label">Description</div>
-                    <div className="value">Jet pack made from recyclable materials</div>
-                  </div>
-                  <div className="row">
-                    <div className="label">Start date</div>
-                    <div className="value">{product.start_date}</div>
-                  </div>
                   <div className="row">
                     <div className="label">Duration</div>
                     <div className="value">{product.duration}</div>
                   </div>
-                  <div className="row">
-                    <div className="label">Status</div>
-                    <div className="value">{product.status}</div>
-                  </div>
-                  <div className="row">
-                    <div className="label">Donations</div>
-                    <div className="value">{product.donations}</div>
-                  </div>
 
-                </div>
-              </div>
-              <div className="product-details">
-                <div className="header">
-                  <h3>Miscellaneous</h3>
-                </div>
-                <div className="details-body">
                   <div className="row">
-                    <div className="label">Categories</div>
-                    <div className="value">Technology, Design, Ecological</div>
-                  </div>
-                  <div className="row">
-                    <div className="label">Keywords</div>
-                    <div className="value">jet, pack, green, fly</div>
+                    <div className="label">Start Date</div>
+                    <div className="value">{product.startdate}</div>
                   </div>
                 </div>
               </div>
