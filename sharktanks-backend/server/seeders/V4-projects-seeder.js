@@ -460,7 +460,7 @@ module.exports = {
             categoryid: '2',
             description: 'A home delivery food service.',
             title: 'Foodal Delivery',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/51.jpg'
         },
         {
             projectid: '52', 
@@ -469,7 +469,7 @@ module.exports = {
             categoryid: '3',
             description: 'A tale of two lovers.',
             title: 'Fifty-One Percent',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/52.jpg'
         },
         {
             projectid: '53', 
@@ -478,7 +478,7 @@ module.exports = {
             categoryid: '3',
             description: 'A home delivery apparel application',
             title: 'Cloth Delivery',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/53.jpg'
         },
         {
             projectid: '54', 
@@ -487,7 +487,7 @@ module.exports = {
             categoryid: '3',
             description: 'Navigation for plebs.',
             title: 'Pilot',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/54.jpg'
         },
         {
             projectid: '55', 
@@ -496,7 +496,7 @@ module.exports = {
             categoryid: '1',
             description: 'A new way to think about animals',
             title: 'Purple Giraffe',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/55.jpg'
         },
         {
             projectid: '56', 
@@ -505,7 +505,7 @@ module.exports = {
             categoryid: '1',
             description: 'A guide to NYC',
             title: 'Sweet Taste of Liberty',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/56.jpg'
         },
         {
             projectid: '57', 
@@ -514,7 +514,7 @@ module.exports = {
             categoryid: '1',
             description: 'Ultra luxury for everyone',
             title: 'Return of the Shirt',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/57.jpg'
         },
         {
             projectid: '58', 
@@ -523,7 +523,7 @@ module.exports = {
             categoryid: '2',
             description: 'A new way to make pies',
             title: 'Slutty Pumpkin',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/58.jpg'
         },
         {
             projectid: '59', 
@@ -532,7 +532,7 @@ module.exports = {
             categoryid: '2',
             description: 'Go on dates with other couples.',
             title: 'Matchmaker',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/59.jpg'
         },
         {
             projectid: '60', 
@@ -541,7 +541,7 @@ module.exports = {
             categoryid: '2',
             description: 'Bitcoin with crypto-currency',
             title: 'The Duel',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/60.jpg'
         },
         {
             projectid: '61', 
@@ -550,7 +550,7 @@ module.exports = {
             categoryid: '3',
             description: 'Fresh turkey delivered cheap.',
             title: 'Belly Full of Turkey',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/61.jpg'
         },
         {
             projectid: '62', 
@@ -559,7 +559,7 @@ module.exports = {
             categoryid: '3',
             description: 'A home delivery apparel application',
             title: 'Cloth Delivery',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/62.jpg'
         },
         {
             projectid: '63', 
@@ -568,7 +568,7 @@ module.exports = {
             categoryid: '3',
             description: 'A quirky fashion designer outlet.',
             title: 'Quriky Fashion',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/63.jpg'
         },
         {
             projectid: '64', 
@@ -577,7 +577,7 @@ module.exports = {
             categoryid: '1',
             description: 'Pizzas with way too many pineapples.',
             title: 'The Pineapple Incident',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/64.jpg'
         },
         {
             projectid: '65', 
@@ -586,7 +586,7 @@ module.exports = {
             categoryid: '1',
             description: 'Uber for limos.',
             title: 'The Limo',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/65.jpg'
         },
         {
             projectid: '66', 
@@ -595,7 +595,7 @@ module.exports = {
             categoryid: '1',
             description: 'Meet your one true love',
             title: 'The Wedding',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/66.jpg'
         },
         {
             projectid: '67', 
@@ -604,7 +604,7 @@ module.exports = {
             categoryid: '2',
             description: 'Electronic musical instruments',
             title: 'Drumroll, Please',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/67.jpg'
         },
         {
             projectid: '68', 
@@ -613,7 +613,7 @@ module.exports = {
             categoryid: '2',
             description: 'A new Late Night Supper Franchise',
             title: 'Supper is Better',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/68.jpg'
         },
         {
             projectid: '69', 
@@ -622,7 +622,7 @@ module.exports = {
             categoryid: '2',
             description: 'A home delivery food service.',
             title: 'Foodal Delivery',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/69.jpg'
         },
         {
             projectid: '70', 
@@ -631,7 +631,7 @@ module.exports = {
             categoryid: '3',
             description: 'Zips that never break',
             title: 'Zip, Zip, Zip',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/70.jpg'
         },
         {
             projectid: '71', 
@@ -640,7 +640,7 @@ module.exports = {
             categoryid: '3',
             description: 'A home delivery apparel application',
             title: 'Cloth Delivery',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/71.jpg'
         },
         {
             projectid: '72', 
@@ -649,7 +649,7 @@ module.exports = {
             categoryid: '3',
             description: 'The IDE for sweet people',
             title: 'Cupcake',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/72.jpg'
         },
         {
             projectid: '73', 
@@ -658,7 +658,7 @@ module.exports = {
             categoryid: '1',
             description: 'A documentary about Rwanda.',
             title: 'Life Among the Gorillas',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/73.jpg'
         },
         {
             projectid: '74', 
@@ -667,7 +667,7 @@ module.exports = {
             categoryid: '1',
             description: 'A better sleep reminder',
             title: 'Nothing Good Happens After 2 A.M',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/74.jpg'
         },
         {
             projectid: '75', 
@@ -676,7 +676,7 @@ module.exports = {
             categoryid: '1',
             description: 'Law meets AR',
             title: 'Mary the Paralegal',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/75.jpg'
         },
         {
             projectid: '76', 
@@ -685,7 +685,7 @@ module.exports = {
             categoryid: '2',
             description: 'Rent clothes cheaper.',
             title: 'Best Prom Ever',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/76.jpg'
         },
         {
             projectid: '77', 
@@ -694,7 +694,7 @@ module.exports = {
             categoryid: '2',
             description: 'For the lactose intolerant.',
             title: 'Milk',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/77.jpg'
         },
         {
             projectid: '78', 
@@ -703,7 +703,7 @@ module.exports = {
             categoryid: '2',
             description: 'A diary for motivation',
             title: 'Come On',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/78.jpg'
         },
         {
             projectid: '79', 
@@ -712,7 +712,7 @@ module.exports = {
             categoryid: '3',
             description: 'A cheap apparel store.',
             title: 'Cheap Clothes',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/79.jpg'
         },
         {
             projectid: '80', 
@@ -721,7 +721,7 @@ module.exports = {
             categoryid: '3',
             description: 'Re-thinking GPS',
             title: 'Where Were We?',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/80.jpg'
         },
         {
             projectid: '81', 
@@ -730,7 +730,7 @@ module.exports = {
             categoryid: '3',
             description: 'A kids drawing book',
             title: 'The Scorpion and the Toad',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/81.jpg'
         },
         {
             projectid: '82', 
@@ -739,7 +739,7 @@ module.exports = {
             categoryid: '1',
             description: 'Restaurants serving all day breakfast.',
             title: 'Brunch',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/82.jpg'
         },
         {
             projectid: '83', 
@@ -748,16 +748,16 @@ module.exports = {
             categoryid: '1',
             description: 'Move for cheaper.',
             title: 'Moving Day',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/83.jpg'
         },
         {
             projectid: '84', 
             userid: '3',
             statusid: '3',
             categoryid: '1',
-            description: 'Girls like to have fun.',
+            description: 'Boys like to have fun.',
             title: 'Bachelor Party',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/84.jpg'
         },
         {
             projectid: '85', 
@@ -766,7 +766,7 @@ module.exports = {
             categoryid: '2',
             description: 'A new Fast Food Franchise',
             title: 'Fast Delivery',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/85.jpg'
         },
         {
             projectid: '86', 
@@ -775,7 +775,7 @@ module.exports = {
             categoryid: '2',
             description: 'Exploding friendships',
             title: 'Showdown',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/86.jpg'
         },
         {
             projectid: '87', 
@@ -784,7 +784,7 @@ module.exports = {
             categoryid: '2',
             description: 'Reducing waste',
             title: 'Something borrowed',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/87.jpg'
         },
         {
             projectid: '88', 
@@ -793,7 +793,7 @@ module.exports = {
             categoryid: '3',
             description: 'Diving lessons for kids',
             title: 'Something blue',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/88.jpg'
         },
         {
             projectid: '89', 
@@ -802,16 +802,16 @@ module.exports = {
             categoryid: '3',
             description: 'Track your online purchases',
             title: 'Wait for it',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/89.jpg'
         },
         {
             projectid: '90', 
             userid: '9',
             statusid: '3',
             categoryid: '3',
-            description: 'A quirky fashion designer outlet.',
-            title: 'Quriky Fashion',
-            url: '../../../../Resources/projectImages/default.jpg'
+            description: 'AR meets dancing',
+            title: 'Dance with you',
+            url: '/img/projectImages/90.jpg'
         },
         {
             projectid: '91', 
@@ -820,7 +820,7 @@ module.exports = {
             categoryid: '1',
             description: 'Date ideas that include your annoying best friend.',
             title: 'Third wheel',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/91.jpg'
         },
         {
             projectid: '92', 
@@ -829,7 +829,7 @@ module.exports = {
             categoryid: '1',
             description: 'Using AI to filter out spoilers',
             title: 'Spoiler Alert',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/92.jpg'
         },
         {
             projectid: '93', 
@@ -838,7 +838,7 @@ module.exports = {
             categoryid: '1',
             description: 'Better than the golden rule',
             title: 'The Platinum Rule',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/93.jpg'
         },
         {
             projectid: '94', 
@@ -847,7 +847,7 @@ module.exports = {
             categoryid: '2',
             description: 'YOLO',
             title: 'No Tomorrow',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/94.jpg'
         },
         {
             projectid: '95', 
@@ -856,25 +856,25 @@ module.exports = {
             categoryid: '2',
             description: 'Massages for couples.',
             title: 'Ten Sessions',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/95.jpg'
         },
         {
             projectid: '96', 
             userid: '6',
             statusid: '3',
             categoryid: '2',
-            description: 'A home delivery food service.',
-            title: 'Foodal Delivery',
-            url: '../../../../Resources/projectImages/default.jpg'
+            description: 'Secret recipes for great food',
+            title: 'Foodiculous',
+            url: '/img/projectImages/96.jpg'
         },
         {
             projectid: '97', 
             userid: '7',
             statusid: '1',
             categoryid: '3',
-            description: 'A cheap apparel store.',
-            title: 'Cheap Clothes',
-            url: '../../../../Resources/projectImages/default.jpg'
+            description: 'Book rides, pay by bitcoin',
+            title: 'Blocktaxi',
+            url: '/img/projectImages/97.jpg'
         },
         {
             projectid: '98', 
@@ -883,7 +883,7 @@ module.exports = {
             categoryid: '3',
             description: 'AI meets text editors.',
             title: 'The Bracket',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/98.jpg'
         },
         {
             projectid: '99', 
@@ -892,7 +892,7 @@ module.exports = {
             categoryid: '3',
             description: 'Rent farm animals for parties.',
             title: 'The Goat',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/99.jpg'
         },
         {
             projectid: '100', 
@@ -901,7 +901,7 @@ module.exports = {
             categoryid: '1',
             description: 'Better believe it.',
             title: 'Miracles',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/100.jpg'
         }
         ], {});
   },
