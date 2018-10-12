@@ -161,6 +161,19 @@ exports.searchByUser = function(userId, role) {
 							});
 };
 
+// Gives all the projects associated with particular keyword(s)
+exports.searchByKeyword = function(words) {
+	var wordsToQuery = words;
+	return db.sequelize.query("SELECT p1.projectID, p1.userID, p1.statusID, p1.categoryID, p1.description, p1.title, p1.duration, p1.startDate" +
+							   " FROM projects p1" +
+							   " WHERE p1.description LIKE '%words%' OR " +
+							   		  "p1.title LIKE '%words%'"),
+								{type: db.sequelilze.QueryTypes.SELECT})
+						.then((data) => {
+							return data;
+						});
+};
+
 // Gives all the projects in the DB.
 exports.searchAllProjects = function() {
 	return db.sequelize.query("SELECT p1.description, p1.title, k1.words, u1.name, c1.name, p1.projectID, p1.url, SUM (d1.amount)" +
@@ -175,4 +188,28 @@ exports.searchAllProjects = function() {
 						.then((data) => {
 								return data;
 							});
+};
+
+// Gives project with highest funding
+exports.highestFunding = function() {
+	return db.sequelize.query("SELECT p1.title" +
+							   " FROM project p1, donations d1" +
+							   " WHERE p1.projectID = d1.projectID" +
+							   " GROUP BY d1.projectID" +
+							   " HAVING MAX(d1.amount)",
+							   {type: db.sequelize.QueryTypes.SELECT})
+						.then((data) => {
+							return data;
+						});
+};
+
+// Gives all projects and their current funding
+exports.allFunding = function() {
+	return db.sequelize.query("SELECT p1.title, SUM(d1.amount)" +
+							   " FROM project p1 LEFT OUTER JOIN donations d1 ON p1.projectID = d1.projectID" +
+							   " GROUP BY d1.projectID",
+							   {type: db.sequelize.QueryTypes.SELECT})
+						.then((data) => {
+							return data;
+						});
 };

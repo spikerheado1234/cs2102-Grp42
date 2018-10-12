@@ -81,7 +81,7 @@ module.exports = {
             statusid: '3',
             categoryid: '3',
             description: 'A quirky fashion designer outlet.',
-            title: 'Quriky Fashion',
+            title: 'Quirky Fashion',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -89,8 +89,8 @@ module.exports = {
             userid: '1',
             statusid: '1',
             categoryid: '1',
-            description: 'An AI chatbot to distrupt fake news.',
-            title: 'AI Hype Lordz',
+            description: 'Better Coffee',
+            title: 'Coffee Man',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -98,8 +98,8 @@ module.exports = {
             userid: '2',
             statusid: '2',
             categoryid: '1',
-            description: 'An Augmented Reality World Like no Other!',
-            title: 'AR Hype Lordz',
+            description: 'Pay by the slice.',
+            title: 'Pizza God',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -107,8 +107,8 @@ module.exports = {
             userid: '3',
             statusid: '3',
             categoryid: '1',
-            description: 'A crypto-currency exchange!',
-            title: 'Crypto Hype Lordz',
+            description: 'The fun game for evil pals.',
+            title: 'Devil Hands',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -116,8 +116,8 @@ module.exports = {
             userid: '4',
             statusid: '1',
             categoryid: '2',
-            description: 'A new Fast Food Franchise',
-            title: 'Fast Delivery',
+            description: 'A game of planning',
+            title: 'Minimum Viable Product',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -125,8 +125,8 @@ module.exports = {
             userid: '5',
             statusid: '2',
             categoryid: '2',
-            description: 'A new Late Night Supper Franchise',
-            title: 'Supper is Better',
+            description: 'A fun new way to learn about economics.',
+            title: 'The Cap Table',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -134,8 +134,8 @@ module.exports = {
             userid: '6',
             statusid: '3',
             categoryid: '2',
-            description: 'A home delivery food service.',
-            title: 'Foodal Delivery',
+            description: 'A taste of the real world.',
+            title: 'Articles of Incorporation',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -143,8 +143,8 @@ module.exports = {
             userid: '7',
             statusid: '1',
             categoryid: '3',
-            description: 'A cheap apparel store.',
-            title: 'Cheap Clothes',
+            description: 'A novel for kids',
+            title: 'Proof of Concept',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -152,8 +152,8 @@ module.exports = {
             userid: '8',
             statusid: '2',
             categoryid: '3',
-            description: 'A home delivery apparel application',
-            title: 'Cloth Delivery',
+            description: 'Fun projects for kids',
+            title: 'Sand Hill Shuffle',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -161,8 +161,8 @@ module.exports = {
             userid: '9',
             statusid: '3',
             categoryid: '3',
-            description: 'A quirky fashion designer outlet.',
-            title: 'Quriky Fashion',
+            description: 'Like monopoly but more fun.',
+            title: 'Bad Money',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -170,8 +170,8 @@ module.exports = {
             userid: '1',
             statusid: '1',
             categoryid: '1',
-            description: 'An AI chatbot to distrupt fake news.',
-            title: 'AI Hype Lordz',
+            description: 'A chatbot exclusively for women',
+            title: 'The Lady',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -179,8 +179,8 @@ module.exports = {
             userid: '2',
             statusid: '2',
             categoryid: '1',
-            description: 'An Augmented Reality World Like no Other!',
-            title: 'AR Hype Lordz',
+            description: 'A better way to organise your data',
+            title: 'Server Space',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -188,8 +188,8 @@ module.exports = {
             userid: '3',
             statusid: '3',
             categoryid: '1',
-            description: 'A crypto-currency exchange!',
-            title: 'Crypto Hype Lordz',
+            description: 'Trust no one in this game',
+            title: 'Homicide',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -197,8 +197,8 @@ module.exports = {
             userid: '4',
             statusid: '1',
             categoryid: '2',
-            description: 'A new Fast Food Franchise',
-            title: 'Fast Delivery',
+            description: 'Notes on how to pitch',
+            title: 'Founder Friendly',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -206,8 +206,8 @@ module.exports = {
             userid: '5',
             statusid: '2',
             categoryid: '2',
-            description: 'A new Late Night Supper Franchise',
-            title: 'Supper is Better',
+            description: 'A bagpack for programmers',
+            title: 'Meinertzhagen Haversack',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -215,8 +215,8 @@ module.exports = {
             userid: '6',
             statusid: '3',
             categoryid: '2',
-            description: 'A home delivery food service.',
-            title: 'Foodal Delivery',
+            description: 'A new bar concept.',
+            title: 'The Empty Chair',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -224,8 +224,8 @@ module.exports = {
             userid: '7',
             statusid: '1',
             categoryid: '3',
-            description: 'A cheap apparel store.',
-            title: 'Cheap Clothes',
+            description: 'Services for engineers',
+            title: 'To Build a Better Beta',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -233,8 +233,8 @@ module.exports = {
             userid: '8',
             statusid: '2',
             categoryid: '3',
-            description: 'A home delivery apparel application',
-            title: 'Cloth Delivery',
+            description: 'Metadata Assistant',
+            title: 'Daily Active Users',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -242,8 +242,8 @@ module.exports = {
             userid: '9',
             statusid: '3',
             categoryid: '3',
-            description: 'A quirky fashion designer outlet.',
-            title: 'Quriky Fashion',
+            description: 'A clock for modern men',
+            title: 'The Uptick',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -251,8 +251,8 @@ module.exports = {
             userid: '1',
             statusid: '1',
             categoryid: '1',
-            description: 'An AI chatbot to distrupt fake news.',
-            title: 'AI Hype Lordz',
+            description: 'High quality, organic cotton clothes',
+            title: 'Success Failure',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -260,8 +260,8 @@ module.exports = {
             userid: '2',
             statusid: '2',
             categoryid: '1',
-            description: 'An Augmented Reality World Like no Other!',
-            title: 'AR Hype Lordz',
+            description: 'Your virtual lawyer assistant',
+            title: 'Terms of Service',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -278,8 +278,8 @@ module.exports = {
             userid: '4',
             statusid: '1',
             categoryid: '2',
-            description: 'A new Fast Food Franchise',
-            title: 'Fast Delivery',
+            description: 'Help for start-ups',
+            title: 'Intellectual Property',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -287,8 +287,8 @@ module.exports = {
             userid: '5',
             statusid: '2',
             categoryid: '2',
-            description: 'A new Late Night Supper Franchise',
-            title: 'Supper is Better',
+            description: '',
+            title: 'Teambuilding Exercise',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -305,8 +305,8 @@ module.exports = {
             userid: '7',
             statusid: '1',
             categoryid: '3',
-            description: 'A cheap apparel store.',
-            title: 'Cheap Clothes',
+            description: 'A game for the bloodthirsty.',
+            title: 'The Blood Boy',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -332,8 +332,8 @@ module.exports = {
             userid: '1',
             statusid: '1',
             categoryid: '1',
-            description: 'An AI chatbot to distrupt fake news.',
-            title: 'AI Hype Lordz',
+            description: 'Online help for cheap.',
+            title: 'Customer Services',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -350,8 +350,8 @@ module.exports = {
             userid: '3',
             statusid: '3',
             categoryid: '1',
-            description: 'A crypto-currency exchange!',
-            title: 'Crypto Hype Lordz',
+            description: 'An open online database of patents',
+            title: 'The Patent Troll',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -359,8 +359,8 @@ module.exports = {
             userid: '4',
             statusid: '1',
             categoryid: '2',
-            description: 'A new Fast Food Franchise',
-            title: 'Fast Delivery',
+            description: 'Rethinking error handling for clients.',
+            title: 'Server Error',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -386,8 +386,8 @@ module.exports = {
             userid: '7',
             statusid: '1',
             categoryid: '3',
-            description: 'A cheap apparel store.',
-            title: 'Cheap Clothes',
+            description: 'Organic seeds for garden lovers.',
+            title: 'Grow Fast or Die Slow',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -404,8 +404,8 @@ module.exports = {
             userid: '9',
             statusid: '3',
             categoryid: '3',
-            description: 'A quirky fashion designer outlet.',
-            title: 'Quriky Fashion',
+            description: 'A compass for travelers.',
+            title: 'Reorientation',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -413,8 +413,8 @@ module.exports = {
             userid: '1',
             statusid: '1',
             categoryid: '1',
-            description: 'An AI chatbot to distrupt fake news.',
-            title: 'AI Hype Lordz',
+            description: 'A role playing game for executives',
+            title: 'Chief Operating Officer',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -422,8 +422,8 @@ module.exports = {
             userid: '2',
             statusid: '2',
             categoryid: '1',
-            description: 'An Augmented Reality World Like no Other!',
-            title: 'AR Hype Lordz',
+            description: 'A magazine for the tech savvy.',
+            title: 'Tech Evangelist',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -431,8 +431,8 @@ module.exports = {
             userid: '3',
             statusid: '3',
             categoryid: '1',
-            description: 'A crypto-currency exchange!',
-            title: 'Crypto Hype Lordz',
+            description: 'IOT sensors for cheap',
+            title: 'Facial Recognition',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -440,8 +440,8 @@ module.exports = {
             userid: '4',
             statusid: '1',
             categoryid: '2',
-            description: 'A new Fast Food Franchise',
-            title: 'Fast Delivery',
+            description: 'Your AI psychologist',
+            title: 'Artificial Emotional Intelligence',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
@@ -449,8 +449,8 @@ module.exports = {
             userid: '5',
             statusid: '2',
             categoryid: '2',
-            description: 'A new Late Night Supper Franchise',
-            title: 'Supper is Better',
+            description: 'Launch your personal crypto-currency',
+            title: 'Initial Coin Offering',
             url: '../../../../Resources/projectImages/default.jpg'
         },
         {
