@@ -12,6 +12,14 @@ const mapStateToProps = state => {
 };
 
 class SingleProduct extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      investValue: 0
+    }
+  }
+
   componentDidMount() {
     // TODO MUST FIX THIS.
     console.log("This is being called");
@@ -20,8 +28,7 @@ class SingleProduct extends Component {
         projectId: this.props.router.location.pathname.slice(9)
       }
     }).then(res => {
-      this.props.moneyInvested = res.data.amount;
-      console.log(res.data.amount);
+      this.setState({investValue: res.data[0].sum});
     });
   }
   render() {
@@ -59,6 +66,11 @@ class SingleProduct extends Component {
       });
     }
 
+    var changeAmount = (quantity) => {
+      var newValue = parseInt(this.state.investValue, 10) + parseInt(quantity, 10);
+      this.setState({investValue: newValue});
+    }
+
     var background = product.background_colour;
 
     function isThereACurrencyPrice() {
@@ -85,7 +97,7 @@ class SingleProduct extends Component {
         <div>
           {product.words.map(function(elem) {
             return (
-              <div style={{ display: 'inline' }} class="tag">
+              <div style={{ display: 'inline' }} className="tag">
                 {elem}{' '}
               </div>
             );
@@ -142,6 +154,7 @@ class SingleProduct extends Component {
                     onClick={e => {
                       console.log(this.props.product.quantity);
                       persistAmount(this.props.product.quantity);
+                      changeAmount(this.props.product.quantity);
                       e.preventDefault();
                     }}>
                     Invest
@@ -168,7 +181,7 @@ class SingleProduct extends Component {
 
                   <div className="row">
                     <div className="label"> Money Raised </div>
-                    <div className="value">{product.sum}</div>
+                    <div className="value">{this.state.investValue}</div>
                   </div>
                 </div>
               </div>

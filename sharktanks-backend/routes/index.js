@@ -62,9 +62,9 @@ router.post('/giveDonation', function(req, res, next) {
 });
 
 // Get the total amount a project has in funding.
-router.get('/getFunding/:id', function(req, res, next) {
-	console.log('This is being executed');
-	indexController.getFunding(req.params['projectId'])
+router.get('/getFunding/', function(req, res, next) {
+	console.log(req.query);
+	indexController.getFunding(req.query['projectId'])
 					.then((data) => {
 						res.send(data);
 					})
