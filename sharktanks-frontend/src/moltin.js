@@ -13,29 +13,6 @@ const Moltin = MoltinGateway({
 });
 
 export const GetProducts = () => {
-  // return Promise.resolve({
-  //   data: [
-  //     {
-  //       projectID: 'productid1',
-  //       userID: 'userID1',
-  //       statusID: 'statusID1',
-  //       categoryID: 'categoryID1',
-  //       description: 'description1',
-  //       title: 'title1',
-  //       tags: ['AI', 'Machine Learning', 'Magic']
-  //     },
-
-  //     {
-  //       projectID: 'productid2',
-  //       userID: 'userID2',
-  //       statusID: 'statusID2',
-  //       categoryID: 'categoryID2',
-  //       description: 'description2',
-  //       title: 'title2',
-  //       tags: ['AI', 'Machine Learning', 'Magic']
-  //     }
-  //   ]
-  // });
   return axios.get('http://localhost:8080/allProjects');
 };
 
