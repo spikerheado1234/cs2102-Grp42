@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import HeaderNav from '../global/HeaderNav';
-import * as Header from '../../assets/img/headers/header.png';
+// import * as Header from '../../assets/img/headers/header.png';
+import * as Header from './home-page.png';
 
 var HeaderStyle = {
   backgroundImage: `url(${Header})`,
@@ -19,7 +20,6 @@ const HomeHeader = props => (
 
     <div className="header-container">
       <div className="content">
-        <h1>We give you a chance.</h1>
         <Link to="/products" className="btn">
           Login
         </Link>
