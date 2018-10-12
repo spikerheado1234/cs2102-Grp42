@@ -458,8 +458,8 @@ module.exports = {
             userid: '6',
             statusid: '3',
             categoryid: '2',
-            description: 'A home delivery food service.',
-            title: 'Foodal Delivery',
+            description: 'A home delivery service for toys.',
+            title: 'totToy Delivery',
             url: '/img/projectImages/51.jpg'
         },
         {
@@ -476,8 +476,8 @@ module.exports = {
             userid: '8',
             statusid: '2',
             categoryid: '3',
-            description: 'A home delivery apparel application',
-            title: 'Cloth Delivery',
+            description: 'A personal assistant application',
+            title: 'Chijves',
             url: '/img/projectImages/53.jpg'
         },
         {
@@ -539,7 +539,7 @@ module.exports = {
             userid: '6',
             statusid: '3',
             categoryid: '2',
-            description: 'Bitcoin with crypto-currency',
+            description: 'Game of Bitcoins',
             title: 'The Duel',
             url: '/img/projectImages/60.jpg'
         },
@@ -557,8 +557,8 @@ module.exports = {
             userid: '8',
             statusid: '2',
             categoryid: '3',
-            description: 'A home delivery apparel application',
-            title: 'Cloth Delivery',
+            description: 'Look suave everyday',
+            title: 'Razor Delivery',
             url: '/img/projectImages/62.jpg'
         },
         {
@@ -566,8 +566,8 @@ module.exports = {
             userid: '9',
             statusid: '3',
             categoryid: '3',
-            description: 'A quirky fashion designer outlet.',
-            title: 'Quriky Fashion',
+            description: 'Protein for teens.',
+            title: 'Proteen',
             url: '/img/projectImages/63.jpg'
         },
         {
@@ -611,8 +611,8 @@ module.exports = {
             userid: '5',
             statusid: '2',
             categoryid: '2',
-            description: 'A new Late Night Supper Franchise',
-            title: 'Supper is Better',
+            description: 'A new early morning breakfast delivery',
+            title: 'Fast Break',
             url: '/img/projectImages/68.jpg'
         },
         {
@@ -620,8 +620,8 @@ module.exports = {
             userid: '6',
             statusid: '3',
             categoryid: '2',
-            description: 'A home delivery food service.',
-            title: 'Foodal Delivery',
+            description: 'Tinder for jobs.',
+            title: 'proTinder+',
             url: '/img/projectImages/69.jpg'
         },
         {
@@ -638,8 +638,8 @@ module.exports = {
             userid: '8',
             statusid: '2',
             categoryid: '3',
-            description: 'A home delivery apparel application',
-            title: 'Cloth Delivery',
+            description: 'Git for research papers',
+            title: 'GitRekt',
             url: '/img/projectImages/71.jpg'
         },
         {
