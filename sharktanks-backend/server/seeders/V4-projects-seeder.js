@@ -10,7 +10,7 @@ module.exports = {
             categoryid: '1',
             description: 'An AI chatbot to distrupt fake news.',
             title: 'AI Hype Lordz',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '2', 
@@ -19,7 +19,7 @@ module.exports = {
             categoryid: '1',
             description: 'An Augmented Reality World Like no Other!',
             title: 'AR Hype Lordz',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '3', 
@@ -28,7 +28,7 @@ module.exports = {
             categoryid: '1',
             description: 'A crypto-currency exchange!',
             title: 'Crypto Hype Lordz',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '4', 
@@ -37,7 +37,7 @@ module.exports = {
             categoryid: '2',
             description: 'A new Fast Food Franchise',
             title: 'Fast Delivery',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '5', 
@@ -46,7 +46,7 @@ module.exports = {
             categoryid: '2',
             description: 'A new Late Night Supper Franchise',
             title: 'Supper is Better',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '6', 
@@ -55,7 +55,7 @@ module.exports = {
             categoryid: '2',
             description: 'A home delivery food service.',
             title: 'Foodal Delivery',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '7', 
@@ -64,7 +64,7 @@ module.exports = {
             categoryid: '3',
             description: 'A cheap apparel store.',
             title: 'Cheap Clothes',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '8', 
@@ -73,7 +73,7 @@ module.exports = {
             categoryid: '3',
             description: 'A home delivery apparel application',
             title: 'Cloth Delivery',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '9', 
@@ -82,7 +82,7 @@ module.exports = {
             categoryid: '3',
             description: 'A quirky fashion designer outlet.',
             title: 'Quirky Fashion',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '10', 
@@ -91,7 +91,7 @@ module.exports = {
             categoryid: '1',
             description: 'Better Coffee',
             title: 'Coffee Man',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '11', 
@@ -100,7 +100,7 @@ module.exports = {
             categoryid: '1',
             description: 'Pay by the slice.',
             title: 'Pizza God',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '12', 
@@ -109,7 +109,7 @@ module.exports = {
             categoryid: '1',
             description: 'The fun game for evil pals.',
             title: 'Devil Hands',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '13', 
@@ -118,7 +118,7 @@ module.exports = {
             categoryid: '2',
             description: 'A game of planning',
             title: 'Minimum Viable Product',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '14', 
@@ -127,7 +127,7 @@ module.exports = {
             categoryid: '2',
             description: 'A fun new way to learn about economics.',
             title: 'The Cap Table',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '15', 
@@ -136,7 +136,7 @@ module.exports = {
             categoryid: '2',
             description: 'A taste of the real world.',
             title: 'Articles of Incorporation',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '16', 
@@ -145,7 +145,7 @@ module.exports = {
             categoryid: '3',
             description: 'A novel for kids',
             title: 'Proof of Concept',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '17', 
@@ -154,7 +154,7 @@ module.exports = {
             categoryid: '3',
             description: 'Fun projects for kids',
             title: 'Sand Hill Shuffle',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '18', 
@@ -163,7 +163,7 @@ module.exports = {
             categoryid: '3',
             description: 'Like monopoly but more fun.',
             title: 'Bad Money',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '19', 
@@ -172,7 +172,7 @@ module.exports = {
             categoryid: '1',
             description: 'A chatbot exclusively for women',
             title: 'The Lady',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '20', 
@@ -181,7 +181,7 @@ module.exports = {
             categoryid: '1',
             description: 'A better way to organise your data',
             title: 'Server Space',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '21', 
@@ -190,7 +190,7 @@ module.exports = {
             categoryid: '1',
             description: 'Trust no one in this game',
             title: 'Homicide',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '22', 
@@ -199,7 +199,7 @@ module.exports = {
             categoryid: '2',
             description: 'Notes on how to pitch',
             title: 'Founder Friendly',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '23', 
@@ -208,7 +208,7 @@ module.exports = {
             categoryid: '2',
             description: 'A bagpack for programmers',
             title: 'Meinertzhagen Haversack',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '24', 
@@ -217,7 +217,7 @@ module.exports = {
             categoryid: '2',
             description: 'A new bar concept.',
             title: 'The Empty Chair',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '25', 
@@ -226,7 +226,7 @@ module.exports = {
             categoryid: '3',
             description: 'Services for engineers',
             title: 'To Build a Better Beta',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '26', 
@@ -235,7 +235,7 @@ module.exports = {
             categoryid: '3',
             description: 'Metadata Assistant',
             title: 'Daily Active Users',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '27', 
@@ -244,7 +244,7 @@ module.exports = {
             categoryid: '3',
             description: 'A clock for modern men',
             title: 'The Uptick',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '28', 
@@ -253,7 +253,7 @@ module.exports = {
             categoryid: '1',
             description: 'High quality, organic cotton clothes',
             title: 'Success Failure',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '29', 
@@ -262,7 +262,7 @@ module.exports = {
             categoryid: '1',
             description: 'Your virtual lawyer assistant',
             title: 'Terms of Service',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '30', 
@@ -271,7 +271,7 @@ module.exports = {
             categoryid: '1',
             description: 'A crypto-currency exchange!',
             title: 'Crypto Hype Lordz',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '31', 
@@ -280,7 +280,7 @@ module.exports = {
             categoryid: '2',
             description: 'Help for start-ups',
             title: 'Intellectual Property',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '32', 
@@ -289,7 +289,7 @@ module.exports = {
             categoryid: '2',
             description: '',
             title: 'Teambuilding Exercise',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '33', 
@@ -298,7 +298,7 @@ module.exports = {
             categoryid: '2',
             description: 'A home delivery food service.',
             title: 'Foodal Delivery',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '34', 
@@ -307,7 +307,7 @@ module.exports = {
             categoryid: '3',
             description: 'A game for the bloodthirsty.',
             title: 'The Blood Boy',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '35', 
@@ -316,7 +316,7 @@ module.exports = {
             categoryid: '3',
             description: 'A home delivery apparel application',
             title: 'Cloth Delivery',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '36', 
@@ -325,7 +325,7 @@ module.exports = {
             categoryid: '3',
             description: 'A quirky fashion designer outlet.',
             title: 'Quriky Fashion',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '37', 
@@ -334,7 +334,7 @@ module.exports = {
             categoryid: '1',
             description: 'Online help for cheap.',
             title: 'Customer Services',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '38', 
@@ -343,7 +343,7 @@ module.exports = {
             categoryid: '1',
             description: 'An Augmented Reality World Like no Other!',
             title: 'AR Hype Lordz',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '39', 
@@ -352,7 +352,7 @@ module.exports = {
             categoryid: '1',
             description: 'An open online database of patents',
             title: 'The Patent Troll',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '40', 
@@ -361,7 +361,7 @@ module.exports = {
             categoryid: '2',
             description: 'Rethinking error handling for clients.',
             title: 'Server Error',
-            url: '../../../../Resources/projectImages/default.jpg'
+            url: '/img/projectImages/default.jpg'
         },
         {
             projectid: '41', 

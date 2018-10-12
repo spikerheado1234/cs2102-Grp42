@@ -167,7 +167,7 @@ exports.searchByKeyword = function(words) {
 	return db.sequelize.query("SELECT p1.projectID, p1.userID, p1.statusID, p1.categoryID, p1.description, p1.title, p1.duration, p1.startDate" +
 							   " FROM projects p1" +
 							   " WHERE p1.description LIKE '%words%' OR " +
-							   		  "p1.title LIKE '%words%'"),
+							   		  "p1.title LIKE '%words%'",
 								{type: db.sequelilze.QueryTypes.SELECT})
 						.then((data) => {
 							return data;

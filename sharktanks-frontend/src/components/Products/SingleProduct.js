@@ -12,6 +12,18 @@ const mapStateToProps = state => {
 };
 
 class SingleProduct extends Component {
+  componentDidMount() {
+    // TODO MUST FIX THIS.
+    console.log("This is being called");
+    axios.get('http://localhost:8080/getFunding/', {
+      params : {
+        projectId: this.props.router.location.pathname.slice(9)
+      }
+    }).then(res => {
+      this.props.moneyInvested = res.data.amount;
+      console.log(res.data.amount);
+    });
+  }
   render() {
     var products = this.props.products.products;
     // The id is null for some reason. Must fix. 
@@ -156,7 +168,7 @@ class SingleProduct extends Component {
 
                   <div className="row">
                     <div className="label"> Money Raised </div>
-                    <div className="value"></div>
+                    <div className="value">{product.sum}</div>
                   </div>
                 </div>
               </div>
