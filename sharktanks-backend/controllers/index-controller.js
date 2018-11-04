@@ -17,16 +17,17 @@ exports.createUser = function(name, emailAddress, role, password) {
 	var emailAddressToInsert = emailAddress;
 	var roleToInsert = role;
 	var passwordToInsert = password;
-	return db.sequelize.query("INSERT INTO users(emailAddress, userID, name, role, password) VALUES(:emailAddress, :userID, :name, :role, :password)",
+	return db.sequelize.query("SELECT MAX(u1.userid) FROM users u1", {type: db.sequelize.QueryTypes.SELECT})
+							.then((data) => {
+								var userIdToInsert = data[0].max + 1;
+								return db.sequelize.query("INSERT INTO users(emailAddress, name, role, password, userid) VALUES(:emailAddress, :name, :role, :password, :userid)",
 								{replacements: {emailAddress: emailAddressToInsert,
-												userID: currUserId,
 												name: nameToInsert,
 												role: roleToInsert,
-												password: passwordToInsert},
+												password: passwordToInsert,
+												userid: userIdToInsert},
 								 type: db.sequelize.QueryTypes.INSERT})
-								.then((data) => {
-									return data;
-								});
+							});
 };
 
 // Creates a new project within a db.
@@ -38,19 +39,22 @@ exports.createProject = function(title, duration, description, startDate, status
 	var startDateToInsert = startDate;
 	var statusIdToInsert = statusID;
 	var userIdToInsert = userID;
-	var userRoleToInsert = userRole;
-	var keyWordsToInsert = keyWords;
 	var categoryIdToInsert = categoryID;
-	return db.sequelize.query("INSERT INTO project(projectID, userID, statusID, description, title, duration, startDate)" +
-								 " VALUES(:projectId, :userId, :statusId, :description, :title, :duration, :startDate)",
-								 {replacements: {projectId: currProjectId,
-								 				 userId: userIdToInsert,
-								 				 statusId: statusIdToInsert, 
-								 				 description: descriptionToInsert, 
-								 				 title: titleToInsert, 
-								 				 duration: durationToInsert, 
-								 				 startDate: startDateToInsert},
-								 				 type: db.sequelize.QueryTypes.INSERT})
+	return db.sequelize.query("SELECT MAX(p1.projectid) FROM project p1", {type: db.sequelize.QueryTypes.SELECT})
+						.then((data) => {
+							var projectIdToInsert = data[0].max + 1;
+							return db.sequelize.query("INSERT INTO project(projectid, userid, statusid, description, title, duration, startdate, categoryid)" +
+							" VALUES(:projectId, :userId, :statusId, :description, :title, :duration, :startDate, :categoryId)",
+							{replacements: {projectId: projectIdToInsert,
+											 userId: userIdToInsert,
+											 statusId: statusIdToInsert, 
+											 description: descriptionToInsert, 
+											 title: titleToInsert, 
+											 duration: durationToInsert, 
+											 startDate: startDateToInsert,
+											categoryId: categoryIdToInsert},
+											 type: db.sequelize.QueryTypes.INSERT})
+						})
 								.then((data) => {
 									return data;
 								});
