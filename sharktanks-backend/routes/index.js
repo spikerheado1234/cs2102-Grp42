@@ -110,4 +110,17 @@ router.get('/allProjects', function(req, res, next) {
 					});
 });
 
+router.post('/login', function(req, res, next) {
+	indexController.login(req.body.emailAddress, req.body.password)
+					.then((data) => {
+						if (data.length == 0) { // If emailaddress, password doesn't match.
+							res.send({ok: false});
+						}
+						res.send({ok:true});
+					})
+					.catch((error) => {
+						res.send({ok: false});
+					})
+});
+
 module.exports = router;

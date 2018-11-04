@@ -213,3 +213,16 @@ exports.allFunding = function() {
 							return data;
 						});
 };
+
+exports.login = function(emailAddress, password) {
+	var emailAddressToQuery = emailAddress;
+	var passwordToQuery = password;
+	return db.sequelize.query("SELECT u1.emailAddress, u1.password " + 
+							   "FROM users u1 " +  
+							   "WHERE u1.emailAddress = :emailAddress AND u1.password = :password", 
+							   {replacements: {emailAddress: emailAddressToQuery, password: passwordToQuery},
+								type: db.sequelize.QueryTypes.SELECT})
+						.then((data) => {
+							return data;
+						});
+}
