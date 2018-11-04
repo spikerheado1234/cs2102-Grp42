@@ -3,43 +3,43 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('categories', [{
-        categoryid: '1',
+        categoryid: 1,
         name: 'Technology'
     },
     {
-        categoryid: '2',
+        categoryid: 2,
         name: 'Food and Beverages'
     },
     {
-        categoryid: '3',
+        categoryid: 3,
         name: 'Clothing and Aparel'
     },
     {
-        categoryid: '4',
+        categoryid: 4,
         name: 'Art'
     },
     {
-        categoryid: '5',
+        categoryid: 5,
         name: 'Music'
     },
     {
-        categoryid: '6',
+        categoryid: 6,
         name: 'Publishing'
     },
     {
-        categoryid: '7',
+        categoryid: 7,
         name: 'Games'
     },
     {
-        categoryid: '8',
+        categoryid: 8,
         name: 'Sports and Fitness'
     },
     {
-        categoryid: '9',
+        categoryid: 9,
         name: 'Toys'
     },
     {
-        categoryid: '10',
+        categoryid: 10,
         name: 'Miscellaneous'
     }], {});
   },

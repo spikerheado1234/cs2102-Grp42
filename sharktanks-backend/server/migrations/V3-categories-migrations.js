@@ -3,7 +3,7 @@
 module.exports = {
 	up : (queryInterface, Sequelize) => {
 		queryInterface.sequelize.query("CREATE TABLE categories(\
-			categoryID VARCHAR(120) PRIMARY KEY,\
+			categoryID NUMERIC PRIMARY KEY,\
 			name VARCHAR(120) NOT NULL)");
 	},
 	down: (queryInterface) => {

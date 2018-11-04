@@ -3,8 +3,8 @@
 module.exports = {
 	up : (queryInterface, Sequelize) => {
 		queryInterface.sequelize.query("CREATE TABLE keywords(\
-			projectID VARCHAR(120) REFERENCES project(projectID),\
-			keywordID VARCHAR(120),\
+			projectID NUMERIC REFERENCES project(projectID),\
+			keywordID NUMERIC,\
 			words VARCHAR(200),\
 			PRIMARY KEY(projectID, keywordID))");
 	},
