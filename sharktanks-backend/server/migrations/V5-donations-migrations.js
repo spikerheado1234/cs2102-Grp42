@@ -3,9 +3,9 @@
 module.exports = {
 	up : (queryInterface, Sequelize) => {
 		queryInterface.sequelize.query("CREATE TABLE donations(\
-			donationID NUMERIC(120) PRIMARY KEY,\
+			donationID NUMERIC PRIMARY KEY,\
 			projectID NUMERIC REFERENCES project(projectID),\
-			userID VARCHAR(120) REFERENCES users(userID),\
+			userID NUMERIC REFERENCES users(userID),\
 			amount NUMERIC NOT NULL)");
 	},
 	down: (queryInterface) => {

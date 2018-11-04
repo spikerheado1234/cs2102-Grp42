@@ -114,12 +114,12 @@ router.post('/login', function(req, res, next) {
 	indexController.login(req.body.emailAddress, req.body.password)
 					.then((data) => {
 						if (data.length == 0) { // If emailaddress, password doesn't match.
-							res.send({ok: false});
+							res.send({code: 204});
 						}
-						res.send({ok:true});
+						res.send({code: 200});
 					})
 					.catch((error) => {
-						res.send({ok: false});
+						res.send({code: 205});
 					})
 });
 
