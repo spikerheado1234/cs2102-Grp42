@@ -1,7 +1,4 @@
 var db = require("../server/models/index.js");
-var currUserId = 0; // Last Value Assigned to a user.
-var currProjectId = 0; // Last Value Assigned to a project.
-var currDonationId = 0; // Last Value Assigned to a donation.
 
 /* For pre-alpha demonstration only, to be deleted afterwards. */
 exports.dataList = function(statusId) {
@@ -14,12 +11,12 @@ exports.dataList = function(statusId) {
 
 // Creates a new user  with a particular role, emailAddress, password
 // and name within the db. 
+// trigger updateUserId for tablesID
 exports.createUser = function(name, emailAddress, role, password) {
 	var nameToInsert = name;
 	var emailAddressToInsert = emailAddress;
 	var roleToInsert = role;
 	var passwordToInsert = password;
-	currUserId++;
 	return db.sequelize.query("INSERT INTO users(emailAddress, userID, name, role, password) VALUES(:emailAddress, :userID, :name, :role, :password)",
 								{replacements: {emailAddress: emailAddressToInsert,
 												userID: currUserId,
@@ -33,6 +30,7 @@ exports.createUser = function(name, emailAddress, role, password) {
 };
 
 // Creates a new project within a db.
+// trigger updateProjectId for tablesID
 exports.createProject = function(title, duration, description, startDate, statusID, userID, userRole, keyWords, categoryID) {
 	var titleToInsert = title;
 	var durationToInsert = duration;
@@ -43,7 +41,6 @@ exports.createProject = function(title, duration, description, startDate, status
 	var userRoleToInsert = userRole;
 	var keyWordsToInsert = keyWords;
 	var categoryIdToInsert = categoryID;
-	currProjectId++;
 	return db.sequelize.query("INSERT INTO project(projectID, userID, statusID, description, title, duration, startDate)" +
 								 " VALUES(:projectId, :userId, :statusId, :description, :title, :duration, :startDate)",
 								 {replacements: {projectId: currProjectId,
@@ -72,11 +69,11 @@ exports.deleteProject = function(projectId) {
 
 // Makes a new donation within a db for project with id of projectId,
 // Associated with a user of userId with a particular amount.
+// trigger updateDonationId for tablesID
 exports.giveDonation = function(projectId, userId, amount) {
 	projectIdToInsert = projectId;
 	userIdToInsert = userId;
 	amountToInsert = amount;
-	currDonationId++;
 	return db.sequelize.query("SELECT MAX(d1.donationID) FROM donations d1", {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 							var donationIdToInsert = parseInt(data[0].max, 10) + 1;
@@ -213,3 +210,46 @@ exports.allFunding = function() {
 							return data;
 						});
 };
+
+// Function that is triggered when a new user is added
+// Updates the userId in tablesId
+exports.updateUserId = function(userId) {
+	var intUserId = parseInt(userId);
+	return db.sequelize.query("CREATE TRIGGER updateUserId AFTER INSERT ON users " +
+								" FOR EACH STATEMENT" +
+								" BEGIN " +
+								" UPDATE tablesId SET userId = userId + 1 WHERE userId = userId;" +
+								" END;",
+								{type: db.sequelize.QueryTypes.UPDATE})
+						.then((data) => {
+							return data;
+						});
+}
+
+// Function that is triggered when a new project is added
+// Updates the projectId in tablesId
+exports.updateProjectId = function() {
+	return db.sequelize.query("CREATE TRIGGER updateProjectId AFTER INSERT ON project " +
+								" FOR EACH STATEMENT" +
+								" BEGIN " +
+								" UPDATE tablesId SET projectId = projectId + 1 WHERE projectId = projectId;" +
+								" END;",
+								{type: db.sequelize.QueryTypes.UPDATE})
+						.then((data) => {
+							return data;
+						});
+}
+
+// Function that is triggered when a new donation is added
+// Updates the donationId in tablesId
+exports.updateDonationId = function() {
+	return db.sequelize.query("CREATE TRIGGER updateDonationId AFTER INSERT ON donations " +
+								" FOR EACH STATEMENT" +
+								" BEGIN " +
+								" UPDATE tablesId SET donationId = donationId + 1 WHERE donationId = donationId;" +
+								" END;",
+								{type: db.sequelize.QueryTypes.UPDATE})
+						.then((data) => {
+							return data;
+						});
+}
