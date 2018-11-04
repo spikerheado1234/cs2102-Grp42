@@ -211,11 +211,9 @@ exports.allFunding = function() {
 						});
 };
 
-<<<<<<< HEAD
 // Function that is triggered when a new user is added
 // Updates the userId in tablesId
 exports.updateUserId = function(userId) {
-	var intUserId = parseInt(userId);
 	return db.sequelize.query("CREATE TRIGGER updateUserId AFTER INSERT ON users " +
 								" FOR EACH STATEMENT" +
 								" BEGIN " +
@@ -254,7 +252,7 @@ exports.updateDonationId = function() {
 							return data;
 						});
 }
-=======
+
 exports.login = function(emailAddress, password) {
 	var emailAddressToQuery = emailAddress;
 	var passwordToQuery = password;
@@ -267,4 +265,3 @@ exports.login = function(emailAddress, password) {
 							return data;
 						});
 }
->>>>>>> f1a83547d44e0ca7068cd14465e070d4b5ab8083
