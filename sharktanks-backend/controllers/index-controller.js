@@ -39,14 +39,16 @@ exports.createUser = function(name, emailAddress, role, password) {
 
 // Creates a new project within a db.
 // trigger updateProjectId for tablesID
-exports.createProject = function(title, duration, description, startDate, statusID, userID, keyWords, categoryID) {
+exports.createProject = function(title, description, status, userID, keyWords, categories) {
 	var titleToInsert = title;
-	var durationToInsert = duration;
 	var descriptionToInsert = description;
-	var startDateToInsert = startDate;
-	var statusIdToInsert = statusID;
+	var statusToInsert = status;
 	var userIdToInsert = userID;
-	var categoryIdToInsert = categoryID;
+	var categoriesToInsert = categories;
+	var keywordsToInsert = keyWords;
+	for (var i = 0; i < categories.length; i++) {
+		
+	}
 	return db.sequelize.query("SELECT MAX(p1.projectid) FROM project p1", {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 							var projectIdToInsert = data[0].max + 1;

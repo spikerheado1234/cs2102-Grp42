@@ -37,14 +37,10 @@ router.post('/createUser', function(req, res, next) {
 router.post('/createProject', function(req, res, next) {
 	// TODO Need to generate project id.
 	indexController.createProject(req.body.title,
-									req.body.duration,
 									req.body.description,
-									req.body.startDate,
-									req.body.statusID,
+									req.body.status,
 									req.body.userID,
-									req.body.userRole,
-									req.body.keyWords,
-									req.body.categoryID)
+									req.body.category)
 									.then("OK")
 									.catch((err) => {
 										console.log(err); // For debugging purposes only.
@@ -98,8 +94,8 @@ router.get('/getAllCategories', function(req, res, next) {
 					}).catch((error) => {
 						console.log(error);
 						res.send({code: 204});
-					})
-})
+					});
+});
 
 // Search via the following endpoints.
 router.get('/searchByProjects', function(req, res, next) {
