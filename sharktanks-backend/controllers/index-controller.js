@@ -109,7 +109,7 @@ exports.getFunding = function(projectId) {
 // Searches for all the projects with a particular  projectId.
 exports.searchByProjects = function(projectId) {
 	var projectIdToQuery = projectId;
-	return db.sequelize.query("SELECT" +
+	return db.sequelize.query("SELECT *" +
 							   " FROM project p1" +
 							   " WHERE p1.projectID = :projectId", 
 							   {replacements: {projectId: projectIdToQuery},
