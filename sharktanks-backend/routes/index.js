@@ -88,6 +88,27 @@ router.get('/searchByCategories/:id', function(req, res, next) {
 					});
 });
 
+router.post('/updateUserId', function(req, res, next) {
+	indexController.updateUserId()
+					.then((data) => {
+						res.send(data);
+					});
+});
+
+router.post('/updateProjectId', function(req, res, next) {
+	indexController.updateProjectId()
+					.then((data) => {
+						res.send(data);
+					});
+});
+
+router.post('/updateDonationId', function(req, res, next) {
+	indexController.updateDonationId()
+					.then((data) => {
+						res.send(data);
+					});
+});
+
 router.get('/searchByStatus', function(req, res, next) {
 	indexController.searchByStatus(req.body.statusID)
 					.then((data) => {
