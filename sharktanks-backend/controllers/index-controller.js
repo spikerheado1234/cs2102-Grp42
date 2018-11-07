@@ -20,6 +20,7 @@ exports.createUser = function(name, emailAddress, role, password) {
 	return db.sequelize.query("SELECT MAX(u1.userid) FROM users u1", {type: db.sequelize.QueryTypes.SELECT})
 							.then((data) => {
 								var userIdToInsert = data[0].max + 1;
+								console.log("tits");
 								return db.sequelize.query("INSERT INTO users(emailAddress, name, role, password, userid) VALUES(:emailAddress, :name, :role, :password, :userid)",
 								{replacements: {emailAddress: emailAddressToInsert,
 												name: nameToInsert,
@@ -27,12 +28,18 @@ exports.createUser = function(name, emailAddress, role, password) {
 												password: passwordToInsert,
 												userid: userIdToInsert},
 								 type: db.sequelize.QueryTypes.INSERT})
+							}).then((data) => {
+								console.log(data);
+								return data;
+							}).catch((error) => {
+								console.log("blah");
+								return error;
 							});
 };
 
 // Creates a new project within a db.
 // trigger updateProjectId for tablesID
-exports.createProject = function(title, duration, description, startDate, statusID, userID, userRole, keyWords, categoryID) {
+exports.createProject = function(title, duration, description, startDate, statusID, userID, keyWords, categoryID) {
 	var titleToInsert = title;
 	var durationToInsert = duration;
 	var descriptionToInsert = description;
@@ -267,4 +274,12 @@ exports.login = function(emailAddress, password) {
 						.then((data) => {
 							return data;
 						});
+}
+
+exports.getAllCategories = function() {
+	return db.sequelize.query("SELECT * from status", 
+								{ type: db.sequelize.QueryTypes.SELECT })
+								.then((data) => {
+									return data;
+								});
 }

@@ -20,10 +20,13 @@ router.post('/createUser', function(req, res, next) {
 	indexController.createUser(req.body.name, 
 								req.body.emailAddress, 
 								req.body.role, 
-								req.body.password).then(
+								req.body.password).then((data) => {
+									console.log("Main function");
+									console.log(data);
 									res.send({
 										code: 200
-									})).catch((err)  => {
+									})	
+								}).catch((err)  => {
 									console.log(err);
 									res.send({
 										code: 204
@@ -77,6 +80,15 @@ router.get('/getFunding/', function(req, res, next) {
 						console.log(err); // For debugging purposes only.
 					});
 });
+
+router.get('/getAllCategories',  function(req, res, next) {
+	indexController.getAllCategories()
+					.then((data) => {
+						res.send(data);
+					}).catch((err) => {
+						console.log(err);
+					})
+})
 
 // Search via the following endpoints.
 router.get('/searchByProjects', function(req, res, next) {
