@@ -107,7 +107,7 @@ exports.getFunding = function(projectId) {
 };
 
 // Searches for all the projects with a particular  projectId.
-exports.searchByProjects = function(projectId) {
+exports.searchByProject = function(projectId) {
 	var projectIdToQuery = projectId;
 	return db.sequelize.query("SELECT *" +
 							   " FROM project p1" +
@@ -120,7 +120,7 @@ exports.searchByProjects = function(projectId) {
 };
 
 // Searches for all the projects with a particular categoryId.
-exports.searchByCategories = function(categoryId) {
+exports.searchByCategory = function(categoryId) {
 	var categoryIdToQuery = categoryId;
 	return db.sequelize.query("SELECT *" +
 							   " FROM project p1" +

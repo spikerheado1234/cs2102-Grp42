@@ -74,16 +74,16 @@ router.get('/getFunding/', function(req, res, next) {
 });
 
 // Search via the following endpoints.
-router.get('/searchByProjects', function(req, res, next) {
+router.get('/searchByProject', function(req, res, next) {
 	console.log(req.query.id);
-	indexController.searchByProjects(req.query.id)
+	indexController.searchByProject(req.query.id)
 					.then((data) => {
 						res.send(data);
 					});
 });
 
-router.get('/searchByCategories:id', function(req, res, next) {
-	indexController.searchByCategories(req.params.id)
+router.get('/searchByCategory', function(req, res, next) {
+	indexController.searchByCategory(req.query.id)
 					.then((data) => {
 						res.send(data);
 					});
@@ -111,7 +111,7 @@ router.post('/updateDonationId', function(req, res, next) {
 });
 
 router.get('/searchByStatus', function(req, res, next) {
-	indexController.searchByStatus(req.body.statusID)
+	indexController.searchByStatus(req.query.id)
 					.then((data) => {
 						res.send(data);
 					});
