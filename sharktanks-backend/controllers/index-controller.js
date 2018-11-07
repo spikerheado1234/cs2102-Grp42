@@ -259,7 +259,7 @@ exports.updateDonationId = function() {
 exports.login = function(emailAddress, password) {
 	var emailAddressToQuery = emailAddress;
 	var passwordToQuery = password;
-	return db.sequelize.query("SELECT u1.emailAddress, u1.password " + 
+	return db.sequelize.query("SELECT u1.name, u1.role, u1.emailAddress, u1.userid " + 
 							   "FROM users u1 " +  
 							   "WHERE u1.emailAddress = :emailAddress AND u1.password = :password", 
 							   {replacements: {emailAddress: emailAddressToQuery, password: passwordToQuery},
