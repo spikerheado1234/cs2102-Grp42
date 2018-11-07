@@ -218,9 +218,9 @@ exports.allFunding = function() {
 // Function that is triggered when a new user is added
 // Updates the userId in tablesId
 exports.updateUserId = function(userId) {
-	return db.sequelize.query("CREATE TRIGGER updateUserId AFTER INSERT ON users " +
+	return db.sequelize.query("CREATE TRIGGER updateUserId AFTER INSERT ON users" +
 								" FOR EACH STATEMENT" +
-								" BEGIN " +
+								" BEGIN" +
 								" UPDATE tablesId SET userId = userId + 1 WHERE userId = userId;" +
 								" END;",
 								{type: db.sequelize.QueryTypes.UPDATE})
@@ -232,9 +232,9 @@ exports.updateUserId = function(userId) {
 // Function that is triggered when a new project is added
 // Updates the projectId in tablesId
 exports.updateProjectId = function() {
-	return db.sequelize.query("CREATE TRIGGER updateProjectId AFTER INSERT ON project " +
+	return db.sequelize.query("CREATE TRIGGER updateProjectId AFTER INSERT ON project" +
 								" FOR EACH STATEMENT" +
-								" BEGIN " +
+								" BEGIN" +
 								" UPDATE tablesId SET projectId = projectId + 1 WHERE projectId = projectId;" +
 								" END;",
 								{type: db.sequelize.QueryTypes.UPDATE})
@@ -246,12 +246,11 @@ exports.updateProjectId = function() {
 // Function that is triggered when a new donation is added
 // Updates the donationId in tablesId
 exports.updateDonationId = function() {
-	return db.sequelize.query("CREATE TRIGGER updateDonationId AFTER INSERT ON donations " +
+	return db.sequelize.query("CREATE TRIGGER updateDonationId AFTER INSERT ON donations" +
 								" FOR EACH STATEMENT" +
-								" BEGIN " +
-								" UPDATE tablesId SET donationId = donationId + 1 WHERE donationId = donationId;" +
-								" END;",
-								{type: db.sequelize.QueryTypes.UPDATE})
+								" BEGIN" +
+								" UPDATE tablesid SET donationid = donationid + 1 WHERE donationid = donationid;" +
+								" END;")
 						.then((data) => {
 							return data;
 						});
