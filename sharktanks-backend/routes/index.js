@@ -20,23 +20,27 @@ router.post('/createUser', function(req, res, next) {
 	indexController.createUser(req.body.name, 
 								req.body.emailAddress, 
 								req.body.role, 
-								req.body.password).then(res.send('OK')).catch((err)  => {
+								req.body.password).then((data) => {
+									console.log("Main function");
+									console.log(data);
+									res.send({
+										code: 200
+									})	
+								}).catch((err)  => {
 									console.log(err);
-									res.send('NOT OK');
+									res.send({
+										code: 204
+									});
 								});
 });
 
 router.post('/createProject', function(req, res, next) {
 	// TODO Need to generate project id.
 	indexController.createProject(req.body.title,
-									req.body.duration,
 									req.body.description,
-									req.body.startDate,
-									req.body.statusID,
+									req.body.status,
 									req.body.userID,
-									req.body.userRole,
-									req.body.keyWords,
-									req.body.categoryID)
+									req.body.category)
 									.then("OK")
 									.catch((err) => {
 										console.log(err); // For debugging purposes only.
@@ -73,6 +77,26 @@ router.get('/getFunding/', function(req, res, next) {
 					});
 });
 
+router.get('/getAllStatus',  function(req, res, next) {
+	indexController.getAllStatus()
+					.then((data) => {
+						res.send(data);
+					}).catch((err) => {
+						console.log(err);
+						res.send({code: 204});
+					})
+});
+
+router.get('/getAllCategories', function(req, res, next) {
+	indexController.getAllCategories()
+					.then((data) => {
+						res.send(data);
+					}).catch((error) => {
+						console.log(error);
+						res.send({code: 204});
+					});
+});
+
 // Search via the following endpoints.
 router.get('/searchByProject', function(req, res, next) {
 	console.log(req.query.id);
@@ -82,6 +106,7 @@ router.get('/searchByProject', function(req, res, next) {
 					});
 });
 
+//search by category
 router.get('/searchByCategory', function(req, res, next) {
 	indexController.searchByCategory(req.query.id)
 					.then((data) => {
@@ -147,6 +172,16 @@ router.post('/login', function(req, res, next) {
 					.catch((error) => {
 						res.send({code: 205});
 					})
+});
+
+router.get('/getKeywords', function(req, res, next) {
+	indexController.getKeywords()
+					.then((data) => {
+						res.send(data);
+					}).catch(error => {
+						console.log(error);
+						res.send({code: 205});
+					});
 });
 
 module.exports = router;
