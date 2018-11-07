@@ -20,9 +20,14 @@ router.post('/createUser', function(req, res, next) {
 	indexController.createUser(req.body.name, 
 								req.body.emailAddress, 
 								req.body.role, 
-								req.body.password).then(res.send('OK')).catch((err)  => {
+								req.body.password).then(
+									res.send({
+										code: 200
+									})).catch((err)  => {
 									console.log(err);
-									res.send('NOT OK');
+									res.send({
+										code: 204
+									});
 								});
 });
 
