@@ -74,14 +74,15 @@ router.get('/getFunding/', function(req, res, next) {
 });
 
 // Search via the following endpoints.
-router.get('/searchByProjects/:id', function(req, res, next) {
-	indexController.searchByProjects(req.params.id)
+router.get('/searchByProjects', function(req, res, next) {
+	console.log(req.query.id);
+	indexController.searchByProjects(req.query.id)
 					.then((data) => {
 						res.send(data);
 					});
 });
 
-router.get('/searchByCategories/:id', function(req, res, next) {
+router.get('/searchByCategories:id', function(req, res, next) {
 	indexController.searchByCategories(req.params.id)
 					.then((data) => {
 						res.send(data);
