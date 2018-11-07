@@ -135,7 +135,7 @@ exports.searchByCategories = function(categoryId) {
 // Searches for all the projects with a particular statusId.
 exports.searchByStatus = function(statusId) {
 	var statusIdToQuery = statusId;
-	return db.sequelize.query("SELECT " +
+	return db.sequelize.query("SELECT *" +
 							   " FROM project p1" +
 							   " WHERE p1.statusID = :statusId",
 							   {replacements: {statusId: statusIdToQuery},
