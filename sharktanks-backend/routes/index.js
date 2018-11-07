@@ -81,14 +81,14 @@ router.get('/getFunding/', function(req, res, next) {
 					});
 });
 
-router.get('/getAllCategories',  function(req, res, next) {
-	indexController.getAllCategories()
+router.get('/getAllStatus',  function(req, res, next) {
+	indexController.getAllStatus()
 					.then((data) => {
 						res.send(data);
 					}).catch((err) => {
 						console.log(err);
 					})
-})
+});
 
 // Search via the following endpoints.
 router.get('/searchByProjects', function(req, res, next) {

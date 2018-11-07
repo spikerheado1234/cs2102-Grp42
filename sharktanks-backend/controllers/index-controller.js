@@ -276,7 +276,7 @@ exports.login = function(emailAddress, password) {
 						});
 }
 
-exports.getAllCategories = function() {
+exports.getAllStatus = function() {
 	return db.sequelize.query("SELECT * from status", 
 								{ type: db.sequelize.QueryTypes.SELECT })
 								.then((data) => {
