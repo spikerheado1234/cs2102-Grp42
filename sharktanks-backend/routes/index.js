@@ -173,4 +173,14 @@ router.post('/login', function(req, res, next) {
 					})
 });
 
+router.get('/getKeywords', function(req, res, next) {
+	indexController.getKeywords()
+					.then((data) => {
+						res.send(data);
+					}).catch(error => {
+						console.log(error);
+						res.send({code: 205});
+					});
+});
+
 module.exports = router;
