@@ -82,8 +82,8 @@ router.get('/searchByProjects', function(req, res, next) {
 					});
 });
 
-router.get('/searchByCategories:id', function(req, res, next) {
-	indexController.searchByCategories(req.params.id)
+router.get('/searchByCategories/:id', function(req, res, next) {
+	indexController.searchByCategories(req.query.id)
 					.then((data) => {
 						res.send(data);
 					});
