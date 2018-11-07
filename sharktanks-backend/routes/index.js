@@ -87,8 +87,19 @@ router.get('/getAllStatus',  function(req, res, next) {
 						res.send(data);
 					}).catch((err) => {
 						console.log(err);
+						res.send({code: 204});
 					})
 });
+
+router.get('/getAllCategories', function(req, res, next) {
+	indexController.getAllCategories()
+					.then((data) => {
+						res.send(data);
+					}).catch((error) => {
+						console.log(error);
+						res.send({code: 204});
+					})
+})
 
 // Search via the following endpoints.
 router.get('/searchByProjects', function(req, res, next) {

@@ -283,3 +283,11 @@ exports.getAllStatus = function() {
 									return data;
 								});
 }
+
+exports.getAllCategories = function() {
+	return db.sequelize.query("SELECT * from categories",
+								{ type: db.sequelize.QueryTypes.SELECT })
+								.then((data) => {
+									return data;
+								})
+}
