@@ -1,7 +1,7 @@
 /* sample migration file that I created, will be changed later on */
 
 module.exports = {
-	up : (queryInterface, Sequelize) => {
+	up: (queryInterface, Sequelize) => {
 		queryInterface.sequelize.query("CREATE TABLE donations(\
 			donationID NUMERIC PRIMARY KEY,\
 			projectID NUMERIC REFERENCES project(projectID),\
