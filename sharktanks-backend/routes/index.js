@@ -144,7 +144,14 @@ router.post('/updateKeywordId', function(req, res, next) {
 
 // Check argument
 router.post('/addKeyword', function(req, res, next) {
-	indexController.addKeyword(req.body.keyword)
+	indexController.addKeyword(req.body.words)
+					.then((data) => {
+						res.send(data);
+					});
+});
+
+router.get('/getTablesIds', function(req, res, next) {
+	indexController.getTablesIds()
 					.then((data) => {
 						res.send(data);
 					});
@@ -206,7 +213,14 @@ router.get('/projectInformation', function(req, res, next) {
 						res.send(data);
 					}).catch(error => {
 						res.send({code: 205});
-					})
-})
+					});
+});
+
+router.post('/removeKeyword', function(req, res, next) {
+	indexController.removeKeyword(req.body.keywordid)
+					.then((data) => {
+						res.send(data);
+					});
+});
 
 module.exports = router;

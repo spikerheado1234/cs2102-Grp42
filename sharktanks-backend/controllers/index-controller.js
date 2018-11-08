@@ -203,12 +203,12 @@ exports.addKeyword = function(keyword) {
 									{ replacements: { newKeyword: newKeywordToQuery },
 									  type: db.sequelize.QueryTypes.SELECT })
 							.then((data) => {
-								if (data === 0) {
+								if (data[0].count == 0) {
 									return db.sequelize.query("SELECT keywordid from tablesid",
 																{ type: db.sequelize.QueryTypes.SELECT })
 														.then((data) => {
-															var newKeywordId = data+1;
-															return db.sequelize.query("INSERT INTO keywords VALUES(keywordid, :keyword)",
+															var newKeywordId = parseInt(data[0].keywordid)+1;
+															return db.sequelize.query("INSERT INTO keywords VALUES(:keywordId, :newKeyword)",
 																						{ replacements: { keywordId: newKeywordId, newKeyword: newKeywordToQuery },
 																						  type: db.sequelize.QueryTypes.INSERT })
 																				.then((data) => {
@@ -261,9 +261,16 @@ exports.allFunding = function() {
 						});
 };
 
+exports.getTablesIds = function() {
+	return db.sequelize.query("SELECT * FROM tablesid")
+						.then((data) => {
+							return data;
+						});
+};
+
 // Function that is triggered when a new user is added
 // Updates the userId in tablesId
-exports.updateUserId = function(userId) {
+exports.updateUserId = function() {
 	return db.sequelize.query("CREATE TRIGGER updateuserid AFTER INSERT ON users" +
 								" FOR EACH STATEMENT" +
 								" BEGIN" +
@@ -296,7 +303,8 @@ exports.updateDonationId = function() {
 								" FOR EACH STATEMENT" +
 								" BEGIN" +
 								" UPDATE tablesid SET donationid = donationid + 1 WHERE donationid = donationid;" +
-								" END;")
+								" END;",
+								{ type: db.sequelize.QueryTypes.UPDATE })
 						.then((data) => {
 							return data;
 						});
@@ -305,14 +313,24 @@ exports.updateDonationId = function() {
 // Function that is triggered when a new keyword is added
 // Updates the keywordId in tablesId
 exports.updateKeywordId = function() {
-	return db.sequelize.query("CREATE TRIGGER updatekeywordid AFTER INSERT ON keywords" +
-								" FOR EACH STATEMENT" +
+	return db.sequelize.query(" CREATE TRIGGER updatekeywordid AFTER INSERT ON keywords" +
+								" FOR EACH ROW" +
 								" BEGIN" +
 								" UPDATE tablesid SET keywordid = keywordid + 1 WHERE keywordid = keywordid;" +
-								" END;")
+								" END;",
+								{ type: db.sequelize.QueryTypes.UPDATE })
 						.then((data) => {
 							return data;
 						});
+}
+
+// If want separate call
+exports.updateKeywordId2 = function() {
+	return db.sequelize.query("UPDATE tablesid SET keywordid = keywordid + 1 WHERE keywordid = keywordid",
+								{ type: db.sequelize.QueryTypes.UPDATE })
+						.then((data) => {
+							return data;
+						})
 }
 
 exports.login = function(emailAddress, password) {
@@ -355,3 +373,13 @@ exports.getKeywords = function() {
 exports.getProjectInformation = function(projectId) {
 
 }
+
+exports.removeKeyword = function(keywordId) {
+	var keywordIdToRemove = keywordId;
+	return db.sequelize.query("DELETE FROM keywords WHERE keywordid = :keywordid",
+								{ replacements: { keywordid: keywordIdToRemove },
+								  type: db.sequelize.QueryTypes.DELETE })
+						.then((data) => {
+							return data;
+						});
+};
