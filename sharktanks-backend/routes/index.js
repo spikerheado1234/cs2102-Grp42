@@ -20,23 +20,27 @@ router.post('/createUser', function(req, res, next) {
 	indexController.createUser(req.body.name, 
 								req.body.emailAddress, 
 								req.body.role, 
-								req.body.password).then(res.send('OK')).catch((err)  => {
+								req.body.password).then((data) => {
+									console.log("Main function");
+									console.log(data);
+									res.send({
+										code: 200
+									})	
+								}).catch((err)  => {
 									console.log(err);
-									res.send('NOT OK');
+									res.send({
+										code: 204
+									});
 								});
 });
 
 router.post('/createProject', function(req, res, next) {
 	// TODO Need to generate project id.
 	indexController.createProject(req.body.title,
-									req.body.duration,
 									req.body.description,
-									req.body.startDate,
-									req.body.statusID,
+									req.body.status,
 									req.body.userID,
-									req.body.userRole,
-									req.body.keyWords,
-									req.body.categoryID)
+									req.body.category)
 									.then("OK")
 									.catch((err) => {
 										console.log(err); // For debugging purposes only.
@@ -73,16 +77,38 @@ router.get('/getFunding/', function(req, res, next) {
 					});
 });
 
+router.get('/getAllStatus',  function(req, res, next) {
+	indexController.getAllStatus()
+					.then((data) => {
+						res.send(data);
+					}).catch((err) => {
+						console.log(err);
+						res.send({code: 204});
+					})
+});
+
+router.get('/getAllCategories', function(req, res, next) {
+	indexController.getAllCategories()
+					.then((data) => {
+						res.send(data);
+					}).catch((error) => {
+						console.log(error);
+						res.send({code: 204});
+					});
+});
+
 // Search via the following endpoints.
-router.get('/searchByProjects/:id', function(req, res, next) {
-	indexController.searchByProjects(req.params.id)
+router.get('/searchByProject', function(req, res, next) {
+	console.log(req.query.id);
+	indexController.searchByProject(req.query.id)
 					.then((data) => {
 						res.send(data);
 					});
 });
 
-router.get('/searchByCategories/:id', function(req, res, next) {
-	indexController.searchByCategories(req.params.id)
+//search by category
+router.get('/searchByCategory', function(req, res, next) {
+	indexController.searchByCategory(req.query.id)
 					.then((data) => {
 						res.send(data);
 					});
@@ -110,7 +136,7 @@ router.post('/updateDonationId', function(req, res, next) {
 });
 
 router.get('/searchByStatus', function(req, res, next) {
-	indexController.searchByStatus(req.body.statusID)
+	indexController.searchByStatus(req.query.id)
 					.then((data) => {
 						res.send(data);
 					});
@@ -134,14 +160,28 @@ router.get('/allProjects', function(req, res, next) {
 router.post('/login', function(req, res, next) {
 	indexController.login(req.body.emailAddress, req.body.password)
 					.then((data) => {
+						console.log(data[0])
 						if (data.length == 0) { // If emailaddress, password doesn't match.
-							res.send({code: 204});
+							res.send({code: 204 });
 						}
-						res.send({code: 200});
+						res.send({
+							code: 200,
+							user: data[0]
+						});
 					})
 					.catch((error) => {
 						res.send({code: 205});
 					})
+});
+
+router.get('/getKeywords', function(req, res, next) {
+	indexController.getKeywords()
+					.then((data) => {
+						res.send(data);
+					}).catch(error => {
+						console.log(error);
+						res.send({code: 205});
+					});
 });
 
 module.exports = router;

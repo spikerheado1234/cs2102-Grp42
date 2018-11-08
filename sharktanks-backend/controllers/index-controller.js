@@ -20,6 +20,7 @@ exports.createUser = function(name, emailAddress, role, password) {
 	return db.sequelize.query("SELECT MAX(u1.userid) FROM users u1", {type: db.sequelize.QueryTypes.SELECT})
 							.then((data) => {
 								var userIdToInsert = data[0].max + 1;
+								console.log("tits");
 								return db.sequelize.query("INSERT INTO users(emailAddress, name, role, password, userid) VALUES(:emailAddress, :name, :role, :password, :userid)",
 								{replacements: {emailAddress: emailAddressToInsert,
 												name: nameToInsert,
@@ -27,19 +28,27 @@ exports.createUser = function(name, emailAddress, role, password) {
 												password: passwordToInsert,
 												userid: userIdToInsert},
 								 type: db.sequelize.QueryTypes.INSERT})
+							}).then((data) => {
+								console.log(data);
+								return data;
+							}).catch((error) => {
+								console.log("blah");
+								return error;
 							});
 };
 
 // Creates a new project within a db.
 // trigger updateProjectId for tablesID
-exports.createProject = function(title, duration, description, startDate, statusID, userID, userRole, keyWords, categoryID) {
+exports.createProject = function(title, description, statusId, userID, keyWords, categoryId) {
 	var titleToInsert = title;
-	var durationToInsert = duration;
 	var descriptionToInsert = description;
-	var startDateToInsert = startDate;
-	var statusIdToInsert = statusID;
+	var statusIdToInsert = statusId;
 	var userIdToInsert = userID;
-	var categoryIdToInsert = categoryID;
+	var categoryIdToInsert = categoryId;
+	var keywordsToInsert = keyWords;
+	for (var i = 0; i < keywords.length; i++) {
+
+	}
 	return db.sequelize.query("SELECT MAX(p1.projectid) FROM project p1", {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 							var projectIdToInsert = data[0].max + 1;
@@ -107,9 +116,9 @@ exports.getFunding = function(projectId) {
 };
 
 // Searches for all the projects with a particular  projectId.
-exports.searchByProjects = function(projectId) {
+exports.searchByProject = function(projectId) {
 	var projectIdToQuery = projectId;
-	return db.sequelize.query("SELECT" +
+	return db.sequelize.query("SELECT *" +
 							   " FROM project p1" +
 							   " WHERE p1.projectID = :projectId", 
 							   {replacements: {projectId: projectIdToQuery},
@@ -120,7 +129,7 @@ exports.searchByProjects = function(projectId) {
 };
 
 // Searches for all the projects with a particular categoryId.
-exports.searchByCategories = function(categoryId) {
+exports.searchByCategory = function(categoryId) {
 	var categoryIdToQuery = categoryId;
 	return db.sequelize.query("SELECT *" +
 							   " FROM project p1" +
@@ -135,7 +144,7 @@ exports.searchByCategories = function(categoryId) {
 // Searches for all the projects with a particular statusId.
 exports.searchByStatus = function(statusId) {
 	var statusIdToQuery = statusId;
-	return db.sequelize.query("SELECT " +
+	return db.sequelize.query("SELECT *" +
 							   " FROM project p1" +
 							   " WHERE p1.statusID = :statusId",
 							   {replacements: {statusId: statusIdToQuery},
@@ -259,7 +268,7 @@ exports.updateDonationId = function() {
 exports.login = function(emailAddress, password) {
 	var emailAddressToQuery = emailAddress;
 	var passwordToQuery = password;
-	return db.sequelize.query("SELECT u1.emailAddress, u1.password " + 
+	return db.sequelize.query("SELECT u1.name, u1.role, u1.emailAddress, u1.userid " + 
 							   "FROM users u1 " +  
 							   "WHERE u1.emailAddress = :emailAddress AND u1.password = :password", 
 							   {replacements: {emailAddress: emailAddressToQuery, password: passwordToQuery},
@@ -268,3 +277,27 @@ exports.login = function(emailAddress, password) {
 							return data;
 						});
 }
+
+exports.getAllStatus = function() {
+	return db.sequelize.query("SELECT * from status", 
+								{ type: db.sequelize.QueryTypes.SELECT })
+								.then((data) => {
+									return data;
+								});
+}
+
+exports.getAllCategories = function() {
+	return db.sequelize.query("SELECT * from categories",
+								{ type: db.sequelize.QueryTypes.SELECT })
+								.then((data) => {
+									return data;
+								})
+}
+
+exports.getKeywords = function() {
+	return db.sequelize.query("SELECT * From keywords",
+						{ type: db.sequelize.QueryTypes.SELECT })
+						.then((data) => {
+							return data;
+						});
+};
