@@ -144,7 +144,7 @@ router.post('/updateKeywordId', function(req, res, next) {
 
 // Check argument
 router.post('/addKeyword', function(req, res, next) {
-	indexController.addKeyword(req.body.words)
+	indexController.addKeyword(req.body.keyword)
 					.then((data) => {
 						res.send(data);
 					});
