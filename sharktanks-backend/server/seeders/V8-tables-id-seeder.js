@@ -4,7 +4,7 @@ module.exports = {
         userid: 20,
         projectid: 100,
         donationid: 9,
-        keywordid: 9
+        keywordid: 10
       }], {});
     },
     down: (queryInterface, Sequelize) => {

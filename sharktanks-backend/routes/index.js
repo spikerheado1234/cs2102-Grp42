@@ -148,6 +148,13 @@ router.post('/addKeyword', function(req, res, next) {
 					});
 });
 
+router.get('/getTablesIds', function(req, res, next) {
+	indexController.getTablesIds()
+					.then((data) => {
+						res.send(data);
+					});
+});
+
 router.get('/searchByStatus', function(req, res, next) {
 	indexController.searchByStatus(req.query.id)
 					.then((data) => {
@@ -207,6 +214,13 @@ router.get('/projectInformation', function(req, res, next) {
 						console.log(error);
 						res.send({code: 205});
 					});
-})
+});
+
+router.post('/removeKeyword', function(req, res, next) {
+	indexController.removeKeyword(req.body.keywordid)
+					.then((data) => {
+						res.send(data);
+					});
+});
 
 module.exports = router;
