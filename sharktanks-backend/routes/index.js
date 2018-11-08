@@ -185,13 +185,15 @@ router.get('/getKeywords', function(req, res, next) {
 });
 
 router.get('/projectInformation', function(req, res, next) {
-	console.log(req.params.id);
-	indexController.getProjectInformation(req.params.id)
+	console.log("Here");
+	console.log(req.query.id);
+	indexController.getProjectInformation(req.query.id)
 					.then((data) => {
 						res.send(data);
-					}).catch(error => {
+					}).catch((error) => {
+						console.log(error);
 						res.send({code: 205});
-					})
+					});
 })
 
 module.exports = router;

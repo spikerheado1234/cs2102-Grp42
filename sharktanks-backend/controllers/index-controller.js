@@ -313,5 +313,14 @@ exports.getKeywords = function() {
 };
 
 exports.getProjectInformation = function(projectId) {
-
+	var projectIdToQuery  = projectId;
+	return db.sequelize.query("SELECT p1.description, p1.title, c1.name, s1.statusword, u1.role, u1.name" + 
+							  " FROM project p1, categories c1, users u1, status s1" + 
+							  " WHERE p1.categoryid = c1.categoryid AND p1.userid = u1.userid AND s1.statusid = p1.statusid AND p1.projectid = :queryId", 
+								  { replacements: {queryId : projectIdToQuery},
+									type: db.sequelize.QueryTypes.SELECT})
+									.then(data => {
+										console.log(data);
+										return data;
+									});
 }
