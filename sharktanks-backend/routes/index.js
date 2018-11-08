@@ -68,7 +68,7 @@ router.post('/giveDonation', function(req, res, next) {
 // Get the total amount a project has in funding.
 router.get('/getFunding/', function(req, res, next) {
 	console.log(req.query);
-	indexController.getFunding(req.query['projectId'])
+	indexController.getFunding(req.query['id'])
 					.then((data) => {
 						res.send(data);
 					})
@@ -99,16 +99,16 @@ router.get('/getAllCategories', function(req, res, next) {
 
 // Search via the following endpoints.
 // Search via a title, a fuzzy search.
-router.get('/searchByProjects/:title', function(req, res, next) {
-	console.log(req.params.title);
-	indexController.searchByProjects(req.params.title)
+router.get('/searchByProjects', function(req, res, next) {
+	console.log(req);
+	indexController.searchByProjects(req.query.title)
 					.then((data) => {
 						res.send(data);
 					});
 });
 
-router.get('/searchByCategories/:id', function(req, res, next) {
-	indexController.searchByCategories(req.params.id)
+router.get('/searchByCategories', function(req, res, next) {
+	indexController.searchByCategories(req.query.name)
 					.then((data) => {
 						res.send(data);
 					});
@@ -183,5 +183,15 @@ router.get('/getKeywords', function(req, res, next) {
 						res.send({code: 205});
 					});
 });
+
+router.get('/projectInformation', function(req, res, next) {
+	console.log(req.params.id);
+	indexController.getProjectInformation(req.params.id)
+					.then((data) => {
+						res.send(data);
+					}).catch(error => {
+						res.send({code: 205});
+					})
+})
 
 module.exports = router;

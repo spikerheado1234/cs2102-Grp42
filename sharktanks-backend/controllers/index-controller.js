@@ -311,3 +311,7 @@ exports.getKeywords = function() {
 							return data;
 						});
 };
+
+exports.getProjectInformation = function(projectId) {
+
+}
