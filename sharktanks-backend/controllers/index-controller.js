@@ -125,7 +125,7 @@ exports.getFunding = function(projectId) {
 						});
 };
 
-// Searches for all the projects with a particular  projectId.
+// Searches for all the projects with a particular projectId.
 exports.searchByProjects = function(projectName) {
 	var projectNameToQuery = projectName;
 	return db.sequelize.query("SELECT *" +
