@@ -216,6 +216,15 @@ router.get('/projectInformation', function(req, res, next) {
 					});
 });
 
+router.get('/getProjectById',function(req, res, next) {
+	console.log(req.query.id)
+	indexController.getProjectById(req.query.id).then((data) => {
+		res.send(data);
+	}).catch(error => {
+		res.send({ code: 204});
+	});
+});
+
 router.post('/removeKeyword', function(req, res, next) {
 	indexController.removeKeyword(req.body.keywordid)
 					.then((data) => {

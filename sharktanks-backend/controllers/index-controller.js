@@ -67,7 +67,7 @@ exports.createProject = function(title, description, statusId, userID, keyWords,
 			var projectId = data[0].max;
 			console.log("TIties is: " + projectId);
 			return db.sequelize.query("SELECT k1.keywordid FROM keywords k1 WHERE k1.words = :keyWordSearch",
-					{ replacements: { keyWordSearch: currKeyWord },
+					{ replacements: { keyWordSearch: currKeyWord.words },
 							type : db.sequelize.QueryTypes.SELECT}).then((data) => {
 								console.log("Blah is: "+ projectId);
 								console.log(data);
@@ -76,7 +76,7 @@ exports.createProject = function(title, description, statusId, userID, keyWords,
 												VALUES(:idToInsert, :kIdToInsert, :word)", 
 												{replacements: {idToInsert : projectId,
 																kIdToInsert: idToInsert, 
-																word: currKeyWord}});	
+																word: currKeyWord.words}});	
 							})
 		})
 	})
@@ -395,3 +395,10 @@ exports.removeKeyword = function(keywordId) {
 							return data;
 						});
 };
+
+exports.getProjectById = function(id)  {
+	var idToQuery = id;
+	return db.sequelize.query("SELECT * from project p1 WHERE p1.projectid = :id",
+						{ replacements: { id: idToQuery },
+							type: db.sequelize.QueryTypes.SELECT });
+}
