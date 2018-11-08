@@ -98,29 +98,17 @@ router.get('/getAllCategories', function(req, res, next) {
 });
 
 // Search via the following endpoints.
-<<<<<<< HEAD
 // Search via a title, a fuzzy search.
 router.get('/searchByProjects/:title', function(req, res, next) {
 	console.log(req.params.title);
 	indexController.searchByProjects(req.params.title)
-=======
-router.get('/searchByProject', function(req, res, next) {
-	console.log(req.query.id);
-	indexController.searchByProject(req.query.id)
->>>>>>> a73d55f00dfd9f9ad98dff6902ca2159c8fcb15b
 					.then((data) => {
 						res.send(data);
 					});
 });
 
-<<<<<<< HEAD
 router.get('/searchByCategories/:id', function(req, res, next) {
 	indexController.searchByCategories(req.params.id)
-=======
-//search by category
-router.get('/searchByCategory', function(req, res, next) {
-	indexController.searchByCategory(req.query.id)
->>>>>>> a73d55f00dfd9f9ad98dff6902ca2159c8fcb15b
 					.then((data) => {
 						res.send(data);
 					});
