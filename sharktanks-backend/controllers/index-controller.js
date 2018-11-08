@@ -46,27 +46,37 @@ exports.createProject = function(title, description, statusId, userID, keyWords,
 	var userIdToInsert = userID;
 	var categoryIdToInsert = categoryId;
 	var keywordsToInsert = keyWords;
-	for (var i = 0; i < keywords.length; i++) {
-
-	}
-	return db.sequelize.query("SELECT MAX(p1.projectid) FROM project p1", {type: db.sequelize.QueryTypes.SELECT})
+	
+	db.sequelize.query("SELECT MAX(p1.projectid) FROM project p1", {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 							var projectIdToInsert = data[0].max + 1;
-							return db.sequelize.query("INSERT INTO project(projectid, userid, statusid, description, title, duration, startdate, categoryid)" +
-							" VALUES(:projectId, :userId, :statusId, :description, :title, :duration, :startDate, :categoryId)",
+							return db.sequelize.query("INSERT INTO project(projectid, userid, statusid, description, title, categoryid)" +
+							" VALUES(:projectId, :userId, :statusId, :description, :title, :categoryId)",
 							{replacements: {projectId: projectIdToInsert,
 											 userId: userIdToInsert,
 											 statusId: statusIdToInsert, 
 											 description: descriptionToInsert, 
 											 title: titleToInsert, 
-											 duration: durationToInsert, 
-											 startDate: startDateToInsert,
-											categoryId: categoryIdToInsert},
+											 categoryId: categoryIdToInsert},
 											 type: db.sequelize.QueryTypes.INSERT})
 						})
-								.then((data) => {
-									return data;
-								});
+	for (var i = 0; i < keyWords.length; i++) {
+		db.sequelize.query("SELECT MAX(p1.projectid) FROM project p1", {type: db.sequelize.QueryTypes.SELECT})
+		.then((data) => {
+			var projectId = data[0].max;
+			db.sequelize.query("SELECT k1.keywordid FROM keywords k1 WHERE k1.keywordid = :keyWordSearch",
+							{ replacements: { keyWordSearch: keywordsToInsert[i] },
+							type : db.sequelize.QueryTypes.SELECT
+						}).then((data) => {
+							var idToInsert = data[0].keywordid;
+							db.sequelize.query("INSERT INTO keywordAndProjects(projectid, keywordid, words)\
+												VALUES(:idToinsert, :kIdToInsert, :word)", 
+												{replacements: {idToInsert : idToInsert,
+																kIdToInsert: idToInsert, 
+																word: keyWordsToInsert[i]}});
+						});
+		})
+	}
 };
 
 // Delets a particular project with id projectId from the db.
@@ -115,13 +125,13 @@ exports.getFunding = function(projectId) {
 						});
 };
 
-// Searches for all the projects with a particular  projectId.
-exports.searchByProject = function(projectId) {
-	var projectIdToQuery = projectId;
+// Searches for all the projects with a particular projectId.
+exports.searchByProjects = function(projectName) {
+	var projectNameToQuery = projectName;
 	return db.sequelize.query("SELECT *" +
 							   " FROM project p1" +
-							   " WHERE p1.projectID = :projectId", 
-							   {replacements: {projectId: projectIdToQuery},
+							   " WHERE p1.title LIKE :projectName", 
+							   {replacements: {projectName: "%" + projectNameToQuery + "%"},
 								type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 								return data;
@@ -129,12 +139,12 @@ exports.searchByProject = function(projectId) {
 };
 
 // Searches for all the projects with a particular categoryId.
-exports.searchByCategory = function(categoryId) {
-	var categoryIdToQuery = categoryId;
-	return db.sequelize.query("SELECT *" +
-							   " FROM project p1" +
-							   " WHERE p1.categoryID = :categoryId", 
-							   {replacements: {categoryId: categoryIdToQuery},
+exports.searchByCategories = function(category) {
+	var categorytoquery = category;
+	return db.sequelize.query("SELECT p1.projectid, p1.userid, p1.statusid, p1.categoryid, p1.description, p1.title, p1.url" +
+							   " FROM categories c1 INNER JOIN project p1 ON" +
+							   " c1.categoryid = p1.categoryid AND c1.name = :category", 
+							   {replacements: {category: categorytoquery},
 								type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 								return data;
@@ -187,7 +197,7 @@ exports.searchByKeyword = function(words) {
 // Gives all the projects in the DB.
 exports.searchAllProjects = function() {
 	return db.sequelize.query("SELECT p1.description, p1.title, k1.words, u1.name, c1.name, p1.projectID, p1.url, SUM (d1.amount)" +
-							   " FROM project p1, keywords k1, categories c1, users u1, donations d1" +
+							   " FROM project p1, keywordandprojects k1, categories c1, users u1, donations d1" +
 							   " WHERE p1.projectID = k1.projectID AND" + 
 									  " p1.categoryID = c1.categoryID AND" +
 									  " p1.userID = u1.userID AND" +
@@ -340,3 +350,7 @@ exports.addKeyword = function(newKeyword) {
 								return null;		
 							});
 };
+
+exports.getProjectInformation = function(projectId) {
+
+}
