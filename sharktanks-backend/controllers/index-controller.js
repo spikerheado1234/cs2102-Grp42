@@ -21,7 +21,7 @@ exports.createUser = function(name, emailAddress, role, password) {
 							.then((data) => {
 								var userIdToInsert = data[0].max + 1;
 								console.log("tits");
-								return db.sequelize.query("INSERT INTO users(emailAddress, name, role, password, userid) VALUES(:emailAddress, :name, :role, :password, :userid)",
+								return db.sequelize.query("INSERT INTO users(emailaddress, name, role, password, userid) VALUES(:emailAddress, :name, :role, :password, :userid)",
 								{replacements: {emailAddress: emailAddressToInsert,
 												name: nameToInsert,
 												role: roleToInsert,
@@ -82,7 +82,7 @@ exports.createProject = function(title, description, statusId, userID, keyWords,
 // Delets a particular project with id projectId from the db.
 exports.deleteProject = function(projectId) {
 	projectIdToDelete = projectId;
-	return db.sequelize.query("DELETE FROM project WHERE projectID = :projectId", 
+	return db.sequelize.query("DELETE FROM project WHERE projectid = :projectId", 
 							{replacements: {projectId: projectIdToDelete}, 
 							 type: db.sequelize.QueryTypes.DELETE})
 						.then((data) => {
@@ -97,10 +97,10 @@ exports.giveDonation = function(projectId, userId, amount) {
 	projectIdToInsert = projectId;
 	userIdToInsert = userId;
 	amountToInsert = amount;
-	return db.sequelize.query("SELECT MAX(d1.donationID) FROM donations d1", {type: db.sequelize.QueryTypes.SELECT})
+	return db.sequelize.query("SELECT MAX(d1.donationid) FROM donations d1", {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 							var donationIdToInsert = parseInt(data[0].max, 10) + 1;
-							return db.sequelize.query("INSERT INTO donations(donationID, projectID, userID, amount)" +
+							return db.sequelize.query("INSERT INTO donations(donationid, projectid, userid, amount)" +
 							" VALUES(:donationId, :projectId, :userId, :amount)",
 							{replacements: 
 								{donationId: donationIdToInsert,
@@ -116,8 +116,8 @@ exports.getFunding = function(projectId) {
 	var projectIdToQuery = projectId;
 	return db.sequelize.query("SELECT SUM (d1.amount)" +
 							   " FROM donations d1" +
-							   " WHERE d1.projectId = :projectId" +
-							   " GROUP BY d1.projectId",
+							   " WHERE d1.projectid = :projectId" +
+							   " GROUP BY d1.projectid",
 							   {replacements: {projectId : projectIdToQuery},
 								type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
@@ -156,7 +156,7 @@ exports.searchByStatus = function(statusId) {
 	var statusIdToQuery = statusId;
 	return db.sequelize.query("SELECT *" +
 							   " FROM project p1" +
-							   " WHERE p1.statusID = :statusId",
+							   " WHERE p1.statusid = :statusId",
 							   {replacements: {statusId: statusIdToQuery},
 								type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
@@ -168,10 +168,10 @@ exports.searchByStatus = function(statusId) {
 exports.searchByUser = function(userId, role) {
 	var userIdToQuery = userId;
 	var roleToQuery = role;
-	return db.sequelize.query("SELECT p1.projectID, p1.userID, p1.statusID, p1.categoryID, p1.description, p1.title, p1.duration, p1.startDate" +
+	return db.sequelize.query("SELECT p1.projectid, p1.userid, p1.statusid, p1.categoryid, p1.description, p1.title, p1.duration, p1.startDate" +
 							   " FROM users u1, projects p1" +
-							   " WHERE u1.userID = p1.userID AND" +
-							   		 " p1.userId = :userId AND" +
+							   " WHERE u1.userid = p1.userid AND" +
+							   		 " p1.userid = :userId AND" +
 							   		 " u1.role = :role",
 							  {replacements: {userId: userIdToQuery,
 							  				  role: roleToQuery},
@@ -184,7 +184,7 @@ exports.searchByUser = function(userId, role) {
 // Gives all the projects associated with particular keyword(s)
 exports.searchByKeyword = function(words) {
 	var wordsToQuery = words;
-	return db.sequelize.query("SELECT p1.projectID, p1.userID, p1.statusID, p1.categoryID, p1.description, p1.title, p1.duration, p1.startDate" +
+	return db.sequelize.query("SELECT p1.projectid, p1.userid, p1.statusid, p1.categoryid, p1.description, p1.title, p1.duration, p1.startDate" +
 							   " FROM projects p1" +
 							   " WHERE p1.description LIKE '%words%' OR " +
 							   		  "p1.title LIKE '%words%'",
@@ -196,14 +196,14 @@ exports.searchByKeyword = function(words) {
 
 // Gives all the projects in the DB.
 exports.searchAllProjects = function() {
-	return db.sequelize.query("SELECT p1.description, p1.title, k1.words, u1.name, c1.name, p1.projectID, p1.url, SUM (d1.amount)" +
+	return db.sequelize.query("SELECT p1.description, p1.title, k1.words, u1.name, c1.name, p1.projectid, p1.url, SUM (d1.amount)" +
 							   " FROM project p1, keywordandprojects k1, categories c1, users u1, donations d1" +
-							   " WHERE p1.projectID = k1.projectID AND" + 
-									  " p1.categoryID = c1.categoryID AND" +
-									  " p1.userID = u1.userID AND" +
+							   " WHERE p1.projectid = k1.projectid AND" + 
+									  " p1.categoryid = c1.categoryid AND" +
+									  " p1.userid = u1.userid AND" +
 									  " u1.role = 'Entrepreneur' AND" + 
-									  " d1.projectID = p1.projectID" +
-									  " GROUP BY p1.projectID, u1.name, c1.name, p1.title, k1.words, p1.description", 
+									  " d1.projectid = p1.projectid" +
+									  " GROUP BY p1.projectid, u1.name, c1.name, p1.title, k1.words, p1.description", 
 							   {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 								return data;
@@ -214,8 +214,8 @@ exports.searchAllProjects = function() {
 exports.highestFunding = function() {
 	return db.sequelize.query("SELECT p1.title" +
 							   " FROM project p1, donations d1" +
-							   " WHERE p1.projectID = d1.projectID" +
-							   " GROUP BY d1.projectID" +
+							   " WHERE p1.projectid = d1.projectid" +
+							   " GROUP BY d1.projectid" +
 							   " HAVING MAX(d1.amount)",
 							   {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
@@ -226,8 +226,8 @@ exports.highestFunding = function() {
 // Gives all projects and their current funding
 exports.allFunding = function() {
 	return db.sequelize.query("SELECT p1.title, SUM(d1.amount)" +
-							   " FROM project p1 LEFT OUTER JOIN donations d1 ON p1.projectID = d1.projectID" +
-							   " GROUP BY d1.projectID",
+							   " FROM project p1 LEFT OUTER JOIN donations d1 ON p1.projectid = d1.projectid" +
+							   " GROUP BY d1.projectid",
 							   {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 							return data;
@@ -237,10 +237,10 @@ exports.allFunding = function() {
 // Function that is triggered when a new user is added
 // Updates the userId in tablesId
 exports.updateUserId = function(userId) {
-	return db.sequelize.query("CREATE TRIGGER updateUserId AFTER INSERT ON users" +
+	return db.sequelize.query("CREATE TRIGGER updateuserid AFTER INSERT ON users" +
 								" FOR EACH STATEMENT" +
 								" BEGIN" +
-								" UPDATE tablesId SET userID = userID + 1 WHERE userID = userID;" +
+								" UPDATE tablesId SET userid = userid + 1 WHERE userid = userid;" +
 								" END;",
 								{type: db.sequelize.QueryTypes.UPDATE})
 						.then((data) => {
@@ -251,10 +251,10 @@ exports.updateUserId = function(userId) {
 // Function that is triggered when a new project is added
 // Updates the projectId in tablesId
 exports.updateProjectId = function() {
-	return db.sequelize.query("CREATE TRIGGER updateProjectId AFTER INSERT ON project" +
+	return db.sequelize.query("CREATE TRIGGER updateprojectid AFTER INSERT ON project" +
 								" FOR EACH STATEMENT" +
 								" BEGIN" +
-								" UPDATE tablesId SET projectID = projectID + 1 WHERE projectID = projectID;" +
+								" UPDATE tablesid SET projectid = projectid + 1 WHERE projectid = projectid;" +
 								" END;",
 								{type: db.sequelize.QueryTypes.UPDATE})
 						.then((data) => {
@@ -265,10 +265,10 @@ exports.updateProjectId = function() {
 // Function that is triggered when a new donation is added
 // Updates the donationId in tablesId
 exports.updateDonationId = function() {
-	return db.sequelize.query("CREATE TRIGGER updateDonationId AFTER INSERT ON donations" +
+	return db.sequelize.query("CREATE TRIGGER updatedonationid AFTER INSERT ON donations" +
 								" FOR EACH STATEMENT" +
 								" BEGIN" +
-								" UPDATE tablesid SET donationID = donationID + 1 WHERE donationID = donationID;" +
+								" UPDATE tablesid SET donationid = donationid + 1 WHERE donationid = donationid;" +
 								" END;")
 						.then((data) => {
 							return data;
@@ -278,10 +278,10 @@ exports.updateDonationId = function() {
 // Function that is triggered when a new keyword is added
 // Updates the keywordId in tablesId
 exports.updateKeywordId = function() {
-	return db.sequelize.query("CREATE TRIGGER updateKeywordId AFTER INSERT ON keywords" +
+	return db.sequelize.query("CREATE TRIGGER updatekeywordid AFTER INSERT ON keywords" +
 								" FOR EACH STATEMENT" +
 								" BEGIN" +
-								" UPDATE tablesid SET keywordID = keywordID + 1 WHERE keywordID = keywordID;" +
+								" UPDATE tablesid SET keywordid = keywordid + 1 WHERE keywordid = keywordid;" +
 								" END;")
 						.then((data) => {
 							return data;
@@ -291,9 +291,9 @@ exports.updateKeywordId = function() {
 exports.login = function(emailAddress, password) {
 	var emailAddressToQuery = emailAddress;
 	var passwordToQuery = password;
-	return db.sequelize.query("SELECT u1.name, u1.role, u1.emailAddress, u1.userid " + 
+	return db.sequelize.query("SELECT u1.name, u1.role, u1.emailaddress, u1.userid " + 
 							   "FROM users u1 " +  
-							   "WHERE u1.emailAddress = :emailAddress AND u1.password = :password", 
+							   "WHERE u1.emailaddress = :emailAddress AND u1.password = :password", 
 							   {replacements: {emailAddress: emailAddressToQuery, password: passwordToQuery},
 								type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
@@ -335,11 +335,11 @@ exports.addKeyword = function(newKeyword) {
 									  type: db.sequelize.QueryTypes.SELECT })
 							.then((data) => {
 								if (data === 0) {
-									return db.sequelize.query("SELECT keywordID from tablesID",
+									return db.sequelize.query("SELECT keywordid from tablesid",
 																{ type: db.sequelize.QueryTypes.SELECT })
 														.then((data) => {
 															var newKeywordId = data+1;
-															return db.sequelize.query("INSERT INTO keywords VALUES(keywordId, :newKeyword)",
+															return db.sequelize.query("INSERT INTO keywords VALUES(keywordid, :newKeyword)",
 																						{ replacements: { keywordId: newKeywordId, newKeyword: newKeywordToQuery },
 																						  type: db.sequelize.QueryTypes.INSERT })
 																				.then((data) => {
