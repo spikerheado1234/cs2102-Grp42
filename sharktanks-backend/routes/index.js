@@ -98,16 +98,17 @@ router.get('/getAllCategories', function(req, res, next) {
 });
 
 // Search via the following endpoints.
-router.get('/searchByProjects', function(req, res, next) {
-	console.log(req.query.id);
-	indexController.searchByProjects(req.query.id)
+// Search via a title, a fuzzy search.
+router.get('/searchByProjects/:title', function(req, res, next) {
+	console.log(req.params.title);
+	indexController.searchByProjects(req.params.title)
 					.then((data) => {
 						res.send(data);
 					});
 });
 
 router.get('/searchByCategories/:id', function(req, res, next) {
-	indexController.searchByCategories(req.query.id)
+	indexController.searchByCategories(req.params.id)
 					.then((data) => {
 						res.send(data);
 					});
