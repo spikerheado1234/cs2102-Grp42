@@ -46,7 +46,8 @@ exports.createProject = function(title, description, statusId, userID, keyWords,
 	var userIdToInsert = userID;
 	var categoryIdToInsert = categoryId;
 	var keywordsToInsert = keyWords;
-	
+	console.log(keywordsToInsert);
+	console.log(keywordsToInsert[0]);
 	db.sequelize.query("SELECT MAX(p1.projectid) FROM project p1", {type: db.sequelize.QueryTypes.SELECT})
 						.then((data) => {
 							var projectIdToInsert = data[0].max + 1;
@@ -60,23 +61,24 @@ exports.createProject = function(title, description, statusId, userID, keyWords,
 											 categoryId: categoryIdToInsert},
 											 type: db.sequelize.QueryTypes.INSERT})
 						})
-	for (var i = 0; i < keyWords.length; i++) {
-		db.sequelize.query("SELECT MAX(p1.projectid) FROM project p1", {type: db.sequelize.QueryTypes.SELECT})
-		.then((data) => {
+	keywordsToInsert.map((currKeyWord) => {
+		return db.sequelize.query("SELECT MAX(p1.projectid) FROM project p1", {type: db.sequelize.QueryTypes.SELECT})
+				.then(data => {
 			var projectId = data[0].max;
-			db.sequelize.query("SELECT k1.keywordid FROM keywords k1 WHERE k1.keywordid = :keyWordSearch",
-							{ replacements: { keyWordSearch: keywordsToInsert[i] },
-							type : db.sequelize.QueryTypes.SELECT
-						}).then((data) => {
-							var idToInsert = data[0].keywordid;
-							db.sequelize.query("INSERT INTO keywordAndProjects(projectid, keywordid, words)\
-												VALUES(:idToinsert, :kIdToInsert, :word)", 
-												{replacements: {idToInsert : idToInsert,
+			console.log("TIties is: " + projectId);
+			return db.sequelize.query("SELECT k1.keywordid FROM keywords k1 WHERE k1.words = :keyWordSearch",
+					{ replacements: { keyWordSearch: currKeyWord },
+							type : db.sequelize.QueryTypes.SELECT}).then((data) => {
+								console.log("Blah is: "+ projectId);
+								var idToInsert = data[0].keywordid;
+								return db.sequelize.query("INSERT INTO keywordAndProjects(projectid, keywordid, words)\
+												VALUES(:idToInsert, :kIdToInsert, :word)", 
+												{replacements: {idToInsert : projectId,
 																kIdToInsert: idToInsert, 
-																word: keyWordsToInsert[i]}});
-						});
+																word: currKeyWord}});	
+							})
 		})
-	}
+	})
 };
 
 // Delets a particular project with id projectId from the db.

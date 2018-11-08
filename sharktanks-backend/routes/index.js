@@ -40,12 +40,9 @@ router.post('/createProject', function(req, res, next) {
 									req.body.description,
 									req.body.status,
 									req.body.userID,
+									req.body.keywords,
 									req.body.category)
-									.then("OK")
-									.catch((err) => {
-										console.log(err); // For debugging purposes only.
-										res.send('NOT OK');
-									});
+	res.send({ code: 200 });
 });
 
 router.delete('/deleteProject', function(req, res, next) {
