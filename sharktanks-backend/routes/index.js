@@ -135,6 +135,21 @@ router.post('/updateDonationId', function(req, res, next) {
 					});
 });
 
+router.post('/updateKeywordId', function(req, res, next) {
+	indexController.updateKeywordId()
+					.then((data) => {
+						res.send(data);
+					});
+});
+
+// Check argument
+router.post('/addKeyword', function(req, res, next) {
+	indexController.addKeyword(req.body.words)
+					.then((data) => {
+						res.send(data);
+					});
+});
+
 router.get('/searchByStatus', function(req, res, next) {
 	indexController.searchByStatus(req.query.id)
 					.then((data) => {

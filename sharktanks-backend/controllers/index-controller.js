@@ -240,7 +240,7 @@ exports.updateUserId = function(userId) {
 	return db.sequelize.query("CREATE TRIGGER updateUserId AFTER INSERT ON users" +
 								" FOR EACH STATEMENT" +
 								" BEGIN" +
-								" UPDATE tablesId SET userId = userId + 1 WHERE userId = userId;" +
+								" UPDATE tablesId SET userID = userID + 1 WHERE userID = userID;" +
 								" END;",
 								{type: db.sequelize.QueryTypes.UPDATE})
 						.then((data) => {
@@ -254,7 +254,7 @@ exports.updateProjectId = function() {
 	return db.sequelize.query("CREATE TRIGGER updateProjectId AFTER INSERT ON project" +
 								" FOR EACH STATEMENT" +
 								" BEGIN" +
-								" UPDATE tablesId SET projectId = projectId + 1 WHERE projectId = projectId;" +
+								" UPDATE tablesId SET projectID = projectID + 1 WHERE projectID = projectID;" +
 								" END;",
 								{type: db.sequelize.QueryTypes.UPDATE})
 						.then((data) => {
@@ -268,7 +268,20 @@ exports.updateDonationId = function() {
 	return db.sequelize.query("CREATE TRIGGER updateDonationId AFTER INSERT ON donations" +
 								" FOR EACH STATEMENT" +
 								" BEGIN" +
-								" UPDATE tablesid SET donationid = donationid + 1 WHERE donationid = donationid;" +
+								" UPDATE tablesid SET donationID = donationID + 1 WHERE donationID = donationID;" +
+								" END;")
+						.then((data) => {
+							return data;
+						});
+}
+
+// Function that is triggered when a new keyword is added
+// Updates the keywordId in tablesId
+exports.updateKeywordId = function() {
+	return db.sequelize.query("CREATE TRIGGER updateKeywordId AFTER INSERT ON keywords" +
+								" FOR EACH STATEMENT" +
+								" BEGIN" +
+								" UPDATE tablesid SET keywordID = keywordID + 1 WHERE keywordID = keywordID;" +
 								" END;")
 						.then((data) => {
 							return data;
@@ -310,6 +323,32 @@ exports.getKeywords = function() {
 						.then((data) => {
 							return data;
 						});
+};
+
+// Function that adds new keyword into keywords table if such a keyword does not exist
+exports.addKeyword = function(newKeyword) {
+	var newKeywordToQuery = newKeyword;
+	return db.sequelize.query("SELECT COUNT(*)" +
+									" FROM keywords" +
+									" WHERE words = :newKeyword",
+									{ replacements: { newKeyword: newKeywordToQuery },
+									  type: db.sequelize.QueryTypes.SELECT })
+							.then((data) => {
+								if (data === 0) {
+									return db.sequelize.query("SELECT keywordID from tablesID",
+																{ type: db.sequelize.QueryTypes.SELECT })
+														.then((data) => {
+															var newKeywordId = data+1;
+															return db.sequelize.query("INSERT INTO keywords VALUES(keywordId, :newKeyword)",
+																						{ replacements: { keywordId: newKeywordId, newKeyword: newKeywordToQuery },
+																						  type: db.sequelize.QueryTypes.INSERT })
+																				.then((data) => {
+																					return data;
+																				});
+														});
+								}					    
+								return null;		
+							});
 };
 
 exports.getProjectInformation = function(projectId) {
