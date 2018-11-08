@@ -70,6 +70,7 @@ exports.createProject = function(title, description, statusId, userID, keyWords,
 					{ replacements: { keyWordSearch: currKeyWord },
 							type : db.sequelize.QueryTypes.SELECT}).then((data) => {
 								console.log("Blah is: "+ projectId);
+								console.log(data);
 								var idToInsert = data[0].keywordid;
 								return db.sequelize.query("INSERT INTO keywordAndProjects(projectid, keywordid, words)\
 												VALUES(:idToInsert, :kIdToInsert, :word)", 

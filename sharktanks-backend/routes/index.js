@@ -35,13 +35,14 @@ router.post('/createUser', function(req, res, next) {
 });
 
 router.post('/createProject', function(req, res, next) {
+	console.log(req.body.payload)
 	// TODO Need to generate project id.
-	indexController.createProject(req.body.title,
-									req.body.description,
-									req.body.status,
-									req.body.userID,
-									req.body.keywords,
-									req.body.category)
+	indexController.createProject(req.body.payload.title,
+									req.body.payload.description,
+									req.body.payload.statusID,
+									req.body.payload.userID,
+									req.body.payload.keywords,
+									req.body.payload.categoryID)
 	res.send({ code: 200 });
 });
 
