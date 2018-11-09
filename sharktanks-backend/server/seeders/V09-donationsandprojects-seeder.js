@@ -3,7 +3,7 @@
 module.exports = {
   // TODO Add a lot more donations.
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('donations', [{
+    return queryInterface.bulkInsert('donationsandprojects', [{
           donationid: 1,
           projectid: 1,
           userid: 11,
@@ -59,6 +59,6 @@ module.exports = {
         }], {});
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('donations', null, {});
+    return queryInterface.bulkDelete('donationsandprojects', null, {});
   }
 };

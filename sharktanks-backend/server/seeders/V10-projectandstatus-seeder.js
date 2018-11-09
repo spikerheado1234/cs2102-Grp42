@@ -706,6 +706,6 @@ module.exports = {
         ], {});
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('project', null, {});
+    return queryInterface.bulkDelete('projectandstatus', null, {});
   }
 };
