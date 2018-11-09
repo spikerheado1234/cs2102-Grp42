@@ -20,8 +20,8 @@ exports.createUser = function(name, emailAddress, role, password) {
 	return db.sequelize.query("SELECT MAX(u1.userid) FROM users u1", {type: db.sequelize.QueryTypes.SELECT})
 							.then((data) => {
 								var userIdToInsert = data[0].max + 1;
-								console.log("tits");
-								return db.sequelize.query("INSERT INTO users(emailaddress, name, role, password, userid) VALUES(:emailAddress, :name, :role, :password, :userid)",
+								return db.sequelize.query("INSERT INTO users(emailaddress, name, role, password, \
+									userid) VALUES(:emailAddress, :name, :role, :password, :userid)",
 								{replacements: {emailAddress: emailAddressToInsert,
 												name: nameToInsert,
 												role: roleToInsert,
@@ -32,7 +32,6 @@ exports.createUser = function(name, emailAddress, role, password) {
 								console.log(data);
 								return data;
 							}).catch((error) => {
-								console.log("blah");
 								return error;
 							});
 };
@@ -201,10 +200,10 @@ exports.searchByKeyword = function(words) {
 exports.addKeyword = function(keyword) {
 	var newKeywordToQuery = keyword;
 	return db.sequelize.query("SELECT COUNT(*)" +
-									" FROM keywords" +
-									" WHERE words = :newKeyword",
-									{ replacements: { newKeyword: newKeywordToQuery },
-									  type: db.sequelize.QueryTypes.SELECT })
+								" FROM keywords" +
+								" WHERE words = :newKeyword",
+								{ replacements: { newKeyword: newKeywordToQuery },
+									type: db.sequelize.QueryTypes.SELECT })
 							.then((data) => {
 								if (data[0].count == 0) {
 									return db.sequelize.query("SELECT keywordid from tablesid",
@@ -212,7 +211,8 @@ exports.addKeyword = function(keyword) {
 														.then((data) => {
 															var newKeywordId = parseInt(data[0].keywordid)+1;
 															return db.sequelize.query("INSERT INTO keywords VALUES(:keywordId, :newKeyword)",
-																						{ replacements: { keywordId: newKeywordId, newKeyword: newKeywordToQuery },
+																						{ replacements: { keywordId: newKeywordId, newKeyword:\
+																							 newKeywordToQuery },
 																						  type: db.sequelize.QueryTypes.INSERT })
 																				.then((data) => {
 																					return data;

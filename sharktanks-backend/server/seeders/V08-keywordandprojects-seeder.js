@@ -55,6 +55,6 @@ module.exports = {
         }], {});
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('keywords', null, {});
+    return queryInterface.bulkDelete('keywordandprojects', null, {});
   }
 };
