@@ -211,7 +211,7 @@ exports.addKeyword = function(keyword) {
 														.then((data) => {
 															var newKeywordId = parseInt(data[0].keywordid)+1;
 															return db.sequelize.query("INSERT INTO keywords VALUES(:keywordId, :newKeyword)",
-																						{ replacements: { keywordId: newKeywordId, newKeyword:\
+																						{ replacements: { keywordId: newKeywordId, newKeyword:
 																							 newKeywordToQuery },
 																						  type: db.sequelize.QueryTypes.INSERT })
 																				.then((data) => {
