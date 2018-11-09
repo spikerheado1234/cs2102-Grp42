@@ -4,6 +4,7 @@ module.exports = {
 			statusID NUMERIC PRIMARY KEY,\
 			statusWord VARCHAR(120))");
 	},
+
 	down: (queryInterface) => {
 		queryInterface.sequelize.query("DROP TABLE status");
 	}
