@@ -226,18 +226,10 @@ exports.addKeyword = function(keyword) {
 
 // Gives all the projects in the DB.
 exports.searchAllProjects = function() {
-	return db.sequelize.query("SELECT p1.description, p1.title, k1.words, u1.name, c1.name, p1.projectid, p1.url, SUM (d1.amount)" +
-							   " FROM project p1, keywordandprojects k1, categories c1, users u1, donations d1" +
-							   " WHERE p1.projectid = k1.projectid AND" + 
-									  " p1.categoryid = c1.categoryid AND" +
-									  " p1.userid = u1.userid AND" +
-									  " u1.role = 'Entrepreneur' AND" + 
-									  " d1.projectid = p1.projectid" +
-									  " GROUP BY p1.projectid, u1.name, c1.name, p1.title, k1.words, p1.description", 
-							   {type: db.sequelize.QueryTypes.SELECT})
-						.then((data) => {
-								return data;
-							});
+	return db.sequelize.query("SELECT * from project p1", 
+									{ type: db.sequelize.QueryTypes.SELECT}).then(data => {
+										return data;
+									});
 };
 
 // Gives project with highest funding
@@ -375,7 +367,7 @@ exports.getKeywords = function() {
 
 exports.getProjectInformation = function(projectId) {
 	var projectIdToQuery  = projectId;
-	return db.sequelize.query("SELECT p1.description,c1.name, p1.title, s1.statusword, u1.role, u1.name" + 
+	return db.sequelize.query("SELECT p1.description, c1.name, p1.title, s1.statusword, u1.role, u1.name, u1.userid" + 
 							  " FROM project p1, categories c1, users u1, status s1" + 
 							  " WHERE p1.categoryid = c1.categoryid AND p1.userid = u1.userid AND s1.statusid = p1.statusid AND p1.projectid = :queryId", 
 								  { replacements: {queryId : projectIdToQuery},
