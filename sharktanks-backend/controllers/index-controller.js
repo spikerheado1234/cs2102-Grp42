@@ -38,6 +38,7 @@ exports.createUser = function(name, emailAddress, role, password) {
 
 // Creates a new project within a db.
 // trigger updateProjectId for tablesID
+// THIS QUERY IS DONE
 exports.createProject = function(title, description, statusId, userID, keyWords, categoryId) {
 	var titleToInsert = title;
 	var descriptionToInsert = description;
