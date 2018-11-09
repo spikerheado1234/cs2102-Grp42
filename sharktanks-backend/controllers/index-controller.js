@@ -226,7 +226,7 @@ exports.addKeyword = function(keyword) {
 
 // Gives all the projects in the DB.
 exports.searchAllProjects = function() {
-	return db.sequelize.query("SELECT * from project p1", 
+	return db.sequelize.query("SELECT * from project p1, categories c1 WHERE c1.categoryid = p1.categoryid",
 									{ type: db.sequelize.QueryTypes.SELECT}).then(data => {
 										return data;
 									});
