@@ -205,7 +205,6 @@ router.get('/getKeywords', function(req, res, next) {
 });
 
 router.get('/projectInformation', function(req, res, next) {
-	console.log("Here");
 	console.log(req.query.id);
 	indexController.getProjectInformation(req.query.id)
 					.then((data) => {
@@ -231,5 +230,16 @@ router.post('/removeKeyword', function(req, res, next) {
 						res.send(data);
 					});
 });
+
+router.get('/getKeywordsByProject', function(req, res, next) {
+	indexController.getKeywordsByProject(req.query.id).then(data => {
+		var newData = data.map(value => {
+						return value.words;
+					});
+		res.send(newData);
+	}).catch(error => {
+		res.send({ code : 204 });
+	})
+})
 
 module.exports = router;

@@ -67,7 +67,7 @@ exports.createProject = function(title, description, statusId, userID, keyWords,
 			var projectId = data[0].max;
 			console.log("TIties is: " + projectId);
 			return db.sequelize.query("SELECT k1.keywordid FROM keywords k1 WHERE k1.words = :keyWordSearch",
-					{ replacements: { keyWordSearch: currKeyWord.words },
+					{ replacements: { keyWordSearch: currKeyWord },
 							type : db.sequelize.QueryTypes.SELECT}).then((data) => {
 								console.log("Blah is: "+ projectId);
 								console.log(data);
@@ -76,7 +76,7 @@ exports.createProject = function(title, description, statusId, userID, keyWords,
 												VALUES(:idToInsert, :kIdToInsert, :word)", 
 												{replacements: {idToInsert : projectId,
 																kIdToInsert: idToInsert, 
-																word: currKeyWord.words}});	
+																word: currKeyWord}});	
 							})
 		})
 	})
@@ -375,7 +375,7 @@ exports.getKeywords = function() {
 
 exports.getProjectInformation = function(projectId) {
 	var projectIdToQuery  = projectId;
-	return db.sequelize.query("SELECT p1.description, p1.title, c1.name, s1.statusword, u1.role, u1.name" + 
+	return db.sequelize.query("SELECT p1.description,c1.name, p1.title, s1.statusword, u1.role, u1.name" + 
 							  " FROM project p1, categories c1, users u1, status s1" + 
 							  " WHERE p1.categoryid = c1.categoryid AND p1.userid = u1.userid AND s1.statusid = p1.statusid AND p1.projectid = :queryId", 
 								  { replacements: {queryId : projectIdToQuery},
@@ -398,7 +398,18 @@ exports.removeKeyword = function(keywordId) {
 
 exports.getProjectById = function(id)  {
 	var idToQuery = id;
-	return db.sequelize.query("SELECT * from project p1 WHERE p1.projectid = :id",
+	return db.sequelize.query("SELECT p1.projectid, p1.userid, p1.statusid, p1.categoryid, p1.description, p1.title, p1.duration, p1.startdate, p1.url, c1.name from project p1, categories c1 WHERE p1.projectid = :id and c1.categoryid = p1.categoryid",
 						{ replacements: { id: idToQuery },
 							type: db.sequelize.QueryTypes.SELECT });
+}
+
+exports.getKeywordsByProject = function(id) {
+	var idToQuery = id;
+	return db.sequelize.query("SELECT k1.words from keywordandprojects k1 where projectid = :id", 
+					{ replacements : { id: idToQuery },
+					type: db.sequelize.QueryTypes.SELECT } )
+					.then(data => {
+						console.log(data);
+						return data;
+					}) 
 }
