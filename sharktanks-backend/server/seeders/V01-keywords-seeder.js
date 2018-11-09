@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = {
-  // TODO Add a lot more donations.
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('keywords', [{
           keywordid: 1,
